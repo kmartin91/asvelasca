@@ -1,6 +1,12 @@
 # Environment Configuration
 .env
 
+# Cache
+.cache
+
+# Dist
+dist
+
 # Build output folders
 build/
 
@@ -23,7 +29,5 @@ flow-coverage/
 
 # MAC OS X file
 .DS_Store
-
-.cache
 
 *.orig
