@@ -1,0 +1,15 @@
+{
+  "roots": ["<rootDir>/src"],
+  "rootDir": "../../../",
+  "unmockedModulePathPatterns": [
+    "<rootDir>/node_modules/react/",
+    "<rootDir>/node_modules/babel-runtime"
+  ],
+  "collectCoverage": false,
+  "moduleNameMapper": {
+    "\\.(jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga|font|svg)$": "<rootDir>/tools/config/test/fileMock.js",
+    "scss": "<rootDir>/tools/config/test/fileMockSCSS.js"
+  },
+  "testPathIgnorePatterns": ["<rootDir>/(build|internal|node_modules|flow-typed|public)/"],
+  "testEnvironment": "jest-environment-jsdom-global"
+}

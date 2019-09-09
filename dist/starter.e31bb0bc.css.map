@@ -1,0 +1,1 @@
+{"version":3,"sources":["src/components/Main/Main.common.scss"],"names":[],"mappings":"AAAA;AAEA;EACE","file":"starter.e31bb0bc.css","sourceRoot":"..","sourcesContent":["/** @define Main */\n\n.Main {\n  text-align: center;\n}\n"]}

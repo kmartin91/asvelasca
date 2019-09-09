@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Maintest Component displays correctly without props 1`] = `
+<div
+  className="Main"
+>
+  Hello David!
+</div>
+`;
