@@ -24,4 +24,6 @@ flow-coverage/
 # MAC OS X file
 .DS_Store
 
+.cache
+
 *.orig
