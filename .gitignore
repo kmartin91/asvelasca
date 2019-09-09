@@ -31,3 +31,5 @@ flow-coverage/
 .DS_Store
 
 *.orig
+
+.editorconfig
