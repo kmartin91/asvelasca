@@ -1,0 +1,17 @@
+/** @define Menu */
+
+@import '~/styles/all.scss';
+
+.Menu {
+  align-items: center;
+  display: flex;
+  flex: 1 auto;
+  font-family: themefont(), sans-serif;
+  justify-content: center;
+  height: 100%;
+  position: relative;
+}
+
+.Menu__Logo {
+  max-height: 80px;
+}

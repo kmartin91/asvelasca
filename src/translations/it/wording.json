@@ -1,0 +1,17 @@
+{
+  "menu": [
+    { "label": "progetto", "route": "progetto" },
+    { "label": "squadra", "route": "squadra" },
+    { "label": "sponsor", "route": "sponsor" },
+    { "label": "artisti", "route": "artisti" },
+    { "label": "stagione", "route": "stagione" },
+    { "label": "tickets", "route": "tickets" },
+    { "label": "societa", "route": "societa" },
+    { "label": "tifosi", "route": "tifosi" },
+    { "label": "stampa", "route": "stampa" },
+    { "label": "shop", "route": "shop" },
+    { "label": "bollettino", "route": "bollettino" },
+    { "label": "contatti", "route": "contatti" }
+  ],
+  "project": {}
+}

@@ -1,0 +1,37 @@
+/** @define LangSelector */
+
+@import '~/styles/all.scss';
+
+.LangSelector {
+  display: flex;
+  flex-direction: row;
+  font-family: themefont(), sans-serif;
+  font-size: 0.8rem;
+  justify-content: flex-end;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.LangSelector__item {
+  padding: 0 $size-s;
+}
+
+.LangSelector__link {
+  color: palette(neutral, white);
+  text-decoration: none;
+}
+
+.LangSelector__link:hover {
+  text-decoration: underline;
+}
+
+.LangSelector__link_current {
+  color: palette(neutral, black);
+  cursor: pointer;
+  pointer-events: none;
+}
+
+.LangSelector__link_current:hover {
+  text-decoration: underline;
+}

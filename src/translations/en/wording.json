@@ -1,0 +1,17 @@
+{
+  "menu": [
+    { "label": "project", "route": "project" },
+    { "label": "team", "route": "team" },
+    { "label": "sponsor", "route": "sponsor" },
+    { "label": "artists", "route": "artists" },
+    { "label": "season", "route": "season" },
+    { "label": "tickets", "route": "tickets" },
+    { "label": "club", "route": "club" },
+    { "label": "supporters", "route": "supporters" },
+    { "label": "press", "route": "press" },
+    { "label": "shop", "route": "shop" },
+    { "label": "bulletin", "route": "bulletin" },
+    { "label": "contacts", "route": "contacts" }
+  ],
+  "project": {}
+}

@@ -1,0 +1,8 @@
+/**
+ * 
+ */
+@import './fonts.scss';
+
+@function themefont($name: 'default', $theme: 'velasca') {
+  @return map-get(map-get($font-theme, $theme), $name);
+}

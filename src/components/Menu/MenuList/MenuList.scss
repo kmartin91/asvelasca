@@ -1,0 +1,31 @@
+/** @define MenuList */
+
+@import '~/styles/all.scss';
+
+.MenuList {
+  display: flex;
+  opacity: 1;
+  flex-direction: row;
+  font-family: themefont();
+  justify-content: flex-end;
+  padding: 0 16px;
+  width: calc(50% - #{$size-l});
+  list-style: none;
+
+  /* stylelint-disable-next-line plugin/selector-bem-pattern */
+  a {
+    color: palette(neutral, white);
+    font-size: $size-m;
+    padding: 0 $size-s;
+    text-decoration: none;
+  }
+  /* stylelint-disable-next-line plugin/selector-bem-pattern */
+  a:hover {
+    color: palette(neutral, white);
+    text-decoration: underline;
+  }
+}
+
+.MenuList_alternate {
+  justify-content: flex-start;
+}

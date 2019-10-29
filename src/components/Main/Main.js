@@ -1,13 +1,14 @@
 /* @flow */
 
 import React from 'react';
+import classnames from 'classnames';
 
-import './Main.common.scss';
+import './Main.scss';
 
-const Main = () => (
-  <div className="Main">
-    <div className="Main__title">Hello David!</div>
-  </div>
-);
+type PropsType = {};
+
+const Main = (props: PropsType) => {
+  return <div className={classnames('Main')}></div>;
+};
 
 export default Main;
