@@ -3,7 +3,12 @@
 @import '~/styles/all.scss';
 
 .Header {
-  background-color: palette(neutral, menu);
-  height: 100px;
+  background: none;
   position: relative;
+  height: 0;
+
+  @include lg {
+    background-color: palette(neutral, menu);
+    height: 100px;
+  }
 }

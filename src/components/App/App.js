@@ -8,10 +8,11 @@ type PropTypes = {
   props: Object,
   translate: Function,
   match: Object,
+  withoutFooter?: boolean,
 };
 
 const App = ({ component: Component, ...props }: PropTypes) => {
-  const { match: { params } = {} } = props;
+  const { match: { params } = {}, withoutFooter } = props;
   const { locale } = params;
   window.LOCALE_VELASCA = locale || 'en';
 
@@ -19,7 +20,7 @@ const App = ({ component: Component, ...props }: PropTypes) => {
     <div className="Application">
       <Header />
       <Component {...props} />
-      <div className="Footer">Footer</div>
+      {!withoutFooter && <div className="Footer">Footer</div>}
     </div>
   );
 };

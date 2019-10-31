@@ -16,43 +16,50 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/david-gribouille/boilerplate-react-flow-jest.git"
+    "url": "git+https://github.com/kmartin91/asvelasca.git"
   },
-  "author": "David Gribouille",
+  "author": "Kevin Martin",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/david-gribouille/boilerplate-react-flow-jest/issues"
+    "url": "https://github.com/kmartin91/asvelasca/issues"
   },
-  "homepage": "https://github.com/david-gribouille/boilerplate-react-flow-jest#readme",
+  "homepage": "https://github.com/kmartin91/asvelasca#readme",
   "dependencies": {
+    "@babel/runtime": "^7.6.3",
+    "axios": "^0.19.0",
     "classnames": "^2.2.6",
     "cross-env": "^6.0.3",
     "flow": "^0.2.3",
     "jest": "^24.9.0",
+    "lodash": "^4.17.15",
     "marked": "^0.7.0",
-    "mongodb": "^3.3.3",
-    "parcel-bundler": "^1.12.3",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
+    "parcel-bundler": "^1.12.4",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
     "react-router-dom": "^5.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
-    "@babel/preset-env": "^7.4.3",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.6.3",
     "@babel/preset-flow": "^7.0.0",
-    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-react": "^7.6.3",
+    "babel-eslint": "^10.0.3",
     "babel-plugin-module-resolver": "^3.2.0",
+    "babel-polyfill": "^6.26.0",
     "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.14.0",
-    "flow-bin": "^0.109.0",
-    "flow-typed": "^2.6.1",
-    "husky": "^3.0.5",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.5.0",
+    "flow-bin": "^0.110.1",
+    "flow-typed": "^2.6.2",
+    "husky": "^3.0.9",
     "jest-environment-jsdom-global": "^1.2.0",
-    "lint-staged": "^9.2.5",
+    "lint-staged": "^9.4.2",
     "prettier": "^1.18.2",
-    "react-test-renderer": "^16.9.0",
-    "sass": "^1.23.0-module.beta.1",
-    "stylelint": "^11.0.0",
+    "react-test-renderer": "^16.11.0",
+    "sass": "^1.23.1",
+    "stylelint": "^11.1.1",
     "stylelint-config-prettier": "^6.0.0",
     "stylelint-config-standard": "^19.0.0",
     "stylelint-prettier": "^1.1.1",
@@ -72,5 +79,15 @@
       "prettier --write",
       "git add"
     ]
-  }
+  },
+  "browserslist": [
+    "Chrome > 49",
+    "ChromeAndroid > 49",
+    "Firefox > 46",
+    "FirefoxAndroid > 46",
+    "Safari > 10",
+    "iOS > 10",
+    "Opera > 36",
+    "Edge > 15"
+  ]
 }

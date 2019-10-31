@@ -1,10 +1,10 @@
 {
   "menu": [
-    { "label": "progetto", "route": "progetto" },
-    { "label": "squadra", "route": "squadra" },
+    { "label": "progetto", "route": "progetto", "isPrimary": true },
+    { "label": "squadra", "route": "squadra", "isPrimary": true },
     { "label": "sponsor", "route": "sponsor" },
     { "label": "artisti", "route": "artisti" },
-    { "label": "stagione", "route": "stagione" },
+    { "label": "stagione", "route": "stagione", "isPrimary": true },
     { "label": "tickets", "route": "tickets" },
     { "label": "societa", "route": "societa" },
     { "label": "tifosi", "route": "tifosi" },

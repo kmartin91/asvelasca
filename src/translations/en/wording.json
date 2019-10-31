@@ -1,10 +1,10 @@
 {
   "menu": [
-    { "label": "project", "route": "project" },
-    { "label": "team", "route": "team" },
+    { "label": "project", "route": "project", "isPrimary": true },
+    { "label": "team", "route": "team", "isPrimary": true },
     { "label": "sponsor", "route": "sponsor" },
     { "label": "artists", "route": "artists" },
-    { "label": "season", "route": "season" },
+    { "label": "season", "route": "season", "isPrimary": true },
     { "label": "tickets", "route": "tickets" },
     { "label": "club", "route": "club" },
     { "label": "supporters", "route": "supporters" },
