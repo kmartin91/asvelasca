@@ -13,6 +13,7 @@ type PropTypes = {
  * Layout
  */
 const Layout = ({ component: Component, ...rest }: PropTypes) => {
+  console.log(rest);
   return (
     <Route
       {...rest}

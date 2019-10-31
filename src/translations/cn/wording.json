@@ -1,10 +1,10 @@
 {
   "menu": [
-    { "label": "主题", "route": "project" },
-    { "label": "球队", "route": "team" },
+    { "label": "主题", "route": "project", "isPrimary": true },
+    { "label": "球队", "route": "team", "isPrimary": true },
     { "label": "贊助", "route": "sponsor" },
     { "label": "艺术家", "route": "artists" },
-    { "label": "赛季", "route": "season" },
+    { "label": "赛季", "route": "season", "isPrimary": true },
     { "label": "票", "route": "tickets" },
     { "label": "管理人员", "route": "management" },
     { "label": "支持者", "route": "supporters" },
