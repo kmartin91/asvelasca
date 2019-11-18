@@ -11,3 +11,12 @@ h6 {
   position: relative;
   background-color: palette(neutral, red);
 }
+
+.grayscale {
+  filter: grayscale(1);
+  transition: all 0.5s ease-in-out;
+
+  &:hover {
+    filter: none;
+  }
+}

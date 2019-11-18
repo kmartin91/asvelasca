@@ -26,8 +26,6 @@ ReactDOM.render(
 
     {/* Sponsor */}
     <Layout path={`${base}/sponsor`} withoutFooter component={Edito} page="sponsor" />
-    <Layout path={`${base}/sponsor`} withoutFooter component={Edito} page="sponsor" />
-    <Layout path={`${base}/sponsor`} withoutFooter component={Edito} page="sponsor" />
 
     {/* Artists */}
     <Layout path={`${base}/artists`} withoutFooter component={Edito} page="artists" />
