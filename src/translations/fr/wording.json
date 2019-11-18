@@ -12,6 +12,5 @@
     { "label": "shop", "route": "shop", "key": "shop" },
     { "label": "bulletin", "route": "bulletin", "key": "bulletin" },
     { "label": "contacts", "route": "contacts", "key": "contacts" }
-  ],
-  "project": {}
+  ]
 }

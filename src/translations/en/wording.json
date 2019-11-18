@@ -1,17 +1,16 @@
 {
   "menu": [
-    { "label": "project", "route": "project", "isPrimary": true },
-    { "label": "team", "route": "team", "isPrimary": true },
-    { "label": "sponsor", "route": "sponsor" },
-    { "label": "artists", "route": "artists" },
-    { "label": "season", "route": "season", "isPrimary": true },
-    { "label": "tickets", "route": "tickets" },
-    { "label": "club", "route": "club" },
-    { "label": "supporters", "route": "supporters" },
-    { "label": "press", "route": "press" },
-    { "label": "shop", "route": "shop" },
-    { "label": "bulletin", "route": "bulletin" },
-    { "label": "contacts", "route": "contacts" }
-  ],
-  "project": {}
+    { "label": "project", "route": "project", "key": "project", "isPrimary": true },
+    { "label": "team", "route": "team", "key": "team", "isPrimary": true },
+    { "label": "sponsor", "route": "sponsor", "key": "sponsor" },
+    { "label": "artists", "route": "artists", "key": "artists" },
+    { "label": "season", "route": "season", "key": "season", "isPrimary": true },
+    { "label": "tickets", "route": "tickets", "key": "tickets" },
+    { "label": "club", "route": "club", "key": "club" },
+    { "label": "supporters", "route": "supporters", "key": "supporter" },
+    { "label": "press", "route": "press", "key": "press" },
+    { "label": "shop", "route": "shop", "key": "shop" },
+    { "label": "bulletin", "route": "bulletin", "key": "bulletin" },
+    { "label": "contacts", "route": "contacts", "key": "contacts" }
+  ]
 }

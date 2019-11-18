@@ -1,0 +1,13 @@
+@import 'palette.scss';
+@import 'font.scss';
+@import 'size.scss';
+
+h6 {
+  color: palette(neutral, white);
+  width: 150px;
+  font-size: 0.8rem;
+  font-family: themefont();
+  padding: $size-s;
+  position: relative;
+  background-color: palette(neutral, red);
+}

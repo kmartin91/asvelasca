@@ -1,7 +1,7 @@
 /* @flow */
 
 import React from 'react';
-import { locales } from '../../shared/i18n';
+import { locales, getKey } from '../../shared/i18n';
 
 import './LangSelector.scss';
 
@@ -9,6 +9,11 @@ type PropTypes = {};
 
 const setLocaleGlobale = (locale: string) => {
   window.LOCALE_VELASCA = locale;
+};
+
+const getRoute = nextLocale => {
+  const lastPart = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
+  return getKey(lastPart, nextLocale);
 };
 
 /**
@@ -24,7 +29,7 @@ const LangSelector = (props: PropTypes) => {
             <li className="LangSelector__item" key={locale}>
               <a
                 className="LangSelector__link"
-                href={`/${locale}`}
+                href={`/${locale}/${getRoute(locale)}`}
                 onClick={locale => setLocaleGlobale(locale)}
               >
                 {locale}

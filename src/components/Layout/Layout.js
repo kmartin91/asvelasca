@@ -12,14 +12,8 @@ type PropTypes = {
 /**
  * Layout
  */
-const Layout = ({ component: Component, ...rest }: PropTypes) => {
-  console.log(rest);
-  return (
-    <Route
-      {...rest}
-      render={matchProps => <App component={Component} {...matchProps} {...rest} />}
-    />
-  );
-};
+const Layout = ({ component: Component, ...rest }: PropTypes) => (
+  <Route {...rest} render={matchProps => <App component={Component} {...matchProps} {...rest} />} />
+);
 
 export default Layout;

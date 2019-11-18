@@ -34,7 +34,10 @@
 
   &:hover {
     color: palette(neutral, white);
-    text-decoration: underline;
+
+    @include lg {
+      text-decoration: underline;
+    }
   }
 }
 
@@ -46,7 +49,6 @@
   width: 100%;
 
   @include lg {
-    cursor: inherit;
     display: inherit;
     align-self: inherit;
     justify-content: inherit;

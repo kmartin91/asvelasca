@@ -1,16 +1,15 @@
 {
   "menu": [
-    { "label": "主题", "route": "project", "isPrimary": true },
-    { "label": "球队", "route": "team", "isPrimary": true },
-    { "label": "贊助", "route": "sponsor" },
-    { "label": "艺术家", "route": "artists" },
-    { "label": "赛季", "route": "season", "isPrimary": true },
-    { "label": "票", "route": "tickets" },
-    { "label": "管理人员", "route": "management" },
-    { "label": "支持者", "route": "supporters" },
-    { "label": "新闻室", "route": "press" },
-    { "label": "精品", "route": "shop" },
-    { "label": "联系", "route": "contacts" }
-  ],
-  "project": {}
+    { "label": "主题", "route": "project", "key": "project", "isPrimary": true },
+    { "label": "球队", "route": "team", "key": "team", "isPrimary": true },
+    { "label": "贊助", "route": "sponsor", "key": "sponsor" },
+    { "label": "艺术家", "route": "artists", "key": "artists" },
+    { "label": "赛季", "route": "season", "key": "season", "isPrimary": true },
+    { "label": "票", "route": "tickets", "key": "tickets" },
+    { "label": "管理人员", "route": "management", "key": "club" },
+    { "label": "支持者", "route": "supporters", "key": "supporter" },
+    { "label": "新闻室", "route": "press", "key": "press" },
+    { "label": "精品", "route": "shop", "key": "shop" },
+    { "label": "联系", "route": "contacts", "key": "contacts" }
+  ]
 }
