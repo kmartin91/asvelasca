@@ -5,8 +5,8 @@
 .Main {
   background-color: palette(neutral, rehHome);
   text-align: center;
-  // Full - Header
-  height: calc(100vh - 75px);
+  // Full - Header - Footer
+  height: calc(100vh - 120px);
   position: relative;
   margin-top: 75px;
   z-index: 1;
@@ -15,40 +15,6 @@
     // Full - Header
     height: calc(100vh - 100px);
     margin-top: 100px;
-  }
-}
-
-@keyframes fade {
-  0% {
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  50% {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  100% {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-
-@keyframes fadeInvert {
-  0% {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  50% {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  100% {
-    opacity: 0;
-    visibility: hidden;
   }
 }
 
@@ -65,19 +31,12 @@
   visibility: hidden;
   width: 100%;
   display: flex;
-  animation: fade 10s infinite;
-
-  :first-child {
-    visibility: visible;
-    opacity: 1;
-    animation: fadeInvert 10s 1;
-  }
+  transition: all 2s ease-in-out;
 }
 
-@for $i from 1 to 10 {
-  .Main__Slide:nth-child(#{$i}) {
-    animation-delay: ($i - 1) * 10s;
-  }
+.Main__Slide_Show {
+  opacity: 1;
+  visibility: visible;
 }
 
 .Main__SliderTitle {
@@ -93,4 +52,5 @@
 .Main__SliderImage {
   height: 100%;
   width: 100%;
+  object-fit: cover;
 }

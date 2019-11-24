@@ -1,0 +1,16 @@
+/** @define Social */
+
+@import '~/styles/all.scss';
+
+.Social {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  position: absolute;
+  bottom: $size-xs;
+  z-index: 10;
+}
+
+.Social__Item {
+  padding: 0 $size-xs;
+}

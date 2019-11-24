@@ -29,7 +29,7 @@
   }
 
   @include xl {
-    font-size: $size-m;
+    font-size: 14px; /* stylelint-disable-line declaration-property-unit-whitelist */
   }
 
   &:hover {

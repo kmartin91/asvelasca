@@ -8,7 +8,7 @@ import Errors from './src/components/Errors/Errors';
 
 import './styles/all.scss';
 
-const base = '/:locale(fr|en|it|zh)?';
+const base = '/:locale(fr|en|it|cn)?';
 
 ReactDOM.render(
   <Router>
@@ -63,7 +63,7 @@ ReactDOM.render(
     <Layout path={`${base}/bulletin`} withoutFooter component={Edito} page="bulletin" />
 
     {/* Contacts */}
-    <Layout path={`${base}/contati`} withoutFooter component={Edito} page="contacts" />
+    <Layout path={`${base}/contatti`} withoutFooter component={Edito} page="contacts" />
     <Layout path={`${base}/contacts`} withoutFooter component={Edito} page="contacts" />
 
     {/* <Route component={Errors} code="404" exact withoutFooter noOverFlow message="Page not found" /> */}

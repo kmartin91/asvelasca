@@ -6,7 +6,7 @@
     { "label": "艺术家", "route": "artists", "key": "artists" },
     { "label": "赛季", "route": "season", "key": "season", "isPrimary": true },
     { "label": "票", "route": "tickets", "key": "tickets" },
-    { "label": "管理人员", "route": "management", "key": "club" },
+    { "label": "管理人员", "route": "club", "key": "club" },
     { "label": "支持者", "route": "supporters", "key": "supporter" },
     { "label": "新闻室", "route": "press", "key": "press" },
     { "label": "精品", "route": "shop", "key": "shop" },
