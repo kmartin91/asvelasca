@@ -66,7 +66,15 @@ ReactDOM.render(
     <Layout path={`${base}/contatti`} withoutFooter component={Edito} page="contacts" />
     <Layout path={`${base}/contacts`} withoutFooter component={Edito} page="contacts" />
 
-    {/* <Route component={Errors} code="404" exact withoutFooter noOverFlow message="Page not found" /> */}
+    <Route
+      component={Errors}
+      path="*"
+      code="404"
+      exact
+      withoutFooter
+      noOverFlow
+      message="Page not found"
+    />
   </Router>,
   document.getElementById('root'),
 );

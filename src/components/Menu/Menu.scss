@@ -27,6 +27,7 @@
   height: 80px;
   width: 80px;
   left: calc(50% - 40px);
+  z-index: 15;
 
   @include lg {
     position: relative;

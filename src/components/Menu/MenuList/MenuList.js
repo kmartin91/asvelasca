@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import classnames from 'classnames';
+import { getRouteWithLocale } from '../../../shared/utils';
 
 import './MenuList.scss';
 
@@ -11,13 +12,6 @@ type PropTypes = {
   withoutMore?: boolean,
   handleOpenMobileMenu: Function,
   isMobileOpen?: boolean,
-};
-
-const getRouteWithLocale = route => {
-  if (window.location.href.indexOf(window.LOCALE_VELASCA) < 0) {
-    return `${window.LOCALE_VELASCA || 'en'}/${route}`;
-  }
-  return route;
 };
 
 /**

@@ -30,4 +30,14 @@ export function useInterval(callback, delay) {
   }, [delay]);
 }
 
-export { getApiUrl, getApiGet, generateAxiosParams, getBaseUrl, getServerUrl };
+const getRouteWithLocale = route => {
+  if (
+    window.location.href.indexOf(window.LOCALE_VELASCA) < 0 ||
+    window.location.href.split('/').pop() === window.LOCALE_VELASCA
+  ) {
+    return `${window.LOCALE_VELASCA || 'en'}/${route}`;
+  }
+  return route;
+};
+
+export { getApiUrl, getApiGet, generateAxiosParams, getBaseUrl, getServerUrl, getRouteWithLocale };

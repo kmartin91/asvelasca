@@ -2,6 +2,7 @@
 
 import React from 'react';
 import classnames from 'classnames';
+import { getRouteWithLocale } from '../../../shared/utils';
 
 import './MobileMenu.scss';
 
@@ -20,7 +21,7 @@ const MobileMenu = ({ links, isMobileOpen }: PropTypes) => {
         {links &&
           links.map(({ route, label, isPrimary }) => (
             <li className="MobileMenu__LinkContainer" key={label}>
-              <a className="MobileMenu__Link" href={`${window.LOCALE_VELASCA || 'en'}/${route}`}>
+              <a className="MobileMenu__Link" href={getRouteWithLocale(route)}>
                 {label}
               </a>
             </li>
