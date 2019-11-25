@@ -3,21 +3,17 @@
 @import '~/styles/all.scss';
 
 .Menu {
-  align-items: center;
-  display: flex;
-  position: fixed;
-  bottom: 0;
-  background-color: palette(neutral, menu);
-  height: 60px;
-  z-index: 10;
-  width: 100%;
-
   @include lg {
+    align-items: center;
+    display: flex;
     flex: 1 auto;
+    background-color: palette(neutral, menu);
     font-family: themefont(), sans-serif;
     justify-content: center;
     height: 100%;
     position: relative;
+    z-index: 10;
+    width: 100%;
   }
 }
 

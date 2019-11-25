@@ -34,8 +34,6 @@ const Menu = (props: PropTypes) => {
         <img src={Logo} alt="AS Velasca" />
       </a>
       <MenuList links={menuTwo} handleOpenMobileMenu={() => {}} isAlternate withoutMore />
-
-      <MobileMenu links={menuRest} isMobileOpen={isMobileOpen} />
     </div>
   );
 };

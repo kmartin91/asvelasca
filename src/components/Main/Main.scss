@@ -6,9 +6,9 @@
   background-color: palette(neutral, rehHome);
   text-align: center;
   // Full - Header - Footer
-  height: calc(100vh - 120px);
+  height: calc(100vh - 160px);
   position: relative;
-  margin-top: 75px;
+  margin-top: 100px;
   z-index: 1;
 
   @include lg {
