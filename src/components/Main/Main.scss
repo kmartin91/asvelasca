@@ -6,14 +6,14 @@
   background-color: palette(neutral, rehHome);
   text-align: center;
   // Full - Header - Footer
-  height: calc(100vh - 160px);
+  height: calc((var(--vh, 1vh) * 100) - 160px);
   position: relative;
   margin-top: 100px;
   z-index: 1;
 
   @include lg {
     // Full - Header
-    height: calc(100vh - 100px);
+    height: calc((var(--vh, 1vh) * 100) - 100px);
     margin-top: 100px;
   }
 }

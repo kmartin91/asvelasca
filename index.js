@@ -10,6 +10,16 @@ import './styles/all.scss';
 
 const base = '/:locale(fr|en|it|cn)?';
 
+// First render
+const vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+// All resize
+window.addEventListener('resize', () => {
+  const vh2 = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh2}px`);
+});
+
 ReactDOM.render(
   <Router>
     <Layout path={base} exact component={Main} withoutFooter />
