@@ -1,7 +1,5 @@
 /** @define App */
 
-@import '~/styles/all.scss';
-
 .App__content {
   height: calc((var(--vh, 1vh) * 100) - 75px);
   position: relative;

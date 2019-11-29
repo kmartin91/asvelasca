@@ -1,7 +1,3 @@
-@import 'palette.scss';
-@import 'font.scss';
-@import 'size.scss';
-
 h6 {
   color: palette(neutral, white);
   width: 150px;
@@ -10,6 +6,10 @@ h6 {
   padding: $size-s;
   position: relative;
   background-color: palette(neutral, red);
+}
+
+h3 {
+  font-weight: bold;
 }
 
 .grayscale {
@@ -23,4 +23,60 @@ h6 {
 
 table {
   color: palette(neutral, white);
+}
+
+.Shop {
+  color: palette(neutral, white);
+  position: relative;
+  margin: $size-s;
+  width: 100%;
+  z-index: 3;
+
+  @include lg {
+    margin: 0;
+    width: 80%;
+  }
+}
+
+.Shop__Season {
+  margin-left: 70px;
+}
+
+.Shop__Items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  @include md {
+    flex-direction: row;
+  }
+}
+
+.Shop__Item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 100%;
+
+  @include md {
+    flex: 1 1 50%;
+  }
+
+  @include xl {
+    flex: 1 1 33%;
+  }
+}
+
+.Shop__ItemImage {
+  width: 180px;
+}
+
+.Shop__Form {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: space-between;
+  height: 160px;
 }

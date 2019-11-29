@@ -3,13 +3,13 @@
     { "label": "project", "route": "project", "key": "project", "isPrimary": true },
     { "label": "team", "route": "team", "key": "team", "isPrimary": true },
     { "label": "sponsor", "route": "sponsor", "key": "sponsor" },
-    { "label": "artists", "route": "artists", "key": "artists" },
-    { "label": "season", "route": "season", "key": "season", "isPrimary": true },
+    { "label": "artists", "route": "artists", "key": "artists", "isPrimary": true },
+    { "label": "season", "route": "season", "key": "season" },
     { "label": "tickets", "route": "tickets", "key": "tickets" },
     { "label": "club", "route": "club", "key": "club" },
     { "label": "supporters", "route": "supporters", "key": "supporter" },
     { "label": "press", "route": "press", "key": "press" },
-    { "label": "shop", "route": "shop", "key": "shop" },
+    { "label": "shop", "route": "shop", "key": "shop", "isPrimary": true },
     { "label": "bulletin", "route": "bulletin", "key": "bulletin" },
     { "label": "contacts", "route": "contacts", "key": "contacts" }
   ]

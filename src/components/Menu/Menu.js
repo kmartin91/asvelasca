@@ -30,7 +30,7 @@ const Menu = (props: PropTypes) => {
         handleOpenMobileMenu={() => setIsMobileOpen(!isMobileOpen)}
         isMobileOpen={isMobileOpen}
       />
-      <a className="Menu__Logo" href={`/${window.LOCALE_VELASCA}`}>
+      <a className="Menu__Logo" href={`/${window.LOCALE_VELASCA}/home`}>
         <img src={Logo} alt="AS Velasca" />
       </a>
       <MenuList links={menuTwo} handleOpenMobileMenu={() => {}} isAlternate withoutMore />

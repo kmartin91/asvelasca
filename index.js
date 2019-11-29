@@ -3,10 +3,9 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Layout from './src/components/Layout/Layout';
 import Main from './src/components/Main/Main';
+import Disclaimer from './src/components/Disclaimer/Disclaimer';
 import Edito from './src/components/Edito/Edito';
 import Errors from './src/components/Errors/Errors';
-
-import './styles/all.scss';
 
 const base = '/:locale(fr|en|it|cn)?';
 
@@ -22,7 +21,9 @@ window.addEventListener('resize', () => {
 
 ReactDOM.render(
   <Router>
-    <Layout path={base} exact component={Main} withoutFooter />
+    <Layout path={base} exact component={Disclaimer} withoutHeader withoutFooter />
+
+    <Layout path={`${base}/home`} component={Main} withoutFooter />
 
     {/* Progeto */}
     <Layout path={`${base}/progetto`} withoutFooter component={Edito} page="progetto" />
@@ -65,8 +66,6 @@ ReactDOM.render(
     <Layout path={`${base}/stampa`} withoutFooter component={Edito} page="press" />
 
     {/* Shop */}
-    <Layout path={`${base}/shop`} withoutFooter component={Edito} page="shop" />
-    <Layout path={`${base}/shop`} withoutFooter component={Edito} page="shop" />
     <Layout path={`${base}/shop`} withoutFooter component={Edito} page="shop" />
     {/* Bulletin */}
     <Layout path={`${base}/bollettino`} withoutFooter component={Edito} page="bulletin" />

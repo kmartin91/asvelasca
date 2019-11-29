@@ -3,13 +3,13 @@
     { "label": "progetto", "route": "progetto", "key": "project", "isPrimary": true },
     { "label": "squadra", "route": "squadra", "key": "team", "isPrimary": true },
     { "label": "sponsor", "route": "sponsor", "key": "sponsor" },
-    { "label": "artisti", "route": "artisti", "key": "artists" },
-    { "label": "stagione", "route": "stagione", "key": "season", "isPrimary": true },
+    { "label": "artisti", "route": "artisti", "key": "artists", "isPrimary": true },
+    { "label": "stagione", "route": "stagione", "key": "season" },
     { "label": "tickets", "route": "tickets", "key": "tickets" },
     { "label": "societa", "route": "societa", "key": "club" },
     { "label": "tifosi", "route": "tifosi", "key": "supporter" },
     { "label": "stampa", "route": "stampa", "key": "press" },
-    { "label": "shop", "route": "shop", "key": "shop" },
+    { "label": "shop", "route": "shop", "key": "shop", "isPrimary": true },
     { "label": "bollettino", "route": "bollettino", "key": "bulletin" },
     { "label": "contatti", "route": "contatti", "key": "contacts" }
   ]

@@ -1,7 +1,5 @@
 /** @define Menu */
 
-@import '~/styles/all.scss';
-
 .Menu {
   @include lg {
     align-items: center;
@@ -19,7 +17,7 @@
 
 .Menu__Logo {
   position: fixed;
-  top: 0;
+  top: 10px;
   height: 80px;
   width: 80px;
   left: calc(50% - 40px);
