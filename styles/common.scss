@@ -39,10 +39,6 @@ table {
   }
 }
 
-.Shop__Season {
-  margin-left: 70px;
-}
-
 .Shop__Items {
   display: flex;
   flex-direction: column;
@@ -61,7 +57,7 @@ table {
   align-items: center;
   flex: 1 1 100%;
   margin: $size-l 0;
-  height: 720px;
+  height: auto;
   justify-content: flex-start;
 
   @include md {
@@ -81,8 +77,8 @@ table {
 .Shop__ItemImageContainer {
   display: flex;
   align-items: center;
-  height: 400px;
-  min-height: 400px;
+  height: 420px;
+  min-height: 420px;
 }
 
 .Shop__ItemImage {

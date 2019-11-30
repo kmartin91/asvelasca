@@ -11,6 +11,10 @@
 
 .Disclaimer__Image {
   width: 300px;
+
+  @include sm {
+    width: 200px;
+  }
 }
 
 .Disclaimer__sponsors {
