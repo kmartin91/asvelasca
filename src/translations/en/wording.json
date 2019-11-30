@@ -1,16 +1,28 @@
 {
   "menu": [
-    { "label": "project", "route": "project", "key": "project", "isPrimary": true },
-    { "label": "team", "route": "team", "key": "team", "isPrimary": true },
-    { "label": "sponsor", "route": "sponsor", "key": "sponsor" },
-    { "label": "artists", "route": "artists", "key": "artists", "isPrimary": true },
-    { "label": "season", "route": "season", "key": "season" },
-    { "label": "tickets", "route": "tickets", "key": "tickets" },
-    { "label": "club", "route": "club", "key": "club" },
-    { "label": "supporters", "route": "supporters", "key": "supporter" },
-    { "label": "press", "route": "press", "key": "press" },
-    { "label": "shop", "route": "shop", "key": "shop", "isPrimary": true },
-    { "label": "bulletin", "route": "bulletin", "key": "bulletin" },
-    { "label": "contacts", "route": "contacts", "key": "contacts" }
+    {
+      "label": "project",
+      "route": "project",
+      "key": "project",
+      "isPrimary": true,
+      "name": "PROJECT"
+    },
+    { "label": "team", "route": "team", "key": "team", "isPrimary": true, "name": "TEAM" },
+    { "label": "sponsor", "route": "sponsor", "key": "sponsor", "name": "SPONSOR" },
+    {
+      "label": "artists",
+      "route": "artists",
+      "key": "artists",
+      "isPrimary": true,
+      "name": "ARTISTS"
+    },
+    { "label": "season", "route": "season", "key": "season", "name": "SEASON" },
+    { "label": "tickets", "route": "tickets", "key": "tickets", "name": "TICKETS" },
+    { "label": "club", "route": "club", "key": "club", "name": "CLUB" },
+    { "label": "supporters", "route": "supporters", "key": "supporter", "name": "SUPPORTERS" },
+    { "label": "press", "route": "press", "key": "press", "name": "PRESS" },
+    { "label": "shop", "route": "shop", "key": "shop", "isPrimary": true, "name": "SHOP" },
+    { "label": "bulletin", "route": "bulletin", "key": "bulletin", "name": "BULLETIN" },
+    { "label": "contacts", "route": "contacts", "key": "contacts", "name": "CONTACTS" }
   ]
 }
