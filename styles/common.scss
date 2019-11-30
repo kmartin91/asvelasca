@@ -59,6 +59,7 @@ table {
   margin: $size-l 0;
   height: auto;
   justify-content: flex-start;
+  position: relative;
 
   @include md {
     flex: 1 1 50%;
@@ -77,12 +78,22 @@ table {
 .Shop__ItemImageContainer {
   display: flex;
   align-items: center;
-  height: 420px;
-  min-height: 420px;
+  height: 200px;
+  min-height: 200px;
+
+  @include lg {
+    height: 420px;
+    min-height: 420px;
+  }
 }
 
 .Shop__ItemImage {
+  height: 200px;
   width: auto;
+
+  @include lg {
+    height: auto;
+  }
 }
 
 .Shop__Form {
