@@ -2,7 +2,7 @@
 
 .Disclaimer {
   background: palette(neutral, red);
-  height: calc((var(--vh, 1vh) * 100));
+  min-height: calc((var(--vh, 1vh) * 100));
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,25 +11,22 @@
 
 .Disclaimer__Image {
   width: 300px;
-
-  @include lg {
-    width: auto;
-  }
 }
 
-.Disclaimer__sponsors,
+.Disclaimer__sponsors {
+  display: flex;
+  flex-direction: column;
+}
+
 .Disclaimer__LangSelector {
   display: flex;
   flex-direction: row;
-}
-
-.Disclaimer__LangSelector {
   margin-top: $size-s;
 }
 
 .Disclaimer__sponsor {
-  height: 100px;
-  width: 100px;
+  height: 80px;
+  width: 80px;
 }
 
 .Disclaimer__Lang {
@@ -40,7 +37,7 @@
 }
 
 .Disclaimer__SponsorContainer {
-  margin: $size-m;
+  margin: $size-xs;
 }
 
 .Disclaimer__Enter {

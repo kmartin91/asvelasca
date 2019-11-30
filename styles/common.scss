@@ -34,7 +34,6 @@ table {
 
   @include lg {
     margin: 0;
-    width: 80%;
   }
 }
 
@@ -59,6 +58,7 @@ table {
   flex-direction: column;
   align-items: center;
   flex: 1 1 100%;
+  margin: $size-l 0;
 
   @include md {
     flex: 1 1 50%;
@@ -67,10 +67,15 @@ table {
   @include xl {
     flex: 1 1 33%;
   }
+
+  h3 {
+    font-family: themefont();
+    font-size: 1rem;
+  }
 }
 
 .Shop__ItemImage {
-  width: 180px;
+  width: auto;
 }
 
 .Shop__Form {
@@ -78,5 +83,44 @@ table {
   flex-direction: column;
   align-items: baseline;
   justify-content: space-between;
-  height: 160px;
+}
+
+.Shop__ItemDescription {
+  padding: $size-m;
+  width: 55%;
+}
+
+.Shop__Button {
+  background-color: palette(neutral, green);
+  border: none;
+  cursor: pointer;
+  color: palette(neutral, white);
+  font-size: 1rem;
+  padding: $size-s $size-l;
+  margin-top: $size-s;
+  border-radius: 4px;
+  transition: all ease-in-out 0.5s;
+  font-family: themefont();
+
+  &:hover {
+    background-color: rgba(palette(neutral, green), 0.7);
+  }
+}
+
+/** Ladder **/
+.ResultContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 100px;
+}
+
+.Results {
+  width: 100%;
+  height: 430px;
+}
+
+.Ladder {
+  width: 100%;
 }

@@ -5,7 +5,8 @@
   flex-direction: row;
   justify-content: flex-start;
   position: absolute;
-  bottom: $size-xs;
+  bottom: $size-s;
+  left: $size-s;
   z-index: 10;
 }
 
