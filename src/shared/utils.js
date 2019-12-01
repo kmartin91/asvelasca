@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 
 const getServerUrl = () => process.env.SERVER_URL;
 
-const getBaseUrl = () => `${getServerUrl()}/velasca/`;
+const getBaseUrl = () => process.env.BASE_URL;
 
 const getApiUrl = () => `${getBaseUrl()}${process.env.API_URL}`;
 

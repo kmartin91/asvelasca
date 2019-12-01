@@ -29,7 +29,10 @@ const App = ({ component: Component, ...props }: PropTypes) => {
     <div className={classnames('App', { App_noOverFlow: noOverFlow })}>
       <Helmet>
         <title>.:: A.S. VELASCA ::.</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
         <meta name="charset" content="utf-8" />
         <meta name="Description" content="La terza squadra di Milano" />
         <meta
