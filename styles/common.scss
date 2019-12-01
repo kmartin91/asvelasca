@@ -57,7 +57,6 @@ table {
   align-items: center;
   flex: 1 1 100%;
   margin: $size-l 0;
-  height: auto;
   justify-content: flex-start;
   position: relative;
 
@@ -78,8 +77,7 @@ table {
 .Shop__ItemImageContainer {
   display: flex;
   align-items: center;
-  height: 200px;
-  min-height: 200px;
+  height: auto;
 
   @include lg {
     height: 420px;
@@ -88,7 +86,7 @@ table {
 }
 
 .Shop__ItemImage {
-  height: 200px;
+  height: auto;
   width: auto;
 
   @include lg {
@@ -99,7 +97,6 @@ table {
 .Shop__Form {
   display: flex;
   flex-direction: column;
-  height: 240px;
 }
 
 .Shop__ItemDescription {
