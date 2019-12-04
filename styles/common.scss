@@ -90,10 +90,12 @@ button {
 }
 
 .Shop__ItemImage {
-  height: 200px;
+  height: auto;
+  max-height: 200px;
 
   @include lg {
     height: auto;
+    max-height: 300px;
   }
 }
 
