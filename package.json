@@ -8,7 +8,7 @@
     "jest": "cross-env BABEL_ENV=test jest --maxWorkers=4 --config ./tools/config/test/jest.cover.json",
     "start": "parcel index.html",
     "dev": "parcel index.html",
-    "build": "parcel build index.html",
+    "build": "parcel build index.html && cp _redirects dist/_redirects",
     "prettier:js": "prettier --write \"src/**/*.js\"",
     "prettier:css": "prettier --write \"src/**/*.scss\"",
     "jeveuxdujoliJS": "prettier --write \"src/**/*.js\"",
@@ -34,9 +34,12 @@
     "lodash": "^4.17.15",
     "marked": "^0.7.0",
     "parcel-bundler": "^1.12.4",
+    "path": "^0.12.7",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
-    "react-router-dom": "^5.1.2"
+    "react-helmet": "^5.2.1",
+    "react-router-dom": "^5.1.2",
+    "sass-resources-loader": "^2.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
@@ -81,6 +84,7 @@
     ]
   },
   "browserslist": [
+    "last 1 Chrome version",
     "Chrome > 49",
     "ChromeAndroid > 49",
     "Firefox > 46",

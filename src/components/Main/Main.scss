@@ -1,18 +1,18 @@
 /** @define Main */
 
-@import '~/styles/all.scss';
-
 .Main {
   background-color: palette(neutral, rehHome);
   text-align: center;
-  // Full - Header
-  height: calc(100vh - 75px);
+  // Full - Header - Footer
+  height: calc((var(--vh, 1vh) * 100) - 160px);
   position: relative;
+  margin-top: 100px;
   z-index: 1;
 
   @include lg {
     // Full - Header
-    height: calc(100vh - 100px);
+    height: calc((var(--vh, 1vh) * 100) - 100px);
+    margin-top: 100px;
   }
 }
 
@@ -27,147 +27,14 @@
   opacity: 0;
   position: absolute;
   visibility: hidden;
+  width: 100%;
+  display: flex;
+  transition: all 2s ease-in-out;
 }
 
-// Todo à refaire en Sass
-@keyframes fade0 {
-  0% {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  20% {
-    opacity: 0.7;
-  }
-
-  25% {
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  50% {
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  75% {
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  100% {
-    opacity: 1;
-    visibility: hidden;
-  }
-}
-
-@keyframes fade1 {
-  0% {
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  25% {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  45% {
-    opacity: 0.7;
-  }
-
-  50% {
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  75% {
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  100% {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-
-@keyframes fade2 {
-  0% {
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  25% {
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  50% {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  70% {
-    opacity: 0.7;
-  }
-
-  75% {
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  100% {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-
-@keyframes fade3 {
-  0% {
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  25% {
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  50% {
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  75% {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  95% {
-    opacity: 0.7;
-  }
-
-  100% {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-
-.Main__Slide0 {
-  animation: fade0 20s infinite;
-}
-
-.Main__Slide1 {
-  animation: fade1 20s infinite;
-}
-
-.Main__Slide2 {
-  animation: fade2 20s infinite;
-}
-
-.Main__Slide3 {
-  animation: fade3 20s infinite;
+.Main__Slide_Show {
+  opacity: 1;
+  visibility: visible;
 }
 
 .Main__SliderTitle {
@@ -182,5 +49,6 @@
 
 .Main__SliderImage {
   height: 100%;
-  object-fit: contain;
+  width: 100%;
+  object-fit: cover;
 }

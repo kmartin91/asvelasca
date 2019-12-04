@@ -1,0 +1,78 @@
+/** @define Disclaimer */
+
+.Disclaimer {
+  background: palette(neutral, red);
+  min-height: calc((var(--vh, 1vh) * 100));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Disclaimer__Image {
+  width: 300px;
+
+  @include lg {
+    width: 380px;
+  }
+}
+
+.Disclaimer__sponsors {
+  display: flex;
+  flex-direction: column;
+}
+
+.Disclaimer__LangSelector {
+  display: flex;
+  flex-direction: row;
+  margin-top: $size-s;
+}
+
+.Disclaimer__sponsor {
+  height: 80px;
+  width: 80px;
+}
+
+.Disclaimer__Lang {
+  font-family: themefont();
+  color: palette(neutral, white);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.Disclaimer__SponsorContainer {
+  margin: $size-xs;
+}
+
+.Disclaimer__Enter {
+  font-size: 1.5rem;
+  font-family: themefont();
+  color: palette(neutral, white);
+  border: $size-xs solid palette(neutral, white);
+  padding: $size-s $size-s 0;
+  text-decoration: none;
+  transition: all ease-in-out 0.5s;
+
+  @include lg {
+    font-size: 2rem;
+    padding: $size-s $size-s 0;
+  }
+
+  &:hover {
+    color: palette(neutral, neutral);
+    border: $size-xs solid palette(neutral, neutral);
+  }
+}
+
+.Disclaimer__Social {
+  position: relative;
+  margin-top: $size-l;
+  width: 50%;
+
+  /* stylelint-disable-next-line plugin/selector-bem-pattern */
+  .Social {
+    justify-content: center;
+    position: relative;
+    bottom: auto;
+  }
+}

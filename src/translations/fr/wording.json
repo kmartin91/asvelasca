@@ -1,17 +1,28 @@
 {
   "menu": [
-    { "label": "project", "route": "projet", "key": "project", "isPrimary": true },
-    { "label": "equipe", "route": "equipe", "key": "team", "isPrimary": true },
-    { "label": "sponsor", "route": "sponsor", "key": "sponsor" },
-    { "label": "artistes", "route": "artistes", "key": "artists" },
-    { "label": "saison", "route": "saison", "key": "season", "isPrimary": true },
-    { "label": "tickets", "route": "tickets", "key": "tickets" },
-    { "label": "club", "route": "club", "key": "club" },
-    { "label": "supporteurs", "route": "supporteurs", "key": "supporter" },
-    { "label": "presse", "route": "presse", "key": "press" },
-    { "label": "shop", "route": "shop", "key": "shop" },
-    { "label": "bulletin", "route": "bulletin", "key": "bulletin" },
-    { "label": "contacts", "route": "contacts", "key": "contacts" }
-  ],
-  "project": {}
+    {
+      "label": "project",
+      "route": "projet",
+      "key": "project",
+      "isPrimary": true,
+      "name": "PROJET"
+    },
+    { "label": "equipe", "route": "equipe", "key": "team", "isPrimary": true, "name": "EQUIPE" },
+    { "label": "sponsor", "route": "sponsor", "key": "sponsor", "name": "SPONSOR" },
+    {
+      "label": "artistes",
+      "route": "artistes",
+      "key": "artists",
+      "isPrimary": true,
+      "name": "ARTISTES"
+    },
+    { "label": "saison", "route": "saison", "key": "season", "name": "SAISON" },
+    { "label": "tickets", "route": "tickets", "key": "tickets", "name": "TICKETS" },
+    { "label": "club", "route": "club", "key": "club", "name": "CLUB" },
+    { "label": "supporteurs", "route": "supporteurs", "key": "supporter", "name": "SUPPORTEURS" },
+    { "label": "presse", "route": "presse", "key": "press", "name": "PRESSE" },
+    { "label": "shop", "route": "shop", "key": "shop", "isPrimary": true, "name": "BOUTIQUE" },
+    { "label": "bulletin", "route": "bulletin", "key": "bulletin", "name": "BULLETIN" },
+    { "label": "contacts", "route": "contacts", "key": "contacts", "name": "CONTACTS" }
+  ]
 }

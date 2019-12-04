@@ -1,17 +1,28 @@
 {
   "menu": [
-    { "label": "progetto", "route": "progetto", "isPrimary": true },
-    { "label": "squadra", "route": "squadra", "isPrimary": true },
-    { "label": "sponsor", "route": "sponsor" },
-    { "label": "artisti", "route": "artisti" },
-    { "label": "stagione", "route": "stagione", "isPrimary": true },
-    { "label": "tickets", "route": "tickets" },
-    { "label": "societa", "route": "societa" },
-    { "label": "tifosi", "route": "tifosi" },
-    { "label": "stampa", "route": "stampa" },
-    { "label": "shop", "route": "shop" },
-    { "label": "bollettino", "route": "bollettino" },
-    { "label": "contatti", "route": "contatti" }
-  ],
-  "project": {}
+    {
+      "label": "progetto",
+      "route": "progetto",
+      "key": "project",
+      "isPrimary": true,
+      "name": "PROGETTO"
+    },
+    { "label": "squadra", "route": "squadra", "key": "team", "isPrimary": true, "name": "SQUADRA" },
+    { "label": "sponsor", "route": "sponsor", "key": "sponsor", "name": "SPONSOR" },
+    {
+      "label": "artisti",
+      "route": "artisti",
+      "key": "artists",
+      "isPrimary": true,
+      "name": "ARTISTS"
+    },
+    { "label": "stagione", "route": "stagione", "key": "season", "name": "SEASON" },
+    { "label": "tickets", "route": "tickets", "key": "tickets", "name": "TICKETS" },
+    { "label": "societa", "route": "societa", "key": "club", "name": "CLUB" },
+    { "label": "tifosi", "route": "tifosi", "key": "supporter", "name": "SUPPORTEUR" },
+    { "label": "stampa", "route": "stampa", "key": "press", "name": "STAMPA" },
+    { "label": "shop", "route": "shop", "key": "shop", "isPrimary": true, "name": "SHOP" },
+    { "label": "bollettino", "route": "bollettino", "key": "bulletin", "name": "BOLLETINO" },
+    { "label": "contatti", "route": "contatti", "key": "contacts", "name": "CONTATTI" }
+  ]
 }

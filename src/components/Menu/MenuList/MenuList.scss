@@ -1,9 +1,7 @@
 /** @define MenuList */
 
-@import '~/styles/all.scss';
-
 .MenuList {
-  display: contents;
+  display: none;
   opacity: 1;
   flex-direction: row;
   font-family: themefont();
@@ -29,12 +27,15 @@
   }
 
   @include xl {
-    font-size: $size-m;
+    font-size: 14px; /* stylelint-disable-line declaration-property-unit-whitelist */
   }
 
   &:hover {
     color: palette(neutral, white);
-    text-decoration: underline;
+
+    @include lg {
+      text-decoration: underline;
+    }
   }
 }
 
@@ -46,7 +47,6 @@
   width: 100%;
 
   @include lg {
-    cursor: inherit;
     display: inherit;
     align-self: inherit;
     justify-content: inherit;

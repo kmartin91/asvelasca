@@ -1,14 +1,10 @@
 /** @define Header */
 
-@import '~/styles/all.scss';
-
 .Header {
-  background: none;
-  position: relative;
-  height: 0;
-
-  @include lg {
-    background-color: palette(neutral, menu);
-    height: 100px;
-  }
+  background-color: palette(neutral, menu);
+  position: fixed;
+  top: 0;
+  height: 100px;
+  width: 100%;
+  z-index: 10;
 }

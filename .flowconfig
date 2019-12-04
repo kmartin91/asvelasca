@@ -1,8 +1,7 @@
 [include]
 
 [ignore]
-
-*./node_modules/@parcel/watcher/*
+.*/node_modules/.*/test
 
 [libs]
 

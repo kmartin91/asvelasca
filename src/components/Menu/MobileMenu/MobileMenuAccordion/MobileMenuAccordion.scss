@@ -1,0 +1,54 @@
+/** @define MobileMenuAccordion */
+
+.MobileMenuAccordion {
+  background-color: palette(neutral, menu);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 60px;
+  transform: scaleY(0);
+  overflow: hidden;
+  transition: transform 0.5s ease-in-out;
+  transform-origin: bottom;
+  width: 100%;
+  z-index: 3;
+
+  @include lg {
+    display: none;
+  }
+
+  &.is-open {
+    transform: scaleY(1);
+    transform-origin: bottom;
+    transition: transform 0.5s ease-in-out;
+  }
+}
+
+.MobileMenuAccordion_open {
+  display: flex;
+  height: auto;
+  transform: scaleY(1);
+  transform-origin: bottom;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+
+  @include lg {
+    display: none;
+  }
+}
+
+.MobileMenuAccordion__Links {
+  list-style: none;
+  font-family: themefont();
+}
+
+.MobileMenuAccordion__Link {
+  color: palette(neutral, white);
+  display: block;
+  padding: $size-m $size-s;
+  text-decoration: none;
+}
+
+.MobileMenuAccordion__LinkContainer {
+  border-bottom: 1px solid palette(neutral, white);
+}

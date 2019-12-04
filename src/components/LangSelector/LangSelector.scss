@@ -1,7 +1,5 @@
 /** @define LangSelector */
 
-@import '~/styles/all.scss';
-
 .LangSelector {
   display: flex;
   flex-direction: row;
@@ -11,6 +9,7 @@
   width: 100%;
   position: absolute;
   bottom: 0;
+  z-index: 10;
 }
 
 .LangSelector__item {

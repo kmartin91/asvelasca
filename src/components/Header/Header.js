@@ -2,6 +2,7 @@
 
 import React from 'react';
 import LangSelector from '../LangSelector/LangSelector';
+import Social from '../Social/Social';
 import Menu from '../Menu/Menu';
 
 import './Header.scss';
@@ -16,6 +17,7 @@ const Header = (props: PropTypes) => {
     <div className="Header">
       <Menu />
       <LangSelector />
+      <Social />
     </div>
   );
 };

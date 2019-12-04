@@ -1,0 +1,133 @@
+h6 {
+  color: palette(neutral, white);
+  width: 150px;
+  font-size: 0.8rem;
+  font-family: themefont();
+  padding: $size-s;
+  position: relative;
+  background-color: palette(neutral, red);
+}
+
+h3 {
+  font-weight: bold;
+}
+
+.grayscale {
+  @include lg {
+    filter: grayscale(1);
+    transition: all 0.5s ease-in-out;
+
+    &:hover {
+      filter: none;
+    }
+  }
+}
+
+table {
+  color: palette(neutral, white);
+}
+
+select,
+button {
+  max-width: 300px;
+}
+
+.Shop {
+  color: palette(neutral, white);
+  position: relative;
+  margin: $size-s;
+  width: 100%;
+  z-index: 3;
+
+  @include lg {
+    margin: 0;
+  }
+}
+
+.Shop__Items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  @include md {
+    flex-direction: row;
+  }
+}
+
+.Shop__Item {
+  display: grid;
+  flex: 1 1 100%;
+  margin: $size-l 0;
+  position: relative;
+
+  @include md {
+    margin: $size-l;
+    flex: 1 1 50%;
+  }
+
+  @include xl {
+    flex: 1 1 33%;
+  }
+
+  h3 {
+    font-family: themefont();
+    font-size: 1rem;
+  }
+}
+
+.Shop__ItemImage {
+  height: auto;
+  max-height: 200px;
+
+  @include lg {
+    height: auto;
+    max-height: 300px;
+  }
+}
+
+.Shop__Form {
+  display: flex;
+  flex-direction: column;
+}
+
+.Shop__ItemDescription {
+  padding: $size-m;
+  width: 55%;
+}
+
+.Shop__Button {
+  background-color: palette(neutral, green);
+  border: none;
+  cursor: pointer;
+  color: palette(neutral, white);
+  font-size: 1rem;
+  padding: $size-s $size-l;
+  margin-top: $size-s;
+  border-radius: 4px;
+  transition: all ease-in-out 0.5s;
+  font-family: themefont();
+
+  &:hover {
+    background-color: rgba(palette(neutral, green), 0.7);
+  }
+}
+
+/** Ladder **/
+.ResultContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 100px;
+}
+
+.Results {
+  width: 100%;
+  height: 430px;
+}
+
+.Ladder {
+  width: 100%;
+}

@@ -1,0 +1,21 @@
+/** @define Errors */
+
+.Errors {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-family: themefont(), sans-serif;
+  color: palette(neutral, white);
+  padding: $size-xl;
+  height: 50vh;
+  overflow: hidden;
+}
+
+.Errors__title {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.Errors__code {
+  font-size: 2rem;
+}
