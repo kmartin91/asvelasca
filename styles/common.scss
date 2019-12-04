@@ -27,6 +27,11 @@ table {
   color: palette(neutral, white);
 }
 
+select,
+button {
+  max-width: 300px;
+}
+
 .Shop {
   color: palette(neutral, white);
   position: relative;
@@ -52,15 +57,13 @@ table {
 }
 
 .Shop__Item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
   flex: 1 1 100%;
   margin: $size-l 0;
-  justify-content: flex-start;
   position: relative;
 
   @include md {
+    margin: $size-l;
     flex: 1 1 50%;
   }
 
@@ -75,19 +78,19 @@ table {
 }
 
 .Shop__ItemImageContainer {
+  /*
   display: flex;
   align-items: center;
   height: auto;
-
   @include lg {
     height: 420px;
     min-height: 420px;
   }
+*/
 }
 
 .Shop__ItemImage {
-  height: auto;
-  width: auto;
+  height: 200px;
 
   @include lg {
     height: auto;
