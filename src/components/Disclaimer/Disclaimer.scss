@@ -12,8 +12,8 @@
 .Disclaimer__Image {
   width: 300px;
 
-  @include sm {
-    width: 200px;
+  @include lg {
+    width: 380px;
   }
 }
 
@@ -45,7 +45,7 @@
 }
 
 .Disclaimer__Enter {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-family: themefont();
   color: palette(neutral, white);
   border: $size-xs solid palette(neutral, white);
@@ -54,7 +54,7 @@
   transition: all ease-in-out 0.5s;
 
   @include lg {
-    font-size: 2.5rem;
+    font-size: 2rem;
     padding: $size-s $size-s 0;
   }
 

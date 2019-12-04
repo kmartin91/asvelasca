@@ -33,7 +33,8 @@ const App = ({ component: Component, ...props }: PropTypes) => {
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
         />
-        <meta name="charset" content="utf-8" />
+
+        <meta meta charset="UTF-8" />
         <meta name="Description" content="La terza squadra di Milano" />
         <meta
           name="Keywords"
