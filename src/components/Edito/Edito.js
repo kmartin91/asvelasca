@@ -14,6 +14,9 @@ type EditoProps = {
   name: string,
 };
 
+const replaceImage = content =>
+  content && content.replace(/src="\/storage\//gim, `src="${getServerUrl()}/storage/`);
+
 const Edito = ({ page, name }: EditoProps) => {
   const [data, setData] = useState({});
   const [error, setError] = useState(undefined);
@@ -48,6 +51,10 @@ const Edito = ({ page, name }: EditoProps) => {
 
   const { background, content } = _get(data, 'entries[0]', []);
 
+  const newContent = replaceImage(content || '');
+
+  console.log({ error });
+
   return (
     <div className="Edito">
       <Helmet>
@@ -69,7 +76,7 @@ const Edito = ({ page, name }: EditoProps) => {
         <React.Fragment>
           <div
             dangerouslySetInnerHTML={{
-              __html: content,
+              __html: newContent,
             }}
             className="Edito__content"
           />

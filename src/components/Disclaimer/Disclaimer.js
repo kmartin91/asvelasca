@@ -48,11 +48,13 @@ const Disclaimer = (props: PropTypes) => {
 
   return (
     <div className="Disclaimer">
-      <img
-        className="Disclaimer__Image"
-        src="http://www.asvelasca.it/images/velascalogo.png"
-        alt="AS Velasca"
-      />
+      <a href="/en/home">
+        <img
+          className="Disclaimer__Image"
+          src="http://www.asvelasca.it/images/velascalogo.png"
+          alt="AS Velasca"
+        />
+      </a>
       <a href="/en/home" className="Disclaimer__Enter">
         ENTER WEBSITE
       </a>

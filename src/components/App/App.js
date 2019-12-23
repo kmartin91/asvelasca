@@ -50,7 +50,7 @@ const App = ({ component: Component, ...props }: PropTypes) => {
       </Helmet>
       {!withoutHeader && <Header />}
       <Component {...props} className="App__content" />
-      {!withoutFooter && <div className="Footer">Footer</div>}
+      {!withoutFooter && <div className="App__Footer" />}
       {!withoutHeader && <MobileMenu links={menu} />}
     </div>
   );

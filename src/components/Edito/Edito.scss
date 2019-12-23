@@ -15,7 +15,7 @@
 
 .Edito__imageContainer {
   position: fixed;
-  height: 100%;
+  height: calc((var(--vh, 1vh) * 100) - 75px);
   width: 100%;
   background-color: rgba(palette(neutral, black), 0.3);
 }
@@ -31,9 +31,10 @@
   bottom: -40px;
   left: 0;
   right: 0;
+  height: calc((var(--vh, 1vh) * 100) + #{$size-l});
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 2;
-  position: absolute;
+  position: fixed;
 
   @include lg {
     bottom: 0;

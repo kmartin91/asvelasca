@@ -16,3 +16,8 @@
 .App_noOverFlow {
   overflow: hidden;
 }
+
+.App__Footer {
+  margin-top: $size-m;
+  background-color: palette(neutral, red);
+}
