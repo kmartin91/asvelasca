@@ -34,7 +34,7 @@ export const getKey = (path: string, nextLocale: string): any => {
     const { key: currentKey } =
       _get(currentLocalizationFile, 'menu', []).find(({ route }) => route === path) || [];
 
-    if (!currentKey) return '';
+    if (!currentKey) return 'home';
 
     const { route: newRoute } =
       _get(nextLocalizationFile, 'menu', []).find(({ key }) => currentKey === key) || [];
