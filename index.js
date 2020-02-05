@@ -87,7 +87,7 @@ window.addEventListener('resize', () => {
 });
 
 if (rootElement.hasChildNodes()) {
-  render(App, rootElement);
+  render(App, document.getElementById('root'));
 } else {
-  hydrate(App, rootElement);
+  hydrate(App, document.getElementById('root'));
 }
