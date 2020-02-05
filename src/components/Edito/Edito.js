@@ -53,8 +53,6 @@ const Edito = ({ page, name }: EditoProps) => {
 
   const newContent = replaceImage(content || '');
 
-  console.log({ error });
-
   return (
     <div className="Edito">
       <Helmet>
@@ -65,7 +63,7 @@ const Edito = ({ page, name }: EditoProps) => {
           <div className="Edito__imageContainer">
             <img
               src={`${getServerUrl()}${background.path}`}
-              alt={background.title}
+              alt={background.title || 'As Velasca'}
               className="Edito__image"
             />
           </div>
