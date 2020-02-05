@@ -42,11 +42,11 @@ const App = ({ component: Component, ...props }: PropTypes) => {
         />
         <meta property="og:title" content="A.S. Velasca" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="http://www.asvelasca.it" />
-        <meta property="og:image" content="http://www.asvelasca.it/asvelasca-fb.jpg" />
+        <meta property="og:url" content="https://www.asvelasca.it" />
+        <meta property="og:image" content="https://www.asvelasca.it/asvelasca-fb.jpg" />
         <meta property="og:description" content="WE ARE ALL BUT A FOOTBALL TEAM" />
         <meta property="og:site_name" content=".:: A.S. Velasca ::." />
-        <link rel="shortcut icon" href="http://www.asvelasca.it/velascam.png" />
+        <link rel="shortcut icon" href="https://www.asvelasca.it/velascam.png" />
       </Helmet>
       {!withoutHeader && <Header />}
       <Component {...props} className="App__content" />
