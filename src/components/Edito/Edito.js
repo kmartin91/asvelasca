@@ -58,7 +58,6 @@ const Edito = ({ page, name }: EditoProps) => {
   return (
     <div className="Edito">
       <Helmet>
-        <html lang={window.LOCALE_VELASCA} />
         <title>{`.:: A.S. VELASCA ::. ${name.toUpperCase()}`}</title>
       </Helmet>
       {background && (
