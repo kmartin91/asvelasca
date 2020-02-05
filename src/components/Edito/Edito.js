@@ -17,6 +17,8 @@ type EditoProps = {
 const replaceImage = content =>
   content && content.replace(/src="\/storage\//gim, `src="${getServerUrl()}/storage/`);
 
+const replaceHttpToHttps = content => content && content.replace(/http:/gim, `https:`);
+
 const Edito = ({ page, name }: EditoProps) => {
   const [data, setData] = useState({});
   const [error, setError] = useState(undefined);
@@ -51,9 +53,7 @@ const Edito = ({ page, name }: EditoProps) => {
 
   const { background, content } = _get(data, 'entries[0]', []);
 
-  const newContent = replaceImage(content || '');
-
-  console.log({ error });
+  const newContent = replaceHttpToHttps(replaceImage(content || ''));
 
   return (
     <div className="Edito">
@@ -65,7 +65,7 @@ const Edito = ({ page, name }: EditoProps) => {
           <div className="Edito__imageContainer">
             <img
               src={`${getServerUrl()}${background.path}`}
-              alt={background.title}
+              alt={background.title || 'As Velasca'}
               className="Edito__image"
             />
           </div>

@@ -28,11 +28,9 @@ const App = ({ component: Component, ...props }: PropTypes) => {
   return (
     <div className={classnames('App', { App_noOverFlow: noOverFlow })}>
       <Helmet>
+        <html lang={window.LOCALE_VELASCA} />
         <title>.:: A.S. VELASCA ::.</title>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0"
-        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         <meta meta charset="UTF-8" />
         <meta name="Description" content="La terza squadra di Milano" />
@@ -42,11 +40,11 @@ const App = ({ component: Component, ...props }: PropTypes) => {
         />
         <meta property="og:title" content="A.S. Velasca" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="http://www.asvelasca.it" />
-        <meta property="og:image" content="http://www.asvelasca.it/asvelasca-fb.jpg" />
+        <meta property="og:url" content="https://www.asvelasca.it" />
+        <meta property="og:image" content="https://www.asvelasca.it/asvelasca-fb.jpg" />
         <meta property="og:description" content="WE ARE ALL BUT A FOOTBALL TEAM" />
         <meta property="og:site_name" content=".:: A.S. Velasca ::." />
-        <link rel="shortcut icon" href="http://www.asvelasca.it/velascam.png" />
+        <link rel="shortcut icon" href="https://www.asvelasca.it/velascam.png" />
       </Helmet>
       {!withoutHeader && <Header />}
       <Component {...props} className="App__content" />

@@ -51,7 +51,7 @@ const Disclaimer = (props: PropTypes) => {
       <a href="/en/home">
         <img
           className="Disclaimer__Image"
-          src="http://www.asvelasca.it/images/velascalogo.png"
+          src="https://www.asvelasca.it/images/velascalogo.png"
           alt="AS Velasca"
         />
       </a>
@@ -78,7 +78,7 @@ const Disclaimer = (props: PropTypes) => {
             <a href={title} className="Disclaimer__SponsorContainer">
               <img
                 src={`${getServerUrl()}${path}`}
-                alt={`${title}-${index}`}
+                alt={`${title}`}
                 key={title}
                 className="Disclaimer__Sponsor"
               />

@@ -74,17 +74,18 @@ const App = (
   </Router>
 );
 
+const rootElement = document.getElementById('root');
+
 // First render
 const vh = window.innerHeight * 0.01;
-document.documentElement.style.setProperty('--vh', `${vh}px`);
+rootElement.style.setProperty('--vh', `${vh}px`);
 
 // All resize
 window.addEventListener('resize', () => {
   const vh2 = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty('--vh', `${vh2}px`);
+  rootElement.style.setProperty('--vh', `${vh2}px`);
 });
 
-const rootElement = document.getElementById('root');
 if (rootElement.hasChildNodes()) {
   render(App, document.getElementById('root'));
 } else {
