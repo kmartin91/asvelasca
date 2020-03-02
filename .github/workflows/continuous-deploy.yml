@@ -37,7 +37,6 @@ jobs:
       steps:
         - name: Deploying
           id: deploy
-          if: success()
           uses: SamKirkland/FTP-Deploy-Action@master
           env:
            FTP_SERVER: ${{ secrets.FTP_SERVER_2 }}

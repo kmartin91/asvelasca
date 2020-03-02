@@ -3,11 +3,5 @@
 exports[`Maintest Component displays correctly without props 1`] = `
 <div
   className="Main"
->
-  <div
-    className="Main__title"
-  >
-    Hello David!
-  </div>
-</div>
+/>
 `;
