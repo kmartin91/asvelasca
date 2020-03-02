@@ -1,0 +1,47 @@
+name: Deploying site
+
+on:
+  push:
+    branches:
+      - develop
+
+env:
+  NODE_VERSION: '10.x'       
+
+jobs:
+  build:
+    name: install, build, test
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ env.NODE_VERSION }}
+      uses: actions/setup-node@v1      
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+    - name: Install
+      id: install
+      run: yarn install
+    # Build
+    - name: Build
+      id: build
+      run: yarn build
+    # Test
+    - name: Test
+      id: test
+      run: yarn test
+  deploy:
+    # Deploy
+      name: Deploy
+      needs: build
+      runs-on: ubuntu-latest
+      steps:
+        - name: Deploying
+          id: deploy
+          if: success()
+          uses: SamKirkland/FTP-Deploy-Action@master
+          env:
+           FTP_SERVER: ${{ secrets.FTP_SERVER_2 }}
+           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD_2 }}
+           FTP_USERNAME: ${{ secrets.FTP_USERNAME_2 }}
+           LOCAL_DIR: dist
+           REMOTE_DIR: ${{ secrets.REMOTE_DIR_2 }}
