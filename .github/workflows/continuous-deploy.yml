@@ -30,11 +30,11 @@ jobs:
       id: test
       run: yarn test
     - name: Deploying
-          id: deploy
-          uses: SamKirkland/FTP-Deploy-Action@3.0.0
-          with:
-           ftp-server: ${{ secrets.FTP_SERVER_2 }}
-           ftp-password: ${{ secrets.FTP_PASSWORD_2 }}
-           ftp-username: ${{ secrets.FTP_USERNAME_2 }}
-           local-dir: dist
-           git-ftp-args: --remote-root ${{ secrets.REMOTE_DIR_2 }}
+      id: deploy
+      uses: SamKirkland/FTP-Deploy-Action@3.0.0
+      with:
+        ftp-server: ${{ secrets.FTP_SERVER_2 }}
+        ftp-password: ${{ secrets.FTP_PASSWORD_2 }}
+        ftp-username: ${{ secrets.FTP_USERNAME_2 }}
+        local-dir: dist
+        git-ftp-args: --remote-root ${{ secrets.REMOTE_DIR_2 }}
