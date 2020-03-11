@@ -47,6 +47,10 @@
   display: block;
   padding: $size-m $size-s;
   text-decoration: none;
+
+  @include smmd {
+    font-size: 0.7rem;
+  }
 }
 
 .MobileMenuAccordion__LinkContainer {
