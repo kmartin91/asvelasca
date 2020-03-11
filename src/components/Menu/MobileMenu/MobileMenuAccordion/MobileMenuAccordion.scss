@@ -48,7 +48,7 @@
   padding: $size-m $size-s;
   text-decoration: none;
 
-  @include sm {
+  @include smmd {
     font-size: 0.7rem;
   }
 }
