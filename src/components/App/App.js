@@ -25,6 +25,8 @@ const App = ({ component: Component, ...props }: PropTypes) => {
   window.LOCALE_VELASCA = locale || 'en';
   const menu = translate('menu') || [];
 
+  const currentURL = `https://www.asvelasca.it/${window.LOCALE_VELASCA}`;
+
   return (
     <div className={classnames('App', { App_noOverFlow: noOverFlow })}>
       <Helmet>
@@ -40,10 +42,16 @@ const App = ({ component: Component, ...props }: PropTypes) => {
         />
         <meta property="og:title" content="A.S. Velasca" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.asvelasca.it" />
+        <meta property="og:url" content={currentURL} />
         <meta property="og:image" content="https://www.asvelasca.it/asvelasca-fb.jpg" />
         <meta property="og:description" content="WE ARE ALL BUT A FOOTBALL TEAM" />
         <meta property="og:site_name" content=".:: A.S. Velasca ::." />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={currentURL} />
+        <meta property="twitter:title" content=".:: A.S. VELASCA ::." />
+        <meta property="twitter:description" content="WE ARE ALL BUT A FOOTBALL TEAM" />
+        <meta property="twitter:image" content="https://www.asvelasca.it/asvelasca-fb.jpg" />
         <link rel="shortcut icon" href="https://www.asvelasca.it/velascam.png" />
       </Helmet>
       {!withoutHeader && <Header />}
