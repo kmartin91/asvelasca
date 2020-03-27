@@ -14,10 +14,10 @@ type EditoProps = {
   name: string,
 };
 
-const replaceImage = content =>
+const replaceImage = (content) =>
   content && content.replace(/src="\/storage\//gim, `src="${getServerUrl()}/storage/`);
 
-const replaceHttpToHttps = content => content && content.replace(/http:/gim, `https:`);
+const replaceHttpToHttps = (content) => content && content.replace(/http:/gim, `https:`);
 
 const Edito = ({ page, name }: EditoProps) => {
   const [data, setData] = useState({});
@@ -55,10 +55,30 @@ const Edito = ({ page, name }: EditoProps) => {
 
   const newContent = replaceHttpToHttps(replaceImage(content || ''));
 
+  const currentURL = `https://www.asvelasca.it/${window.LOCALE_VELASCA}/${page}`;
+
   return (
     <div className="Edito">
       <Helmet>
         <title>{`.:: A.S. VELASCA ::. ${name.toUpperCase()}`}</title>
+        <meta name="Description" content="La terza squadra di Milano" />
+        <meta
+          name="Keywords"
+          content="a.s. velasca, marco de girolamo, karim khideur, loris mandelli, wolfgang natlacen, clément tournus, milano, terza squadra di milano"
+        />
+        <meta property="og:title" content="A.S. Velasca" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={currentURL} />
+        <meta property="og:image" content="https://www.asvelasca.it/asvelasca-fb.jpg" />
+        <meta property="og:description" content="WE ARE ALL BUT A FOOTBALL TEAM" />
+        <meta property="og:site_name" content=".:: A.S. Velasca ::." />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={currentURL} />
+        <meta property="twitter:title" content=".:: A.S. VELASCA ::." />
+        <meta property="twitter:description" content="WE ARE ALL BUT A FOOTBALL TEAM" />
+        <meta property="twitter:image" content="https://www.asvelasca.it/asvelasca-fb.jpg" />
+        <link rel="shortcut icon" href="https://www.asvelasca.it/velascam.png" />
       </Helmet>
       {background && (
         <React.Fragment>
