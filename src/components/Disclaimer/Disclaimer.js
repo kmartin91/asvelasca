@@ -6,7 +6,7 @@ import _get from 'lodash/get';
 import Social from '../Social/Social';
 import LangSelector from '../LangSelector/LangSelector';
 
-import { getApiGet, generateAxiosParams, getServerUrl, useInterval } from '../../shared/utils';
+import { getApiGet, getApiToken, getServerUrl, useInterval } from '../../shared/utils';
 
 import './Disclaimer.scss';
 
@@ -26,7 +26,7 @@ const Disclaimer = (props: PropTypes) => {
       try {
         await axios
           .get(`${getApiGet()}sponsorimage`, {
-            params: generateAxiosParams(),
+            headers: { 'Cockpit-Token': getApiToken() },
           })
           .then(({ data }) => {
             if (isSubscribed) {
@@ -75,7 +75,7 @@ const Disclaimer = (props: PropTypes) => {
       <div className="Disclaimer__Sponsors">
         {sponsors &&
           sponsors.map(({ path, meta: { title } }, index) => (
-            <a href={title} className="Disclaimer__SponsorContainer">
+            <a href={title} key={title} className="Disclaimer__SponsorContainer">
               <img
                 src={`${getServerUrl()}${path}`}
                 alt={`${title}`}

@@ -1,0 +1,86 @@
+/** @define Season */
+
+.Season__imageContainer {
+  position: fixed;
+  height: calc((var(--vh, 1vh) * 100) - 75px);
+  width: 100%;
+  background-color: rgba(palette(neutral, black), 0.3);
+}
+
+.Season__image {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.Season__overlay {
+  top: 0;
+  bottom: -40px;
+  left: 0;
+  right: 0;
+  height: calc((var(--vh, 1vh) * 100) + #{$size-l});
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 2;
+  position: fixed;
+
+  @include lg {
+    bottom: 0;
+  }
+}
+
+.Season__content {
+  color: palette(neutral, white);
+  display: flex;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  justify-content: center;
+  margin-top: 100px;
+  padding-top: $size-m;
+  z-index: 2;
+}
+
+.Season__tabs {
+  width: 100%;
+
+  @include lg {
+    width: 80%;
+  }
+}
+
+.Season__link,
+.Season__link:visited,
+.Season__link:hover {
+  color: palette(neutral, white);
+  display: flex;
+  align-items: center;
+  font-family: themefont();
+  position: relative;
+  text-decoration: none;
+  padding: 0 $size-l;
+  z-index: 2;
+  margin-bottom: $size-xl;
+  justify-content: flex-end;
+  width: 80%;
+
+  @include lg {
+    margin-bottom: 0;
+  }
+}
+
+.Season__linkTitle {
+  font-size: 0.6rem;
+  padding-right: $size-xs;
+}
+
+.Season__imageTutto {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: $size-xs;
+  padding: $size-xs;
+  width: 2 * $size-xl;
+}
+
+.Season__links {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
