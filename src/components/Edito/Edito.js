@@ -1,11 +1,11 @@
 /* @flow */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
 import _get from 'lodash/get';
 
-import { getApiGet, generateAxiosParams, getServerUrl } from '../../shared/utils';
+import { getApiGet, getServerUrl, getApiToken } from '../../shared/utils';
 import Errors from '../Errors/Errors';
 import './Edito.scss';
 
@@ -20,16 +20,20 @@ const replaceImage = (content) =>
 const replaceHttpToHttps = (content) => content && content.replace(/http:/gim, `https:`);
 
 const Edito = ({ page, name }: EditoProps) => {
+  const sourceAxios = useRef<Object>();
   const [data, setData] = useState({});
   const [error, setError] = useState(undefined);
 
   useEffect(() => {
     let isSubscribed = true;
+    sourceAxios.current = axios.CancelToken.source();
+
     async function getData() {
       try {
         await axios
           .get(`${getApiGet()}${page}`, {
-            params: generateAxiosParams({ lang: window.LOCALE_VELASCA }),
+            params: { lang: window.LOCALE_VELASCA },
+            headers: { 'Cockpit-Token': getApiToken() },
           })
           .then(({ data: dataAxios }) => {
             if (isSubscribed) {
@@ -37,7 +41,6 @@ const Edito = ({ page, name }: EditoProps) => {
             }
           });
       } catch (error) {
-        console.log({ error });
         setError(error);
       }
     }
@@ -46,6 +49,9 @@ const Edito = ({ page, name }: EditoProps) => {
 
     return () => {
       isSubscribed = false;
+      if (sourceAxios.current) {
+        sourceAxios.current.cancel();
+      }
     };
   }, []);
 

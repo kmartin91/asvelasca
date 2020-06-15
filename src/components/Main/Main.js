@@ -5,7 +5,7 @@ import axios from 'axios';
 import _get from 'lodash/get';
 import classnames from 'classnames';
 
-import { getApiGet, generateAxiosParams, getServerUrl, useInterval } from '../../shared/utils';
+import { getApiGet, getApiToken, getServerUrl, useInterval } from '../../shared/utils';
 
 import './Main.scss';
 
@@ -18,7 +18,7 @@ const Main = ({ className }: MainPropTypes) => {
   const [slider, setSlider] = useState([]);
   const [current, setCurrent] = useState(0);
 
-  const setNextSlide = arrLength => {
+  const setNextSlide = (arrLength) => {
     if (!slider || current >= slider.length - 1) setCurrent(0);
     else {
       setCurrent(current + 1);
@@ -36,7 +36,8 @@ const Main = ({ className }: MainPropTypes) => {
       try {
         await axios
           .get(`${getApiGet()}home`, {
-            params: generateAxiosParams({ lang: window.LOCALE_VELASCA }),
+            params: { lang: window.LOCALE_VELASCA },
+            headers: { 'Cockpit-Token': getApiToken() },
           })
           .then(({ data }) => {
             if (isSubscribed) {

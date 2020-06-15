@@ -1,0 +1,70 @@
+/** @define Ladder */
+
+.Ladder {
+  display: grid;
+  grid-template-rows: repeat(15, $size-l);
+  color: palette(neutral, white);
+  margin-bottom: $size-xl;
+}
+
+.Ladder__stylised {
+  font-family: themefont();
+}
+
+.Ladder__header {
+  .Ladder__item {
+    cursor: pointer;
+  }
+}
+
+.Ladder__row {
+  background-color: palette(neutral, menu);
+  border: 1px solid palette(neutral, white);
+  border-top: none;
+  display: grid;
+  grid-template-columns: $size-l 1fr repeat(4, $size-xl);
+  font-size: 0.6rem;
+
+  @include lg {
+    font-size: 0.8rem;
+    grid-template-columns: $size-l 1fr repeat(7, $size-xl);
+  }
+
+  &:nth-child(odd) {
+    background-color: palette(neutral, ladderalt);
+  }
+
+  &:first-child {
+    border: 1px solid palette(neutral, white);
+    background-color: palette(neutral, menu);
+  }
+}
+
+.Ladder__item {
+  border-left: 1px solid palette(neutral, white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:nth-child(n + 7) {
+    display: none;
+  }
+
+  @include lg {
+    &:nth-child(n + 7) {
+      display: flex;
+    }
+  }
+}
+
+.Ladder__item_borderLess {
+  border: none;
+}
+
+.Ladder__row_velasca {
+  background-color: palette(neutral, redhome);
+}
+
+.Ladder__item_alt {
+  font-weight: bold;
+}

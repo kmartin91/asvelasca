@@ -1,0 +1,53 @@
+/** @define Results */
+
+.Results {
+  display: grid;
+  color: palette(neutral, white);
+  font-family: themefont();
+  padding: $size-m;
+  row-gap: $size-xs;
+}
+
+.Results__header {
+  display: flex;
+  margin: $size-s 0;
+  justify-content: space-between;
+}
+
+.Results__link {
+  cursor: pointer;
+}
+
+.Results__row {
+  align-items: baseline;
+  display: grid;
+  grid-template-columns: 1fr $size-xl 1fr;
+  font-size: 0.7rem;
+
+  @include lg {
+    font-size: 0.8rem;
+  }
+}
+
+.Results__score {
+  display: flex;
+  font-size: 1rem;
+  justify-content: center;
+}
+
+.Results__homeTeam,
+.Results__awayTeam {
+  justify-self: center;
+}
+
+.Results__scoreItem_win {
+  color: palette(neutral, green);
+}
+
+.Results__scoreItem_lose {
+  color: palette(neutral, ladderalt);
+}
+
+.Results__scoreItem_draw {
+  color: palette(neutral, neutral);
+}

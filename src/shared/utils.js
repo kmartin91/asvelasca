@@ -8,7 +8,9 @@ const getApiUrl = () => `${getBaseUrl()}${process.env.API_URL}`;
 
 const getApiGet = () => `${getApiUrl()}/collections/get/`;
 
-const generateAxiosParams = params => ({ ...params, token: process.env.API_TOKEN });
+const getApiToken = () => process.env.API_TOKEN;
+
+const getTutoCampiToken = () => process.env.TUTOCAMPI_TOKEN;
 
 export function useInterval(callback, delay) {
   const savedCallback = useRef();
@@ -30,7 +32,7 @@ export function useInterval(callback, delay) {
   }, [delay]);
 }
 
-const getRouteWithLocale = route => {
+const getRouteWithLocale = (route) => {
   if (
     window.location.href.indexOf(window.LOCALE_VELASCA) < 0 ||
     window.location.href.split('/').pop() === window.LOCALE_VELASCA
@@ -40,4 +42,12 @@ const getRouteWithLocale = route => {
   return route;
 };
 
-export { getApiUrl, getApiGet, generateAxiosParams, getBaseUrl, getServerUrl, getRouteWithLocale };
+export {
+  getApiUrl,
+  getApiGet,
+  getBaseUrl,
+  getServerUrl,
+  getRouteWithLocale,
+  getTutoCampiToken,
+  getApiToken,
+};

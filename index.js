@@ -1,15 +1,23 @@
 import React from 'react';
 import { hydrate, render } from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import importedComponent from 'react-imported-component';
+// import importedComponent from 'react-imported-component';
+import Main from './src/components/Main/Main';
+import Disclaimer from './src/components/Disclaimer/Disclaimer';
+import Edito from './src/components/Edito/Edito';
+import Errors from './src/components/Errors/Errors';
+import Season from './src/components/Season/Season';
+import Layout from './src/components/Layout/Layout';
 
-/* Import new component here */
-const Layout = importedComponent(() => import('./src/components/Layout/Layout'));
+/* Import new component here 
 const Main = importedComponent(() => import('./src/components/Main/Main'));
 const Disclaimer = importedComponent(() => import('./src/components/Disclaimer/Disclaimer'));
 const Edito = importedComponent(() => import('./src/components/Edito/Edito'));
 const Errors = importedComponent(() => import('./src/components/Errors/Errors'));
-
+const Ladder = importedComponent(() => import('./src/components/Ladder/Ladder'));
+// const Season = importedComponent(() => import('./src/components/Season/Season'));
+const Layout = importedComponent(() => import('./src/components/Layout/Layout'));
+*/
 const base = '/:locale(fr|en|it|cn)?';
 
 const App = (
@@ -38,9 +46,9 @@ const App = (
       <Layout path={`${base}/artisti`} component={Edito} page="artists" name="artisti" />
 
       {/* Season */}
-      <Layout path={`${base}/season`} component={Edito} page="season" name="season" />
-      <Layout path={`${base}/saison`} component={Edito} page="season" name="saison" />
-      <Layout path={`${base}/stagione`} component={Edito} page="season" name="stagione" />
+      <Layout path={`${base}/season`} component={Season} page="season" name="season" />
+      <Layout path={`${base}/saison`} component={Season} page="season" name="saison" />
+      <Layout path={`${base}/stagione`} component={Season} page="season" name="stagione" />
 
       {/* Tickets */}
       <Layout path={`${base}/tickets`} component={Edito} page="tickets" name="tickets" />
