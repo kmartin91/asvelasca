@@ -73,13 +73,13 @@ const Results = (props: PropTypes) => {
       <div className="Results__header">
         {parseInt(matchId, 10) >= 1 && (
           <a className="Results__link" onClick={prevMatch} disabled={matchId === 1}>
-            Previous Match
+            Previous Matches
           </a>
         )}
         <div className="Results__matchDay">Match {matchId}</div>
         {parseInt(matchId, 10) < parseInt(maxMatchId, 10) && (
           <a className="Results__link" onClick={nextMatch}>
-            Next Match
+            Next Matches
           </a>
         )}
       </div>

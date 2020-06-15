@@ -9,13 +9,18 @@
 }
 
 .Results__header {
-  display: flex;
-  margin: $size-s 0;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 84px 1fr;
+  margin: 8px 0;
 }
 
 .Results__link {
   cursor: pointer;
+  justify-self: center;
+}
+
+.Results__matchDay {
+  justify-self: center;
 }
 
 .Results__row {
