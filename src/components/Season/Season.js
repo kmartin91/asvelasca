@@ -88,6 +88,16 @@ const Season = ({ page, name }: SeasonProps) => {
           <Toggle className="Season__tabs" tabs={tabs} />
         </div>
       )}
+      <div className="Season__links">
+        <a href="https://tuttocampo.it" className="Season__link" target="_blank">
+          <p className="Season__linkTitle">With courtesy of</p>
+          <img
+            src="https://www.tuttocampo.it/Web/Images/title.png"
+            className="Season__imageTutto"
+            alt="TuttoCampo"
+          />
+        </a>
+      </div>
     </div>
   );
 };

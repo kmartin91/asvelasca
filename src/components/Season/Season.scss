@@ -46,3 +46,41 @@
     width: 80%;
   }
 }
+
+.Season__link,
+.Season__link:visited,
+.Season__link:hover {
+  color: palette(neutral, white);
+  display: flex;
+  align-items: center;
+  font-family: themefont();
+  position: relative;
+  text-decoration: none;
+  padding: 0 $size-l;
+  z-index: 2;
+  margin-bottom: $size-xl;
+  justify-content: flex-end;
+  width: 80%;
+
+  @include lg {
+    margin-bottom: 0;
+  }
+}
+
+.Season__linkTitle {
+  font-size: 0.6rem;
+  padding-right: $size-xs;
+}
+
+.Season__imageTutto {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: $size-xs;
+  padding: $size-xs;
+  width: 2 * $size-xl;
+}
+
+.Season__links {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
