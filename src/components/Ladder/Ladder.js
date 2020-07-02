@@ -7,7 +7,7 @@ import { Helmet } from 'react-helmet';
 import _get from 'lodash/get';
 import { Base64 } from 'js-base64';
 
-import { getTutoCampiToken } from '../../shared/utils';
+import { getTutoCampiToken, getCurrentYear } from '../../shared/utils';
 
 import './Ladder.scss';
 
@@ -42,6 +42,7 @@ const Ladder = (props: PropTypes) => {
 
     const formData = new FormData();
     formData.append('token', getTutoCampiToken());
+    formData.append('year', getCurrentYear());
     try {
       axios
         .post(page, formData, { cancelToken: sourceAxios.current.token })
@@ -70,15 +71,17 @@ const Ladder = (props: PropTypes) => {
     };
   }, []);
 
-  const sortedLadderData = ladderData.sort((a, b) => {
-    if (
-      parseInt(_get(a, `${sortKey}`, _get(a, 'p')), 10) <=
-      parseInt(_get(b, `${sortKey}`, _get(b, 'p')), 10)
-    ) {
-      return orderDesc ? -1 : 1;
-    }
-    return orderDesc ? 1 : -1;
-  });
+  const sortedLadderData = ladderData
+    ? ladderData.sort((a, b) => {
+        if (
+          parseInt(_get(a, `${sortKey}`, _get(a, 'p')), 10) <=
+          parseInt(_get(b, `${sortKey}`, _get(b, 'p')), 10)
+        ) {
+          return orderDesc ? -1 : 1;
+        }
+        return orderDesc ? 1 : -1;
+      })
+    : [];
 
   return (
     <div className="Ladder">

@@ -12,6 +12,8 @@ const getApiToken = () => process.env.API_TOKEN;
 
 const getTutoCampiToken = () => process.env.TUTOCAMPI_TOKEN;
 
+const getCurrentYear = () => process.env.CURRENT_YEAR;
+
 export function useInterval(callback, delay) {
   const savedCallback = useRef();
 
@@ -50,4 +52,5 @@ export {
   getRouteWithLocale,
   getTutoCampiToken,
   getApiToken,
+  getCurrentYear,
 };

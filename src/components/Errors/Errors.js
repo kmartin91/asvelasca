@@ -16,7 +16,7 @@ import './Errors.scss';
 
 const Errors = ({ message, code, className }: EditoProps) => (
   <div className={classnames('Errors', className)}>
-    <div className="Errors__title">Oups</div>
+    <div className="Errors__title">OFFSIDE</div>
     {message && <div className="Errors__message"> {message} </div>}
     {code && <div className="Errors__code"> {code} </div>}
   </div>
