@@ -6,7 +6,7 @@ import _get from 'lodash/get';
 import classnames from 'classnames';
 import { Base64 } from 'js-base64';
 
-import { getTutoCampiToken } from '../../shared/utils';
+import { getTutoCampiToken, getCurrentYear } from '../../shared/utils';
 
 import './Results.scss';
 
@@ -31,6 +31,7 @@ const Results = (props: PropTypes) => {
     formData.append('token', getTutoCampiToken());
     formData.append('all', 'true');
     formData.append('match_day', matchIdParams);
+    formData.append('year', getCurrentYear());
     try {
       axios
         .post(page, formData, { cancelToken: sourceAxios.current.token })
@@ -83,34 +84,36 @@ const Results = (props: PropTypes) => {
           </a>
         )}
       </div>
-      {resultData.map(({ ht: homeTeam, at: awayTeam, hg: homeGoal, ag: awayGoal }) => (
-        <div key={`${homeTeam}-vs-${awayTeam}`} className="Results__row">
-          <div className="Results__homeTeam">{homeTeam}</div>
-          <div className="Results__score">
-            <div
-              className={classnames('Results__scoreItem', {
-                Results__scoreItem_win: homeGoal > awayGoal,
-                Results__scoreItem_draw: !homeGoal || homeGoal === awayGoal,
-                Results__scoreItem_lose: homeGoal < awayGoal,
-              })}
-            >
-              {homeGoal || 'X'}
+      {resultData &&
+        resultData.length >= 1 &&
+        resultData.map(({ ht: homeTeam, at: awayTeam, hg: homeGoal, ag: awayGoal }) => (
+          <div key={`${homeTeam}-vs-${awayTeam}`} className="Results__row">
+            <div className="Results__homeTeam">{homeTeam}</div>
+            <div className="Results__score">
+              <div
+                className={classnames('Results__scoreItem', {
+                  Results__scoreItem_win: homeGoal > awayGoal,
+                  Results__scoreItem_draw: !homeGoal || homeGoal === awayGoal,
+                  Results__scoreItem_lose: homeGoal < awayGoal,
+                })}
+              >
+                {homeGoal || 'X'}
+              </div>
+              -
+              <div
+                className={classnames('Results__scoreItem', {
+                  Results__scoreItem_win: homeGoal < awayGoal,
+                  Results__scoreItem_draw: !awayGoal || homeGoal === awayGoal,
+                  Results__scoreItem_lose: homeGoal > awayGoal,
+                })}
+              >
+                {awayGoal || 'X'}
+              </div>
             </div>
-            -
-            <div
-              className={classnames('Results__scoreItem', {
-                Results__scoreItem_win: homeGoal < awayGoal,
-                Results__scoreItem_draw: !awayGoal || homeGoal === awayGoal,
-                Results__scoreItem_lose: homeGoal > awayGoal,
-              })}
-            >
-              {awayGoal || 'X'}
-            </div>
-          </div>
 
-          <div className="Results__awayTeam">{awayTeam}</div>
-        </div>
-      ))}
+            <div className="Results__awayTeam">{awayTeam}</div>
+          </div>
+        ))}
     </div>
   );
 };
