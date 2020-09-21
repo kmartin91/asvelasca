@@ -42,7 +42,7 @@
   font-family: themefont(), sans-serif;
   font-size: 0.8rem;
   position: absolute;
-  bottom: $size-l;
+  bottom: 60px + $size-l;
   left: 50%;
   transform: translateX(-50%);
 }
