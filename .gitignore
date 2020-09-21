@@ -5,7 +5,7 @@
 .cache
 
 # Dist
-dist
+dist/
 
 # Build output folders
 build/
