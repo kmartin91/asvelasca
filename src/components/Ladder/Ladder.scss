@@ -2,7 +2,7 @@
 
 .Ladder {
   display: grid;
-  grid-template-rows: repeat(15, $size-l);
+  grid-auto-rows: $size-l;
   color: palette(neutral, white);
 }
 

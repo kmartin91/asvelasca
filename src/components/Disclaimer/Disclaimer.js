@@ -59,16 +59,16 @@ const Disclaimer = (props: PropTypes) => {
         ENTER WEBSITE
       </a>
       <div className="Disclaimer__LangSelector">
-        <a className="Disclaimer__Lang" href="/it/home">
+        <a className="Disclaimer__Link" href="/it/home">
           Italiano /
         </a>
-        <a className="Disclaimer__Lang" href="/en/home">
+        <a className="Disclaimer__Link" href="/en/home">
           English /
         </a>
-        <a className="Disclaimer__Lang" href="/fr/home">
+        <a className="Disclaimer__Link" href="/fr/home">
           Français /
         </a>
-        <a className="Disclaimer__Lang" href="/cn/home">
+        <a className="Disclaimer__Link" href="/cn/home">
           中文
         </a>
       </div>
@@ -88,6 +88,9 @@ const Disclaimer = (props: PropTypes) => {
       <div className="Disclaimer__Social">
         <Social />
       </div>
+      <a className="Disclaimer__Link Disclaimer__link_alt" href="/en/disclaimer">
+        Disclaimer
+      </a>
     </div>
   );
 };
