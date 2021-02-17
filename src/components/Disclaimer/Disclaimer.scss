@@ -33,12 +33,16 @@
   width: 80px;
 }
 
-.Disclaimer__Lang {
+.Disclaimer__Link {
   font-family: themefont();
   color: palette(neutral, white);
   text-decoration: none;
   font-size: 0.9rem;
   padding-left: 2px;
+}
+
+.Disclaimer__link_alt {
+  padding-top: $size-m;
 }
 
 .Disclaimer__SponsorContainer {

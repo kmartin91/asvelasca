@@ -16,6 +16,6 @@
     { "label": "支持者", "route": "supporters", "key": "supporter", "name": "SUPPORTER" },
     { "label": "新闻室", "route": "press", "key": "press", "name": "PRESS" },
     { "label": "精品", "route": "shop", "key": "shop", "isPrimary": true, "name": "SHOP" },
-    { "label": "联系", "route": "contacts", "key": "contacts", "name": "CONTACTS" }
+    { "label": "联系", "route": "disclaimer", "key": "contacts", "name": "CONTACTS" }
   ]
 }

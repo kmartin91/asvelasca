@@ -77,6 +77,9 @@ const App = (
       <Layout path={`${base}/contatti`} component={Edito} page="contacts" name="contatti" />
       <Layout path={`${base}/contacts`} component={Edito} page="contacts" name="contacts" />
 
+      {/* Disclaimer */}
+      <Layout path={`${base}/disclaimer`} component={Edito} page="disclaimer" name="disclaimer" />
+
       <Layout component={Errors} withoutFooter code="404" noOverFlow message="Page not found" />
     </Switch>
   </Router>

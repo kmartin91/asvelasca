@@ -23,6 +23,6 @@
     { "label": "press", "route": "press", "key": "press", "name": "PRESS" },
     { "label": "shop", "route": "shop", "key": "shop", "isPrimary": true, "name": "SHOP" },
     { "label": "bulletin", "route": "bulletin", "key": "bulletin", "name": "BULLETIN" },
-    { "label": "contacts", "route": "contacts", "key": "contacts", "name": "CONTACTS" }
+    { "label": "contacts", "route": "disclaimer", "key": "contacts", "name": "CONTACTS" }
   ]
 }
