@@ -1,11 +1,15 @@
 /** @define ShopItem */
 
 .ShopItem {
-  width: 50%;
   z-index: 2;
   position: relative;
   margin: $size-l;
   font-family: themefont();
+  width: 100%;
+
+  @include lg {
+    width: 50%;
+  }
 }
 
 .ShopItem__back {
@@ -15,12 +19,25 @@
 
 .ShopItem__content {
   display: flex;
+  flex-direction: column;
   margin: $size-l 0;
+
+  @include lg {
+    flex-direction: row;
+  }
 }
 
 .ShopItem__image {
-  width: 45%;
+  width: 60%;
   max-height: 450px;
+  margin-bottom: $size-l;
+  align-self: center;
+
+  @include lg {
+    width: 45%;
+    margin-bottom: 0;
+    align-self: inherit;
+  }
 }
 
 .ShopItem__product {
