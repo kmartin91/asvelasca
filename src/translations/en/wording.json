@@ -24,5 +24,10 @@
     { "label": "shop", "route": "shop", "key": "shop", "isPrimary": true, "name": "SHOP" },
     { "label": "bulletin", "route": "bulletin", "key": "bulletin", "name": "BULLETIN" },
     { "label": "contacts", "route": "disclaimer", "key": "contacts", "name": "CONTACTS" }
-  ]
+  ],
+  "backToList": "Back to products",
+  "name": "Your Name ?",
+  "number": "Your Number ?",
+  "personalize": "Customize your jersey",
+  "buy": "Order"
 }

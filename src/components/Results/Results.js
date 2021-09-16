@@ -1,6 +1,7 @@
 /* @flow */
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import type { Node } from 'react';
 import axios from 'axios';
 import _get from 'lodash/get';
 import classnames from 'classnames';
@@ -15,7 +16,7 @@ type PropTypes = {};
 /**
  * Results
  */
-const Results = (props: PropTypes) => {
+const Results = (props: PropTypes): Node => {
   const sourceAxios = useRef<Object>();
   const [resultData, setResultData] = useState<Array<Object>>([]);
   const [error, setError] = useState<Object>(undefined);

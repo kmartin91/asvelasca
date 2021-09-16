@@ -1,6 +1,7 @@
 /* @flow */
 
 import React from 'react';
+import type { Node } from 'react';
 import { Route } from 'react-router-dom';
 import App from '../App/App';
 
@@ -12,8 +13,11 @@ type PropTypes = {
 /**
  * Layout
  */
-const Layout = ({ component: Component, ...rest }: PropTypes) => (
-  <Route {...rest} render={matchProps => <App component={Component} {...matchProps} {...rest} />} />
+const Layout = ({ component: Component, ...rest }: PropTypes): Node => (
+  <Route
+    {...rest}
+    render={(matchProps) => <App component={Component} {...matchProps} {...rest} />}
+  />
 );
 
 export default Layout;

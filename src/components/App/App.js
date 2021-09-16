@@ -1,6 +1,7 @@
 /* @flow */
 
 import React from 'react';
+import type { Node } from 'react';
 import classnames from 'classnames';
 import { Helmet } from 'react-helmet';
 import Header from '../Header/Header';
@@ -19,7 +20,7 @@ type PropTypes = {
 
 import './App.scss';
 
-const App = ({ component: Component, ...props }: PropTypes) => {
+const App = ({ component: Component, ...props }: PropTypes): Node => {
   const { match: { params } = {}, withoutFooter, withoutHeader, noOverFlow } = props;
   const { locale } = params;
   window.LOCALE_VELASCA = locale || 'en';

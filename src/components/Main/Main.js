@@ -1,6 +1,7 @@
 /* @flow */
 
 import React, { useState, useEffect, useRef } from 'react';
+import type { Node } from 'react';
 import axios from 'axios';
 import _get from 'lodash/get';
 import classnames from 'classnames';
@@ -13,7 +14,7 @@ type MainPropTypes = {
   className?: string,
 };
 
-const Main = ({ className }: MainPropTypes) => {
+const Main = ({ className }: MainPropTypes): Node => {
   const [maintenance, setMaintenance] = useState(false);
   const [slider, setSlider] = useState([]);
   const [current, setCurrent] = useState(0);

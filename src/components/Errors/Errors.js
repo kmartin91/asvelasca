@@ -1,6 +1,7 @@
 /* @flow */
 
 import React from 'react';
+import type { Node } from 'react';
 import _get from 'lodash/get';
 import classnames from 'classnames';
 
@@ -14,7 +15,7 @@ type EditoProps = {
 
 import './Errors.scss';
 
-const Errors = ({ message, code, className }: EditoProps) => (
+const Errors = ({ message, code, className }: EditoProps): Node => (
   <div className={classnames('Errors', className)}>
     <div className="Errors__title">OFFSIDE</div>
     {message && <div className="Errors__message"> {message} </div>}

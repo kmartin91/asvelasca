@@ -1,6 +1,7 @@
 /* @flow */
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import type { Node } from 'react';
 import axios from 'axios';
 import classnames from 'classnames';
 import { Helmet } from 'react-helmet';
@@ -16,7 +17,7 @@ type PropTypes = {};
 /**
  * Ladder
  */
-const Ladder = (props: PropTypes) => {
+const Ladder = (props: PropTypes): Node => {
   const sourceAxios = useRef<Object>();
   const lastSortKey = useRef<string>('');
   const [orderDesc, setOrderDesc] = useState<boolean>(false);

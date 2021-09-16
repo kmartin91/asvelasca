@@ -1,6 +1,7 @@
 /* @flow */
 
 import React, { useState } from 'react';
+import type { Node } from 'react';
 import classnames from 'classnames';
 import { getRouteWithLocale } from '../../../shared/utils';
 
@@ -24,7 +25,7 @@ const MenuList = ({
   handleOpenMobileMenu,
   isMobileOpen,
   ...rest
-}: PropTypes) => (
+}: PropTypes): Node => (
   <ul
     className={classnames('MenuList', {
       MenuList_alternate: isAlternate,

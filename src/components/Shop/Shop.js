@@ -3,27 +3,29 @@
 import React, { useState, useEffect, useRef } from 'react';
 import type { Node } from 'react';
 import axios from 'axios';
+import classnames from 'classnames';
 import { Helmet } from 'react-helmet';
 import _get from 'lodash/get';
 
-import { getApiGet, getServerUrl, getApiToken } from '../../shared/utils';
 import Errors from '../Errors/Errors';
-import './Edito.scss';
+import ShopItem from './ShopItem/ShopItem';
 
-type EditoProps = {
-  page: string,
-  name: string,
-};
+import { getApiGet, getServerUrl, getApiToken } from '../../shared/utils';
+import { translate } from '../../shared/i18n';
 
-const replaceImage = (content) =>
-  content && content.replace(/src="\/storage\//gim, `src="${getServerUrl()}/storage/`);
+import './Shop.scss';
+import classNames from 'classnames';
 
-const replaceHttpToHttps = (content) => content && content.replace(/http:/gim, `https:`);
+type PropTypes = { page: string, name: string };
 
-const Edito = ({ page, name }: EditoProps): Node => {
+/**
+ * Shop
+ */
+const Shop = ({ page, name }: PropTypes): Node => {
   const sourceAxios = useRef<Object>();
-  const [data, setData] = useState({});
-  const [error, setError] = useState(undefined);
+  const [data, setData] = useState<Object>({});
+  const [error, setError] = useState<Object>(undefined);
+  const [currentItem, setCurrentItem] = useState<Object>(null);
 
   useEffect(() => {
     let isSubscribed = true;
@@ -58,14 +60,12 @@ const Edito = ({ page, name }: EditoProps): Node => {
 
   const { entries = {}, fields = {} } = data;
 
-  const { background, content } = _get(data, 'entries[0]', []);
-
-  const newContent = replaceHttpToHttps(replaceImage(content || ''));
+  const { background, products: { products } = {} } = _get(data, 'entries[0]', []);
 
   const currentURL = `https://www.asvelasca.it/${window.LOCALE_VELASCA}/${page}`;
 
   return (
-    <div className="Edito">
+    <div className="Shop">
       <Helmet>
         <title>{`.:: A.S. VELASCA ::. ${name.toUpperCase()}`}</title>
         <meta name="Description" content="La terza squadra di Milano" />
@@ -89,24 +89,44 @@ const Edito = ({ page, name }: EditoProps): Node => {
       </Helmet>
       {background && (
         <React.Fragment>
-          <div className="Edito__imageContainer">
+          <div className="Shop__imageContainer">
             <img
               src={`${getServerUrl()}${background.path}`}
               alt={background.title || 'As Velasca'}
-              className="Edito__image"
+              className="Shop__image"
             />
           </div>
-          <div className="Edito__overlay" />
+          <div className="Shop__overlay" />
         </React.Fragment>
       )}
-      {content && (
+      {currentItem ? (
+        <ShopItem item={currentItem} handleResetItem={() => setCurrentItem(null)} />
+      ) : (
         <React.Fragment>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: newContent,
-            }}
-            className="Edito__content"
-          />
+          {products && products.length > 0 && (
+            <div className="Shop__products">
+              {products.map((product) => {
+                const { image, sizeOnSite, price, name, season } = product;
+                return (
+                  <div
+                    className={classnames('Shop__product', { Shop__bigProduct: sizeOnSite === 2 })}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setCurrentItem(product);
+                    }}
+                    key={name}
+                  >
+                    <img className="Shop__productImage" src={image} alt={name} />
+                    <div className="Shop__productHover">
+                      <div className="Shop__productName">{name}</div>
+                      <div className="Shop__productPrice">{`${price} €`}</div>
+                      <button className="Shop__productButton">{translate('buy')}</button>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </React.Fragment>
       )}
       {error && <Errors message={_get(error, 'message')} code={_get(error, 'response.status')} />}
@@ -114,4 +134,4 @@ const Edito = ({ page, name }: EditoProps): Node => {
   );
 };
 
-export default Edito;
+export default Shop;

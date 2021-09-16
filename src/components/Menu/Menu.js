@@ -1,6 +1,7 @@
 /* @flow */
 
 import React, { useState } from 'react';
+import type { Node } from 'react';
 import classnames from 'classnames';
 import { translate } from '../../shared/i18n';
 import MenuList from './MenuList/MenuList';
@@ -14,7 +15,7 @@ type PropTypes = {};
 /**
  * Menu
  */
-const Menu = (props: PropTypes) => {
+const Menu = (props: PropTypes): Node => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const menu = translate('menu') || [];
   const mid = parseInt(menu.length / 2);

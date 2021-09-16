@@ -1,0 +1,131 @@
+/** @define Shop */
+
+.Shop {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 100px 0;
+  min-height: calc((var(--vh, 1vh) * 100) - 100px);
+
+  @include lg {
+    margin: 100px 0 0;
+  }
+}
+
+.Shop__imageContainer {
+  position: fixed;
+  height: calc((var(--vh, 1vh) * 100) - 75px);
+  width: 100%;
+  background-color: rgba(palette(neutral, black), 0.3);
+}
+
+.Shop__image {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.Shop__overlay {
+  top: 0;
+  bottom: -40px;
+  left: 0;
+  right: 0;
+  height: calc((var(--vh, 1vh) * 100) + #{$size-l});
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 2;
+  position: fixed;
+
+  @include lg {
+    bottom: 0;
+  }
+}
+
+.Shop__content {
+  width: 80%;
+  z-index: 2;
+  color: palette(neutral, white);
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
+  margin-top: $size-l;
+}
+
+/* stylelint-disable-next-line plugin/selector-bem-pattern */
+.Shop a {
+  text-decoration: underline;
+  color: palette(neutral, white);
+}
+
+.Shop__products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 200px;
+  grid-column-gap: 8px;
+  grid-row-gap: 8px;
+  margin: $size-l;
+  position: relative;
+  width: 50%;
+  z-index: 3;
+}
+
+.Shop__product {
+  cursor: pointer;
+  max-height: 450px;
+  grid-column: span 1;
+  grid-row: span 1;
+  position: relative;
+  font-family: themefont();
+}
+
+.Shop__productImage {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.Shop__bigProduct {
+  grid-column: span 3;
+  grid-row: span 2;
+}
+
+.Shop__productHover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  opacity: 0;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all 0.8s ease-in-out;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.Shop__productName {
+  font-size: 0.9rem;
+}
+
+.Shop__productButton {
+  border: 2px solid palette(neutral, green);
+  background-color: transparent;
+  padding: 8px 12px 4px;
+  color: palette(neutral, green);
+  font-family: themefont();
+  outline: none;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: all 0.5s ease-in-out;
+  margin-top: 8px;
+
+  &:hover {
+    background-color: palette(neutral, green);
+    color: palette(neutral, white);
+  }
+}

@@ -1,6 +1,7 @@
 /* @flow */
 
 import React, { useEffect, useState, useRef } from 'react';
+import type { Node } from 'react';
 import axios from 'axios';
 import _get from 'lodash/get';
 import { Helmet } from 'react-helmet';
@@ -21,7 +22,7 @@ type SeasonProps = {
 /**
  * Season
  */
-const Season = ({ page, name }: SeasonProps) => {
+const Season = ({ page, name }: SeasonProps): Node => {
   const sourceAxios = useRef<Object>();
   const [data, setData] = useState({});
   const [error, setError] = useState(undefined);
@@ -88,16 +89,6 @@ const Season = ({ page, name }: SeasonProps) => {
           <Toggle className="Season__tabs" tabs={tabs} />
         </div>
       )}
-      <div className="Season__links">
-        <a href="https://tuttocampo.it" className="Season__link" target="_blank">
-          <p className="Season__linkTitle">With courtesy of</p>
-          <img
-            src="https://www.tuttocampo.it/Web/Images/title.png"
-            className="Season__imageTutto"
-            alt="TuttoCampo"
-          />
-        </a>
-      </div>
     </div>
   );
 };
