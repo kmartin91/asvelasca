@@ -8,7 +8,6 @@ const Main = importedComponent(() => import('./src/components/Main/Main'));
 const Disclaimer = importedComponent(() => import('./src/components/Disclaimer/Disclaimer'));
 const Edito = importedComponent(() => import('./src/components/Edito/Edito'));
 const Errors = importedComponent(() => import('./src/components/Errors/Errors'));
-const Ladder = importedComponent(() => import('./src/components/Ladder/Ladder'));
 const Season = importedComponent(() => import('./src/components/Season/Season'));
 const Shop = importedComponent(() => import('./src/components/Shop/Shop'));
 const Layout = importedComponent(() => import('./src/components/Layout/Layout'));

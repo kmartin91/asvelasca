@@ -20,7 +20,7 @@ const Results = (props: PropTypes): Node => {
   const sourceAxios = useRef<Object>();
   const [resultData, setResultData] = useState<Array<Object>>([]);
   const [error, setError] = useState<Object>(undefined);
-  const [matchId, setMatchId] = useState<string>('-1');
+  const [matchId, setMatchId] = useState<string>('1');
   const [maxMatchId, setMaxMatchId] = useState<string>('100');
 
   const page = 'https://www.tuttocampo.it/api/1.0/GetResults.php';
@@ -37,10 +37,9 @@ const Results = (props: PropTypes): Node => {
       axios
         .post(page, formData, { cancelToken: sourceAxios.current.token })
         .then(({ data: dataAxios }) => {
-          const decodedData = JSON.parse(Base64.decode(dataAxios));
-          setResultData(decodedData);
-          if (matchId === '-1') setMaxMatchId(_get(decodedData[0], 'im', '').split('.')[0]);
-          setMatchId(_get(decodedData[0], 'im', '').split('.')[0]);
+          setResultData(dataAxios);
+          if (matchId === '-1') setMaxMatchId(_get(dataAxios[0], 'im', '').split('.')[0]);
+          setMatchId(_get(dataAxios[0], 'im', '').split('.')[0]);
         });
     } catch (error) {
       console.log({ error });
