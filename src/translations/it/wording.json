@@ -29,5 +29,6 @@
   "name": "Il tuo nome ?",
   "number": "Il tuo numero ?",
   "personalize": "Personalizza la tua maglia",
-  "buy": "Ordina"
+  "buy": "Ordina",
+  "soldOut": "Sold out"
 }
