@@ -135,11 +135,7 @@ const Shop = ({ page, name }: PropTypes): Node => {
                     key={name}
                   >
                     <img className="Shop__productImage" src={image} alt={name} />
-                    <div
-                      className={classnames('Shop__productHover', {
-                        Shop__productHover_display: isSoldOut,
-                      })}
-                    >
+                    <div className="Shop__productHover">
                       <div className="Shop__productSeason">{season}</div>
                       <div className="Shop__productName">{name}</div>
                       {artist && <div className="Shop__productArtist">{artist}</div>}
