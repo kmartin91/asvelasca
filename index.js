@@ -78,6 +78,14 @@ const App = (
       {/* Event */}
       <Layout path={`${base}/chapter7`} component={Edito} page="chapter7" name="chapter7" />
 
+      {/* Payment Confirmation */}
+      <Layout
+        path={`${base}/confirmation`}
+        component={Edito}
+        page="confirmation"
+        name="confirmation"
+      />
+
       <Layout component={Errors} withoutFooter code="404" noOverFlow message="Page not found" />
     </Switch>
   </Router>

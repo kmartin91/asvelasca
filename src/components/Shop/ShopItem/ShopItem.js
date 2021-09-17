@@ -23,6 +23,9 @@ type ItemTypes = {
 
 type PropTypes = {
   item: ItemTypes,
+  prevItem: ItemTypes,
+  nextItem: ItemTypes,
+  handleChangeItem: Function,
   handleResetItem: Function,
 };
 
@@ -35,7 +38,13 @@ type OptionsTypes = {
 /**
  * ShopItem
  */
-const ShopItem = ({ item, handleResetItem }: PropTypes): Node => {
+const ShopItem = ({
+  item,
+  handleResetItem,
+  handleChangeItem,
+  prevItem,
+  nextItem,
+}: PropTypes): Node => {
   const {
     image,
     price,
@@ -154,6 +163,16 @@ const ShopItem = ({ item, handleResetItem }: PropTypes): Node => {
             <p>payment via credit card / Paypal </p>
             {!hideShippingPrice && <p>Shipping and handling: 9€ </p>}
             <p>Shipping worldwide</p>
+          </div>
+
+          <div className="ShopItem__navigation">
+            <a href="#" onClick={() => handleChangeItem(prevItem)}>
+              Prev item
+            </a>
+
+            <a href="#" onClick={() => handleChangeItem(nextItem)}>
+              Next item
+            </a>
           </div>
         </div>
       </div>

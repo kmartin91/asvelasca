@@ -11,7 +11,6 @@ import Errors from '../Errors/Errors';
 import ShopItem from './ShopItem/ShopItem';
 
 import { getApiGet, getServerUrl, getApiToken } from '../../shared/utils';
-import { translate } from '../../shared/i18n';
 
 import './Shop.scss';
 import classNames from 'classnames';
@@ -26,6 +25,8 @@ const Shop = ({ page, name }: PropTypes): Node => {
   const [data, setData] = useState<Object>({});
   const [error, setError] = useState<Object>(undefined);
   const [currentItem, setCurrentItem] = useState<Object>(null);
+  const [prevItem, setPrevItem] = useState<Object>(null);
+  const [nextItem, setNextItem] = useState<Object>(null);
 
   useEffect(() => {
     let isSubscribed = true;
@@ -64,6 +65,16 @@ const Shop = ({ page, name }: PropTypes): Node => {
 
   const currentURL = `https://www.asvelasca.it/${window.LOCALE_VELASCA}/${page}`;
 
+  const handleChangeItem = (currentItem: Object) => {
+    const index = products.indexOf(currentItem);
+    const prevProduct = index === 0 ? products.length - 1 : index - 1;
+    const nextProduct = index >= products.length - 1 ? 0 : index + 1;
+
+    setCurrentItem(currentItem);
+    setPrevItem(products[prevProduct]);
+    setNextItem(products[nextProduct]);
+  };
+
   return (
     <div className="Shop">
       <Helmet>
@@ -100,27 +111,34 @@ const Shop = ({ page, name }: PropTypes): Node => {
         </React.Fragment>
       )}
       {currentItem ? (
-        <ShopItem item={currentItem} handleResetItem={() => setCurrentItem(null)} />
+        <ShopItem
+          item={currentItem}
+          handleResetItem={() => setCurrentItem(null)}
+          nextItem={nextItem}
+          prevItem={prevItem}
+          handleChangeItem={handleChangeItem}
+        />
       ) : (
         <React.Fragment>
           {products && products.length > 0 && (
             <div className="Shop__products">
               {products.map((product) => {
-                const { image, sizeOnSite, price, name, season } = product;
+                const { image, sizeOnSite, price, name, season, artist } = product;
                 return (
                   <div
                     className={classnames('Shop__product', { Shop__bigProduct: sizeOnSite === 2 })}
                     onClick={(e) => {
                       e.preventDefault();
-                      setCurrentItem(product);
+                      handleChangeItem(product);
                     }}
                     key={name}
                   >
                     <img className="Shop__productImage" src={image} alt={name} />
                     <div className="Shop__productHover">
+                      <div className="Shop__productSeason">{season}</div>
                       <div className="Shop__productName">{name}</div>
+                      {artist && <div className="Shop__productArtist">{artist}</div>}
                       <div className="Shop__productPrice">{`${price} €`}</div>
-                      <button className="Shop__productButton">{translate('buy')}</button>
                     </div>
                   </div>
                 );
