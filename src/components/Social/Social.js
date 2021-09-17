@@ -1,6 +1,7 @@
 /* @flow */
 
 import React from 'react';
+import type { Node } from 'react';
 
 import './Social.scss';
 
@@ -9,7 +10,7 @@ type PropTypes = {};
 /**
  * Social
  */
-const Social = (props: PropTypes) => {
+const Social = (props: PropTypes): Node => {
   return (
     <div className="Social">
       <div className="Social__Item">

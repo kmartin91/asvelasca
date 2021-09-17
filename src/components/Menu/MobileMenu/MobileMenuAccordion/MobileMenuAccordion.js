@@ -1,6 +1,7 @@
 /* @flow */
 
 import React from 'react';
+import type { Node } from 'react';
 import classnames from 'classnames';
 import { getRouteWithLocale } from '../../../../shared/utils';
 
@@ -14,7 +15,7 @@ type PropTypes = {
 /**
  * MobileMenu
  */
-const MobileMenuAccordion = ({ links, isMobileOpen }: PropTypes) => {
+const MobileMenuAccordion = ({ links, isMobileOpen }: PropTypes): Node => {
   return (
     <div className={classnames('MobileMenuAccordion', { 'is-open': isMobileOpen })}>
       <ul className="MobileMenuAccordion__Links">

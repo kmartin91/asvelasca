@@ -1,6 +1,7 @@
 /* @flow */
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import type { Node } from 'react';
 import axios from 'axios';
 import classnames from 'classnames';
 import { Helmet } from 'react-helmet';
@@ -16,7 +17,7 @@ type PropTypes = {};
 /**
  * Ladder
  */
-const Ladder = (props: PropTypes) => {
+const Ladder = (props: PropTypes): Node => {
   const sourceAxios = useRef<Object>();
   const lastSortKey = useRef<string>('');
   const [orderDesc, setOrderDesc] = useState<boolean>(false);
@@ -48,8 +49,7 @@ const Ladder = (props: PropTypes) => {
         .post(page, formData, { cancelToken: sourceAxios.current.token })
         .then(({ data: dataAxios }) => {
           if (isSubscribed) {
-            const decodedData = JSON.parse(Base64.decode(dataAxios));
-            setLadderData(decodedData);
+            setLadderData(dataAxios);
           }
         });
     } catch (error) {

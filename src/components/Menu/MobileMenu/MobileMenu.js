@@ -1,6 +1,7 @@
 /* @flow */
 
 import React, { useState } from 'react';
+import type { Node } from 'react';
 import classnames from 'classnames';
 import { getRouteWithLocale } from '../../../shared/utils';
 
@@ -16,7 +17,7 @@ type PropTypes = {
 /**
  * MobileMenu
  */
-const MobileMenu = ({ links, withoutMore }: PropTypes) => {
+const MobileMenu = ({ links, withoutMore }: PropTypes): Node => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   const menuRest = links && links.filter(({ isPrimary }) => !isPrimary);

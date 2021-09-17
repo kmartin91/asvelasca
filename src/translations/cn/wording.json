@@ -17,5 +17,10 @@
     { "label": "新闻室", "route": "press", "key": "press", "name": "PRESS" },
     { "label": "精品", "route": "shop", "key": "shop", "isPrimary": true, "name": "SHOP" },
     { "label": "联系", "route": "disclaimer", "key": "contacts", "name": "CONTACTS" }
-  ]
+  ],
+  "backToList": "Back to products",
+  "name": "Your Name ?",
+  "number": "Your Number ?",
+  "personalize": "Customize your jersey",
+  "buy": "Order"
 }

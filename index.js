@@ -1,23 +1,17 @@
 import React from 'react';
 import { hydrate, render } from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-// import importedComponent from 'react-imported-component';
-import Main from './src/components/Main/Main';
-import Disclaimer from './src/components/Disclaimer/Disclaimer';
-import Edito from './src/components/Edito/Edito';
-import Errors from './src/components/Errors/Errors';
-import Season from './src/components/Season/Season';
-import Layout from './src/components/Layout/Layout';
+import importedComponent from 'react-imported-component';
 
-/* Import new component here 
+/* Import new component here  */
 const Main = importedComponent(() => import('./src/components/Main/Main'));
 const Disclaimer = importedComponent(() => import('./src/components/Disclaimer/Disclaimer'));
 const Edito = importedComponent(() => import('./src/components/Edito/Edito'));
 const Errors = importedComponent(() => import('./src/components/Errors/Errors'));
-const Ladder = importedComponent(() => import('./src/components/Ladder/Ladder'));
-// const Season = importedComponent(() => import('./src/components/Season/Season'));
+const Season = importedComponent(() => import('./src/components/Season/Season'));
+const Shop = importedComponent(() => import('./src/components/Shop/Shop'));
 const Layout = importedComponent(() => import('./src/components/Layout/Layout'));
-*/
+
 const base = '/:locale(fr|en|it|cn)?';
 
 const App = (
@@ -68,7 +62,8 @@ const App = (
       <Layout path={`${base}/stampa`} component={Edito} page="press" name="stampa" />
 
       {/* Shop */}
-      <Layout path={`${base}/shop`} component={Edito} page="shop" name="shop" />
+      <Layout path={`${base}/shop`} component={Shop} page="shop" name="shop" />
+
       {/* Bulletin */}
       <Layout path={`${base}/bollettino`} component={Edito} page="bulletin" name="bollettino" />
       <Layout path={`${base}/bulletin`} component={Edito} page="bulletin" name="bulletin" />
@@ -79,6 +74,17 @@ const App = (
 
       {/* Disclaimer */}
       <Layout path={`${base}/disclaimer`} component={Edito} page="disclaimer" name="disclaimer" />
+
+      {/* Event */}
+      <Layout path={`${base}/chapter7`} component={Edito} page="chapter7" name="chapter7" />
+
+      {/* Payment Confirmation */}
+      <Layout
+        path={`${base}/confirmation`}
+        component={Edito}
+        page="confirmation"
+        name="confirmation"
+      />
 
       <Layout component={Errors} withoutFooter code="404" noOverFlow message="Page not found" />
     </Switch>

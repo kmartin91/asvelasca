@@ -1,6 +1,7 @@
 /* @flow */
 
 import React, { useState, useEffect } from 'react';
+import type { Node } from 'react';
 import axios from 'axios';
 import _get from 'lodash/get';
 import Social from '../Social/Social';
@@ -15,7 +16,7 @@ type PropTypes = {};
 /**
  * Disclaimer
  */
-const Disclaimer = (props: PropTypes) => {
+const Disclaimer = (props: PropTypes): Node => {
   const [sponsors, setSponsors] = useState([]);
   const [maintenance, setMaintenance] = useState(false);
 

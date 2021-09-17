@@ -1,6 +1,7 @@
 /* @flow */
 
 import React, { useEffect, useState, useRef } from 'react';
+import type { Node } from 'react';
 import axios from 'axios';
 import _get from 'lodash/get';
 import { Helmet } from 'react-helmet';
@@ -21,7 +22,7 @@ type SeasonProps = {
 /**
  * Season
  */
-const Season = ({ page, name }: SeasonProps) => {
+const Season = ({ page, name }: SeasonProps): Node => {
   const sourceAxios = useRef<Object>();
   const [data, setData] = useState({});
   const [error, setError] = useState(undefined);
