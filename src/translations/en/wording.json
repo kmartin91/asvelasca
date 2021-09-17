@@ -29,5 +29,6 @@
   "name": "Your Name ?",
   "number": "Your Number ?",
   "personalize": "Customize your jersey",
-  "buy": "Order"
+  "buy": "Order",
+  "soldOut": "Sold out"
 }

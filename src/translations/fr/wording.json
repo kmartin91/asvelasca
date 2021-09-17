@@ -29,5 +29,6 @@
   "name": "Votre nom ?",
   "number": "Votre numéro ?",
   "personalize": "Personnalisez votre maillot",
-  "buy": "Acheter"
+  "buy": "Acheter",
+  "soldOut": "Sold out"
 }

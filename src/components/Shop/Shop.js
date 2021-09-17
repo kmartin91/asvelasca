@@ -11,6 +11,7 @@ import Errors from '../Errors/Errors';
 import ShopItem from './ShopItem/ShopItem';
 
 import { getApiGet, getServerUrl, getApiToken } from '../../shared/utils';
+import { translate } from '../../shared/i18n';
 
 import './Shop.scss';
 import classNames from 'classnames';
@@ -123,7 +124,7 @@ const Shop = ({ page, name }: PropTypes): Node => {
           {products && products.length > 0 && (
             <div className="Shop__products">
               {products.map((product) => {
-                const { image, sizeOnSite, price, name, season, artist } = product;
+                const { image, sizeOnSite, price, name, season, artist, isSoldOut } = product;
                 return (
                   <div
                     className={classnames('Shop__product', { Shop__bigProduct: sizeOnSite === 2 })}
@@ -138,7 +139,11 @@ const Shop = ({ page, name }: PropTypes): Node => {
                       <div className="Shop__productSeason">{season}</div>
                       <div className="Shop__productName">{name}</div>
                       {artist && <div className="Shop__productArtist">{artist}</div>}
-                      <div className="Shop__productPrice">{`${price} €`}</div>
+                      {!isSoldOut ? (
+                        <div className="Shop__productPrice">{`${price} €`}</div>
+                      ) : (
+                        <div className="Shop__productSoldOut">{translate('soldOut')}</div>
+                      )}
                     </div>
                   </div>
                 );
