@@ -26,8 +26,7 @@
     { "label": "contacts", "route": "disclaimer", "key": "contacts", "name": "CONTACTS" }
   ],
   "backToList": "Retour aux produits",
-  "name": "Votre nom ?",
-  "number": "Votre numéro ?",
+  "persoPlaceHolder": "Nom et/ou numéro",
   "personalize": "Personnalisez votre maillot",
   "buy": "Acheter",
   "soldOut": "Sold out"
