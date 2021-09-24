@@ -26,8 +26,7 @@
     { "label": "contatti", "route": "disclaimer", "key": "contacts", "name": "CONTATTI" }
   ],
   "backToList": "Torna ai prodo",
-  "name": "Il tuo nome ?",
-  "number": "Il tuo numero ?",
+  "persoPlaceHolder": "nome e/o numero",
   "personalize": "Personalizza la tua maglia",
   "buy": "Ordina",
   "soldOut": "Sold out"

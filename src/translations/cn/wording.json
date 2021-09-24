@@ -19,8 +19,7 @@
     { "label": "联系", "route": "disclaimer", "key": "contacts", "name": "CONTACTS" }
   ],
   "backToList": "Back to products",
-  "name": "Your Name ?",
-  "number": "Your Number ?",
+  "persoPlaceHolder": "Name and/or Number",
   "personalize": "Customize your jersey",
   "buy": "Order",
   "soldOut": "Sold out"

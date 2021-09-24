@@ -116,42 +116,44 @@ const ShopItem = ({
                 <input name="cmd" type="hidden" value="_s-xclick" />
                 <input name="hosted_button_id" type="hidden" value={buttonId} />
                 {selectOptions && (
-                  <Select
-                    options={selectOptions}
-                    isClearable={false}
-                    isSearchable={false}
-                    name="os0"
-                    className="ShopItem__select ShopItem__productOptions"
-                    styles={colourStyles}
-                    placeholder="Select option"
-                    defaultValue={selectOptions[0]}
-                  />
+                  <React.Fragment>
+                    <input name="on0" type="hidden" value="Options" />
+                    <Select
+                      options={selectOptions}
+                      isClearable={false}
+                      isSearchable={false}
+                      name="os0"
+                      className="ShopItem__select ShopItem__productOptions"
+                      styles={colourStyles}
+                      placeholder="Select option"
+                      defaultValue={selectOptions[0]}
+                    />
+                  </React.Fragment>
                 )}
                 {selectSizes && (
-                  <Select
-                    options={selectSizes}
-                    isClearable={false}
-                    isSearchable={false}
-                    name="os1"
-                    className="ShopItem__select ShopItem__productSizes"
-                    styles={colourStyles}
-                    placeholder="Select size"
-                    defaultValue={selectSizes[0]}
-                  />
+                  <React.Fragment>
+                    <input name="on0" type="hidden" value="Options" />
+                    <Select
+                      options={selectSizes}
+                      isClearable={false}
+                      isSearchable={false}
+                      name="on1"
+                      className="ShopItem__select ShopItem__productSizes"
+                      styles={colourStyles}
+                      placeholder="Select size"
+                      defaultValue={selectSizes[0]}
+                    />
+                  </React.Fragment>
                 )}
                 {enablePerso && (
                   <div className="ShopItem__personalization">
                     <div className="ShopItem__personalizationAlert">{translate('personalize')}</div>
+
+                    <input name="on2" type="hidden" value="(Personalisation)" />
                     <input
                       type="text"
                       name="os2"
-                      placeholder={translate('name')}
-                      className="ShopItem__personalizationInput"
-                    />
-                    <input
-                      type="text"
-                      name="os3"
-                      placeholder={translate('number')}
+                      placeholder={translate('persoPlaceHolder')}
                       className="ShopItem__personalizationInput"
                     />
                   </div>
