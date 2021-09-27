@@ -77,7 +77,9 @@ const Results = (props: PropTypes): Node => {
             Previous Matches
           </a>
         )}
-        <div className="Results__matchDay">Match {matchId}</div>
+        <div className="Results__matchDay">
+          Match {matchId} {_get(resultData, '[0].d', '').split(' ')[0]}
+        </div>
         {parseInt(matchId, 10) < parseInt(maxMatchId, 10) && (
           <a className="Results__link" onClick={nextMatch}>
             Next Matches

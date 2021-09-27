@@ -1,6 +1,6 @@
 /* @flow */
 
-import React from 'react';
+import React, { useState } from 'react';
 import type { Node } from 'react';
 import Select from 'react-select';
 import { translate } from '../../../shared/i18n';
@@ -20,6 +20,7 @@ type ItemTypes = {
   enablePerso?: Boolean,
   hideShippingPrice?: Boolean,
   isSoldOut?: Boolean,
+  delivery?: string,
 };
 
 type PropTypes = {
@@ -34,6 +35,8 @@ type OptionsTypes = {
   key?: string,
   value?: string,
   label?: string,
+  isPersonalisable?: boolean,
+  price?: string,
 };
 
 /**
@@ -58,11 +61,19 @@ const ShopItem = ({
     enablePerso,
     hideShippingPrice,
     isSoldOut,
+    delivery,
   } = item;
+  const [displayPrice, setDisplayPrice] = useState<string>('');
+  const [isPersonalisable, setIsPersonalisable] = useState<boolean>(false);
   const selectOptions =
     options &&
     options.length > 0 &&
-    options.map(({ key, value }): OptionsTypes => ({ label: value, value: key }));
+    options.map(({ key, value, price, isPersonalisable }): OptionsTypes => ({
+      label: value,
+      value: key,
+      price,
+      isPersonalisable,
+    }));
   const selectSizes =
     sizes && sizes.length > 0 && sizes.map((size) => ({ label: size, value: size }));
 
@@ -102,7 +113,7 @@ const ShopItem = ({
         <div className="ShopItem__product">
           <div className="ShopItem__productInfo">
             <div className="ShopItem__productName">{name}</div>
-            {!isSoldOut && <div className="ShopItem__productPrice">{price} €</div>}
+            {!isSoldOut && <div className="ShopItem__productPrice">{displayPrice || price} €</div>}
           </div>
           <div className="ShopItem__productDescription">{description}</div>
 
@@ -127,6 +138,10 @@ const ShopItem = ({
                       styles={colourStyles}
                       placeholder="Select option"
                       defaultValue={selectOptions[0]}
+                      onChange={({ price, isPersonalisable }) => {
+                        setDisplayPrice(price);
+                        setIsPersonalisable(isPersonalisable);
+                      }}
                     />
                   </React.Fragment>
                 )}
@@ -145,7 +160,7 @@ const ShopItem = ({
                     />
                   </React.Fragment>
                 )}
-                {enablePerso && (
+                {enablePerso && isPersonalisable && (
                   <div className="ShopItem__personalization">
                     <div className="ShopItem__personalizationAlert">{translate('personalize')}</div>
 
@@ -173,6 +188,7 @@ const ShopItem = ({
                 <p>payment via credit card / Paypal </p>
                 {!hideShippingPrice && <p>Shipping and handling: 9€ </p>}
                 <p>Shipping worldwide</p>
+                {delivery && <p>{delivery}</p>}
               </div>
             </React.Fragment>
           ) : (
