@@ -9,14 +9,26 @@
 }
 
 .Results__header {
+  align-items: center;
   display: grid;
-  grid-template-columns: 1fr 84px 1fr;
+  grid-template-columns: repeat(3, 1fr);
   margin: 8px 0;
+  font-size: 0.5rem;
+
+  @include lg {
+    font-size: 0.8rem;
+  }
 }
 
 .Results__link {
   cursor: pointer;
   justify-self: center;
+  text-decoration: underline;
+  font-size: 0.5rem;
+
+  @include lg {
+    font-size: 0.8rem;
+  }
 }
 
 .Results__matchDay {
