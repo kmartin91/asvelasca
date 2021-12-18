@@ -49,7 +49,8 @@ const Ladder = (props: PropTypes): Node => {
         .post(page, formData, { cancelToken: sourceAxios.current.token })
         .then(({ data: dataAxios }) => {
           if (isSubscribed) {
-            setLadderData(dataAxios);
+            const decodedData = JSON.parse(Base64.decode(dataAxios));
+            setLadderData(decodedData);
           }
         });
     } catch (error) {

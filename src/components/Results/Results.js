@@ -37,9 +37,10 @@ const Results = (props: PropTypes): Node => {
       axios
         .post(page, formData, { cancelToken: sourceAxios.current.token })
         .then(({ data: dataAxios }) => {
-          setResultData(dataAxios);
-          if (matchId === '-1') setMaxMatchId(_get(dataAxios[0], 'im', '').split('.')[0]);
-          setMatchId(_get(dataAxios[0], 'im', '').split('.')[0]);
+          const decodedData = JSON.parse(Base64.decode(dataAxios));
+          setResultData(decodedData);
+          if (matchId === '-1') setMaxMatchId(_get(decodedData[0], 'im', '').split('.')[0]);
+          setMatchId(_get(decodedData[0], 'im', '').split('.')[0]);
         });
     } catch (error) {
       console.log({ error });

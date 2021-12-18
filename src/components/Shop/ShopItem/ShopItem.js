@@ -21,6 +21,7 @@ type ItemTypes = {
   hideShippingPrice?: Boolean,
   isSoldOut?: Boolean,
   delivery?: string,
+  fdpPrice?: Number,
 };
 
 type PropTypes = {
@@ -62,6 +63,7 @@ const ShopItem = ({
     hideShippingPrice,
     isSoldOut,
     delivery,
+    fdpPrice,
   } = item;
   const [displayPrice, setDisplayPrice] = useState<string>('');
   const [isPersonalisable, setIsPersonalisable] = useState<boolean>(false);
@@ -186,7 +188,9 @@ const ShopItem = ({
               </form>
               <div className="ShopItem__productDisclaimer">
                 <p>payment via credit card / Paypal </p>
-                {!hideShippingPrice && <p>Shipping and handling: 9€ </p>}
+                {!hideShippingPrice && (
+                  <p>Shipping and handling: {fdpPrice ? fdpPrice.toString() : '9'}€ </p>
+                )}
                 <p>Shipping worldwide</p>
                 {delivery && <p>{delivery}</p>}
               </div>
