@@ -124,7 +124,17 @@ const Shop = ({ page, name }: PropTypes): Node => {
           {products && products.length > 0 && (
             <div className="Shop__products">
               {products.map((product) => {
-                const { image, sizeOnSite, price, name, season, artist, isSoldOut } = product;
+                const {
+                  image,
+                  sizeOnSite,
+                  price,
+                  name,
+                  season,
+                  artist,
+                  isSoldOut,
+                  video,
+                  hasVideo,
+                } = product;
                 return (
                   <div
                     className={classnames('Shop__product', { Shop__bigProduct: sizeOnSite === 2 })}
@@ -134,7 +144,13 @@ const Shop = ({ page, name }: PropTypes): Node => {
                     }}
                     key={name}
                   >
-                    <img className="Shop__productImage" src={image} alt={name} />
+                    {!hasVideo ? (
+                      <img className="Shop__productImage" src={image} alt={name} />
+                    ) : (
+                      <video className="Shop__productImage" autoPlay muted loop>
+                        <source src={video} type="video/mp4"></source>
+                      </video>
+                    )}
                     <div className="Shop__productHover">
                       <div className="Shop__productSeason">{season}</div>
                       <div className="Shop__productName">{name}</div>
