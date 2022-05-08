@@ -22,6 +22,8 @@ type ItemTypes = {
   isSoldOut?: Boolean,
   delivery?: string,
   fdpPrice?: Number,
+  video?: string,
+  hasVideo?: Boolean,
 };
 
 type PropTypes = {
@@ -64,6 +66,8 @@ const ShopItem = ({
     isSoldOut,
     delivery,
     fdpPrice,
+    hasVideo,
+    video,
   } = item;
   const [displayPrice, setDisplayPrice] = useState<string>('');
   const [isPersonalisable, setIsPersonalisable] = useState<boolean>(false);
@@ -111,7 +115,13 @@ const ShopItem = ({
         {translate('backToList')}
       </a>
       <div className="ShopItem__content">
-        <img className="ShopItem__image" src={image} alt={name} />
+        {!hasVideo ? (
+          <img className="ShopItem__image" src={image} alt={name} />
+        ) : (
+          <video className="Shop__productImage" autoPlay muted loop>
+            <source src={video} type="video/mp4"></source>
+          </video>
+        )}
         <div className="ShopItem__product">
           <div className="ShopItem__productInfo">
             <div className="ShopItem__productName">{name}</div>
