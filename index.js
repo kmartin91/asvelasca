@@ -78,6 +78,10 @@ const App = (
       {/* Event */}
       <Layout path={`${base}/chapter7`} component={Edito} page="chapter7" name="chapter7" />
 
+
+      {/* Icarus */}
+      <Layout path={`${base}/icarus`} component={Edito} page="icarus" name="icarus" />
+
       {/* Payment Confirmation */}
       <Layout
         path={`${base}/confirmation`}

@@ -3,6 +3,7 @@
 
 # Cache
 .cache
+.parcel-cache
 
 # Dist
 dist/

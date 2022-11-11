@@ -2,7 +2,6 @@
   "name": "velasca",
   "version": "1.0.0",
   "description": "Official Website of AS Velasca",
-  "main": "index.js",
   "scripts": {
     "test": "cross-env BABEL_ENV=test jest --maxWorkers=4 --config ./tools/config/test/jest.cover.json",
     "jest": "cross-env BABEL_ENV=test jest --maxWorkers=4 --config ./tools/config/test/jest.cover.json",
@@ -36,7 +35,6 @@
     "js-base64": "^3.7.2",
     "lodash": "^4.17.21",
     "marked": "^3.0.4",
-    "parcel-bundler": "^1.12.5",
     "path": "^0.12.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -51,11 +49,13 @@
     "@babel/core": "^7.15.5",
     "@babel/plugin-transform-runtime": "^7.15.0",
     "@babel/preset-env": "^7.15.6",
-    "@babel/preset-flow": "^7.14.5",
+    "@babel/preset-flow": "^7.18.6",
     "@babel/preset-react": "^7.14.5",
+    "@parcel/transformer-sass": "2.8.0",
     "babel-eslint": "^10.1.0",
     "babel-plugin-module-resolver": "^4.1.0",
     "babel-polyfill": "^6.26.0",
+    "buffer": "^5.5.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
     "eslint-config-airbnb": "^18.2.1",
@@ -65,6 +65,7 @@
     "husky": "^7.0.2",
     "jest-environment-jsdom-global": "^3.0.0",
     "lint-staged": "^11.1.2",
+    "parcel": "^2.8.0",
     "prettier": "^2.4.1",
     "sass": "^1.42.1",
     "stylelint": "^13.13.1",
@@ -81,15 +82,5 @@
       "prettier --write"
     ]
   },
-  "browserslist": [
-    "last 1 Chrome version",
-    "Chrome > 49",
-    "ChromeAndroid > 49",
-    "Firefox > 46",
-    "FirefoxAndroid > 46",
-    "Safari > 10",
-    "iOS > 10",
-    "Opera > 36",
-    "Edge > 15"
-  ]
+  "browserslist": "> 0.5%, last 2 versions, not dead"
 }
