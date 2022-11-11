@@ -21,6 +21,7 @@ type PropTypes = {
 import './App.scss';
 
 const App = ({ component: Component, ...props }: PropTypes): Node => {
+  console.log({ event: 'hey' });
   const { match: { params } = {}, withoutFooter, withoutHeader, noOverFlow } = props;
   const { locale } = params;
   window.LOCALE_VELASCA = locale || 'en';

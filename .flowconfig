@@ -25,4 +25,4 @@ sharedmemory.heap_size=3221225472
 deprecated-utility=off
 
 [version]
-0.160.2
+0.192.0

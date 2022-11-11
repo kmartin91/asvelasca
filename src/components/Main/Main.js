@@ -44,7 +44,6 @@ const Main = ({ className }: MainPropTypes): Node => {
             if (isSubscribed) {
               const sliderData = _get(data, 'entries[0].slider', []);
               setSlider(sliderData);
-              // timer.current = setInterval(() => setNextSlide(sliderData.length || 0), 5000);
             }
           });
       } catch (error) {

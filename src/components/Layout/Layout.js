@@ -13,11 +13,12 @@ type PropTypes = {
 /**
  * Layout
  */
-const Layout = ({ component: Component, ...rest }: PropTypes): Node => (
-  <Route
-    {...rest}
-    render={(matchProps) => <App component={Component} {...matchProps} {...rest} />}
-  />
-);
+const Layout = ({ component: Component, ...rest }: PropTypes): Node =>
+  !console.log({ rest }) && (
+    <Route
+      {...rest}
+      render={(matchProps) => <App component={Component} {...matchProps} {...rest} />}
+    />
+  );
 
 export default Layout;
