@@ -54,7 +54,6 @@ const Ladder = (props: PropTypes): Node => {
           }
         });
     } catch (error) {
-      console.log({ error });
       setError(error);
     }
   });
