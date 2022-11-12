@@ -1,6 +1,6 @@
 /* @flow */
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import type { Node } from 'react';
 import axios from 'axios';
 import _get from 'lodash/get';
@@ -15,11 +15,11 @@ type MainPropTypes = {
 };
 
 const Main = ({ className }: MainPropTypes): Node => {
-  const [maintenance, setMaintenance] = useState(false);
+  const [_, setMaintenance] = useState(false);
   const [slider, setSlider] = useState([]);
   const [current, setCurrent] = useState(0);
 
-  const setNextSlide = (arrLength) => {
+  const setNextSlide = () => {
     if (!slider || current >= slider.length - 1) setCurrent(0);
     else {
       setCurrent(current + 1);
@@ -44,7 +44,6 @@ const Main = ({ className }: MainPropTypes): Node => {
             if (isSubscribed) {
               const sliderData = _get(data, 'entries[0].slider', []);
               setSlider(sliderData);
-              // timer.current = setInterval(() => setNextSlide(sliderData.length || 0), 5000);
             }
           });
       } catch (error) {

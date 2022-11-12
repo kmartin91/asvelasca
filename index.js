@@ -1,6 +1,6 @@
 import React from 'react';
-import { hydrate, render } from 'react-dom';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import importedComponent from 'react-imported-component';
 
 /* Import new component here  */
@@ -107,8 +107,5 @@ window.addEventListener('resize', () => {
   rootElement.style.setProperty('--vh', `${vh2}px`);
 });
 
-if (rootElement.hasChildNodes()) {
-  render(App, document.getElementById('root'));
-} else {
-  hydrate(App, document.getElementById('root'));
-}
+const root = createRoot(rootElement);
+root.render(App);

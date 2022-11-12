@@ -43,7 +43,6 @@ const Results = (props: PropTypes): Node => {
           setMatchId(_get(decodedData[0], 'im', '').split('.')[0]);
         });
     } catch (error) {
-      console.log({ error });
       setError(error);
     }
   });

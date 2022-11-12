@@ -12,7 +12,7 @@ const setLocaleGlobale = (locale: string) => {
   window.LOCALE_VELASCA = locale;
 };
 
-const getRoute = (nextLocale) => {
+const getRoute = (nextLocale: string) => {
   const lastPart = window.location.href.substring(window.location.href.lastIndexOf('/') + 1);
   return getKey(lastPart, nextLocale);
 };

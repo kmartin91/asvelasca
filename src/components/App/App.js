@@ -8,11 +8,16 @@ import Header from '../Header/Header';
 import MobileMenu from '../Menu/MobileMenu/MobileMenu';
 import { translate } from '../../shared/i18n';
 
+type MatchTypes = {
+  params: {
+    locale: string,
+  },
+};
+
 type PropTypes = {
   component: any,
-  props: Object,
   translate: Function,
-  match: Object,
+  match: MatchTypes,
   withoutFooter?: boolean,
   noOverFlow?: boolean,
   withoutHeader?: boolean,
@@ -21,7 +26,8 @@ type PropTypes = {
 import './App.scss';
 
 const App = ({ component: Component, ...props }: PropTypes): Node => {
-  const { match: { params } = {}, withoutFooter, withoutHeader, noOverFlow } = props;
+  const { match, withoutFooter, withoutHeader, noOverFlow } = props;
+  const { params }: MatchTypes = match;
   const { locale } = params;
   window.LOCALE_VELASCA = locale || 'en';
   const menu = translate('menu') || [];
