@@ -15,10 +15,10 @@ type EditoProps = {
   name: string,
 };
 
-const replaceImage = (content) =>
+const replaceImage = (content?: string) =>
   content && content.replace(/src="\/storage\//gim, `src="${getServerUrl()}/storage/`);
 
-const replaceHttpToHttps = (content) => content && content.replace(/http:/gim, `https:`);
+const replaceHttpToHttps = (content?: string) => content && content.replace(/http:/gim, `https:`);
 
 const Edito = ({ page, name }: EditoProps): Node => {
   const sourceAxios = useRef<Object>();

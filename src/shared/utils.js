@@ -2,9 +2,7 @@ import React, { useEffect, useRef } from 'react';
 
 const getServerUrl = () => process.env.SERVER_URL;
 
-const getBaseUrl = () => process.env.BASE_URL;
-
-const getApiUrl = () => `${getBaseUrl()}${process.env.API_URL}`;
+const getApiUrl = () => `${getServerUrl()}${process.env.API_URL}`;
 
 const getApiGet = () => `${getApiUrl()}/collections/get/`;
 
@@ -47,7 +45,6 @@ const getRouteWithLocale = (route) => {
 export {
   getApiUrl,
   getApiGet,
-  getBaseUrl,
   getServerUrl,
   getRouteWithLocale,
   getTutoCampiToken,

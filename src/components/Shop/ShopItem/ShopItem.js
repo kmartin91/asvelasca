@@ -84,7 +84,7 @@ const ShopItem = ({
     sizes && sizes.length > 0 && sizes.map((size) => ({ label: size, value: size }));
 
   const colourStyles = {
-    option: (styles, {}) => ({
+    option: (styles: Object, {}) => ({
       ...styles,
       backgroundColor: '#FFF',
       color: '#000',

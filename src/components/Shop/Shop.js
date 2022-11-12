@@ -18,6 +18,20 @@ import classNames from 'classnames';
 
 type PropTypes = { page: string, name: string };
 
+type SubProductTypes = {
+  products: Object,
+};
+
+type BackgroundTypes = {
+  path: string,
+  title: string,
+};
+
+type ProductsTypes = {
+  background: BackgroundTypes,
+  products: SubProductTypes,
+};
+
 /**
  * Shop
  */
@@ -62,7 +76,10 @@ const Shop = ({ page, name }: PropTypes): Node => {
 
   const { entries = {}, fields = {} } = data;
 
-  const { background, products: { products } = {} } = _get(data, 'entries[0]', []);
+  const {
+    background,
+    products: { products },
+  }: ProductsTypes = _get(data, 'entries[0]', []);
 
   const currentURL = `https://www.asvelasca.it/${window.LOCALE_VELASCA}/${page}`;
 
