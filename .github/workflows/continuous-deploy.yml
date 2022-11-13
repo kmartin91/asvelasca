@@ -26,9 +26,9 @@ jobs:
       id: build
       run: yarn build
     # Test
-    - name: Test
-      id: test
-      run: yarn test
+    #- name: Test
+    #  id: test
+    #  run: yarn test
     - name: Deploying
       id: deploy
       if: success()
