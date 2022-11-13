@@ -34,8 +34,8 @@ jobs:
       if: success()
       uses: SamKirkland/FTP-Deploy-Action@4.3.2
       with:
-        ftp-server: ${{ secrets.FTP_SERVER_2 }}
-        ftp-password: ${{ secrets.FTP_PASSWORD_2 }}
-        ftp-username: ${{ secrets.FTP_USERNAME_2 }}
+        server: ${{ secrets.FTP_SERVER_2 }}
+        password: ${{ secrets.FTP_PASSWORD_2 }}
+        username: ${{ secrets.FTP_USERNAME_2 }}
         local-dir: dist
         server-dir: ${{ secrets.REMOTE_DIR_2 }}
