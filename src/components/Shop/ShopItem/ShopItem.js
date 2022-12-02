@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import type { Node } from 'react';
 import Select from 'react-select';
+import { Link } from 'react-router-dom';
 import { translate } from '../../../shared/i18n';
 
 import './ShopItem.scss';
@@ -32,6 +33,7 @@ type PropTypes = {
   nextItem: ItemTypes,
   handleChangeItem: Function,
   handleResetItem: Function,
+  backUrl: string,
 };
 
 type OptionsTypes = {
@@ -51,6 +53,7 @@ const ShopItem = ({
   handleChangeItem,
   prevItem,
   nextItem,
+  backUrl,
 }: PropTypes): Node => {
   const {
     image,
@@ -104,16 +107,9 @@ const ShopItem = ({
 
   return (
     <div className="ShopItem">
-      <a
-        href="#"
-        onClick={(e) => {
-          e.preventDefault();
-          handleResetItem();
-        }}
-        className="ShopItem__back"
-      >
+      <Link to={`/${window.LOCALE_VELASCA}/shop`} className="ShopItem__back">
         {translate('backToList')}
-      </a>
+      </Link>
       <div className="ShopItem__content">
         {!hasVideo ? (
           <img className="ShopItem__image" src={image} alt={name} />
