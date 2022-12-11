@@ -85,7 +85,7 @@ const Shop = ({ page, name }: PropTypes): Node => {
 
   useEffect(() => {
     if (id >= 0 && Object.keys(data).length > 0) {
-      handleChangeItem(products[id]);
+      handleChangeItem(products[id - 1]);
     } else {
       setCurrentItem(null);
     }
@@ -180,7 +180,7 @@ const Shop = ({ page, name }: PropTypes): Node => {
                     }}
                     key={name}
                   >
-                    <Link to={`${url}/${index}`}>
+                    <Link to={`${url}/${index + 1}`}>
                       {!hasVideo ? (
                         <img className="Shop__productImage" src={image} alt={name} />
                       ) : (
