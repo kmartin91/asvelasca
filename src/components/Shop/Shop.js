@@ -1,11 +1,12 @@
 /* @flow */
 
-import React, { useState, useEffect, useRef } from 'react';
-import type { Node } from 'react';
 import axios from 'axios';
 import classnames from 'classnames';
-import { Helmet } from 'react-helmet';
 import _get from 'lodash/get';
+import React, { useState, useEffect, useRef } from 'react';
+import type { Node } from 'react';
+import { Helmet } from 'react-helmet';
+import { useParams, Link, useRouteMatch, useLocation } from 'react-router-dom';
 
 import Errors from '../Errors/Errors';
 import ShopItem from './ShopItem/ShopItem';
@@ -42,6 +43,10 @@ const Shop = ({ page, name }: PropTypes): Node => {
   const [currentItem, setCurrentItem] = useState<Object>(null);
   const [prevItem, setPrevItem] = useState<Object>(null);
   const [nextItem, setNextItem] = useState<Object>(null);
+  const { id } = useParams();
+  const { url } = useRouteMatch();
+  const location = useLocation();
+  const currentBaseUrl = location.pathname.slice(0, location.pathname.lastIndexOf('/'));
 
   useEffect(() => {
     let isSubscribed = true;
@@ -57,6 +62,10 @@ const Shop = ({ page, name }: PropTypes): Node => {
           .then(({ data: dataAxios }) => {
             if (isSubscribed) {
               setData(dataAxios);
+              // add id
+              if (id >= 0) {
+                handleChangeItem(dataAxios.entries[0].products.products[id]);
+              }
             }
           });
       } catch (error) {
@@ -74,12 +83,21 @@ const Shop = ({ page, name }: PropTypes): Node => {
     };
   }, []);
 
+  useEffect(() => {
+    if (id >= 0 && Object.keys(data).length > 0) {
+      handleChangeItem(products[id - 1]);
+    } else {
+      setCurrentItem(null);
+    }
+  }, [id]);
+
   const { entries = {}, fields = {} } = data;
 
-  const {
-    background,
-    products: { products },
-  }: ProductsTypes = _get(data, 'entries[0]', []);
+  const { background, products: { products } = { products: [] } }: ProductsTypes = _get(
+    data,
+    'entries[0]',
+    [],
+  );
 
   const currentURL = `https://www.asvelasca.it/${window.LOCALE_VELASCA}/${page}`;
 
@@ -135,12 +153,13 @@ const Shop = ({ page, name }: PropTypes): Node => {
           nextItem={nextItem}
           prevItem={prevItem}
           handleChangeItem={handleChangeItem}
+          backUrl={currentBaseUrl}
         />
       ) : (
         <React.Fragment>
           {products && products.length > 0 && (
             <div className="Shop__products">
-              {products.map((product) => {
+              {products.map((product, index) => {
                 const {
                   image,
                   sizeOnSite,
@@ -157,27 +176,29 @@ const Shop = ({ page, name }: PropTypes): Node => {
                     className={classnames('Shop__product', { Shop__bigProduct: sizeOnSite === 2 })}
                     onClick={(e) => {
                       e.preventDefault();
-                      handleChangeItem(product);
+                      // handleChangeItem(product);
                     }}
                     key={name}
                   >
-                    {!hasVideo ? (
-                      <img className="Shop__productImage" src={image} alt={name} />
-                    ) : (
-                      <video className="Shop__productImage" autoPlay muted loop>
-                        <source src={video} type="video/mp4"></source>
-                      </video>
-                    )}
-                    <div className="Shop__productHover">
-                      <div className="Shop__productSeason">{season}</div>
-                      <div className="Shop__productName">{name}</div>
-                      {artist && <div className="Shop__productArtist">{artist}</div>}
-                      {!isSoldOut ? (
-                        <div className="Shop__productPrice">{`${price} €`}</div>
+                    <Link to={`${url}/${index + 1}`}>
+                      {!hasVideo ? (
+                        <img className="Shop__productImage" src={image} alt={name} />
                       ) : (
-                        <div className="Shop__productSoldOut">{translate('soldOut')}</div>
+                        <video className="Shop__productImage" autoPlay muted loop>
+                          <source src={video} type="video/mp4"></source>
+                        </video>
                       )}
-                    </div>
+                      <div className="Shop__productHover">
+                        <div className="Shop__productSeason">{season}</div>
+                        <div className="Shop__productName">{name}</div>
+                        {artist && <div className="Shop__productArtist">{artist}</div>}
+                        {!isSoldOut ? (
+                          <div className="Shop__productPrice">{`${price} €`}</div>
+                        ) : (
+                          <div className="Shop__productSoldOut">{translate('soldOut')}</div>
+                        )}
+                      </div>
+                    </Link>
                   </div>
                 );
               })}
