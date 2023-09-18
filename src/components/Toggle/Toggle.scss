@@ -10,22 +10,30 @@
 
 .Toggle__Header {
   align-self: center;
+  display: flex;
+  gap: $size-m;
+  margin: calc(#{$size-s} + #{$size-xs}) 0;
 }
 
 .Toggle__HeaderButton {
   background-color: palette(neutral, white);
   border: none;
-  border-left: rgba(palette(neutral, red), 0.2) 1px solid;
+  border-radius: 16px;
   color: palette(neutral, red);
   cursor: pointer;
   font-weight: bold;
-  padding: $size-m;
+  padding: calc(#{$size-s} + #{$size-xs}) $size-m;
   text-transform: uppercase;
   text-align: center;
-  transition: all ease-in-out 1s;
+  transition: all ease-in-out 0.5s;
 
   &:first-child {
     border: none;
+  }
+
+  &:hover {
+    background-color: palette(neutral, red);
+    color: palette(neutral, white);
   }
 }
 
@@ -40,11 +48,9 @@
 }
 
 .Toggle__ContentChildren {
-  background-color: rgba(palette(neutral, white), 0.1);
   display: none;
   min-height: 80px;
-  border-bottom-left-radius: $size-xs;
-  border-bottom-right-radius: $size-xs;
+  border-radius: $size-s + $size-xs;
 }
 
 .Toggle__ContentChildre_Show {

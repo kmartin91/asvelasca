@@ -31,11 +31,15 @@
 .Season__content {
   color: palette(neutral, white);
   display: flex;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  flex-direction: column;
+  align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+    Helvetica Neue, sans-serif;
   font-size: 0.9rem;
   justify-content: center;
   margin-top: 100px;
   padding-top: $size-m;
+  position: relative;
   z-index: 2;
 }
 
@@ -83,4 +87,26 @@
   display: flex;
   justify-content: center;
   width: 100%;
+}
+
+.Season__year {
+  background-color: palette(neutral, white);
+  border: none;
+  border-radius: $size-s + $size-xs;
+  color: palette(neutral, red);
+  cursor: pointer;
+  font-weight: bold;
+  padding: $size-s calc(#{$size-m} + #{$size-s});
+  text-transform: uppercase;
+  text-align: center;
+  transition: all ease-in-out 0.5s;
+
+  &:first-child {
+    border: none;
+  }
+
+  &:hover {
+    background-color: palette(neutral, red);
+    color: palette(neutral, white);
+  }
 }

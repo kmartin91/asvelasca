@@ -16,7 +16,7 @@
       "isPrimary": true,
       "name": "ARTISTES"
     },
-    { "label": "saison", "route": "saison", "key": "season", "name": "SAISON" },
+    { "label": "résultats", "route": "saison", "key": "season", "name": "SAISON" },
     { "label": "tickets", "route": "tickets", "key": "tickets", "name": "TICKETS" },
     { "label": "club", "route": "club", "key": "club", "name": "CLUB" },
     { "label": "supporteurs", "route": "supporteurs", "key": "supporter", "name": "SUPPORTEURS" },

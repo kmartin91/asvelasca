@@ -3,7 +3,7 @@ import classnames from 'classnames';
 
 import './Toggle.scss';
 
-const Toggle = ({ tabs, className }) => {
+const Toggle = ({ tabs, className, selectedYear }) => {
   const [currentTab, setCurrentTab] = useState(0);
 
   return (
@@ -33,7 +33,6 @@ const Toggle = ({ tabs, className }) => {
                   Toggle__ContentChildre_Show: index === currentTab,
                 })}
               >
-                {' '}
                 {content}
               </div>
             );
