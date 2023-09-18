@@ -2,12 +2,17 @@
 
 .Ladder {
   display: grid;
-  grid-auto-rows: $size-l;
+  grid-auto-rows: $size-l + $size-m;
   color: palette(neutral, white);
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+    Helvetica Neue, sans-serif;
+  font-weight: bold;
 }
 
 .Ladder__stylised {
-  font-family: themefont();
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+    Helvetica Neue, sans-serif;
+  font-weight: bold;
 }
 
 .Ladder__header {
@@ -18,7 +23,7 @@
 
 .Ladder__teamName {
   text-align: center;
-  font-size: 0.4rem;
+  font-size: 0.8rem;
 
   @include lg {
     font-size: 0.8rem;
@@ -26,30 +31,36 @@
 }
 
 .Ladder__row {
-  background-color: palette(neutral, menu);
-  border: 1px solid palette(neutral, white);
+  background-color: palette(neutral, white);
+  color: palette(neutral, black);
   border-top: none;
   display: grid;
-  grid-template-columns: $size-l 1fr repeat(4, 56px);
-  font-size: 0.6rem;
+  grid-template-columns: calc(#{$size-l} + #{$size-m}) 1fr repeat(4, 56px);
+  font-size: 0.8rem;
+  padding: $size-m 0;
 
   @include lg {
     font-size: 0.8rem;
-    grid-template-columns: $size-l 1fr repeat(7, $size-xl);
+    grid-template-columns: calc(#{$size-l} + #{$size-m}) 1fr repeat(7, $size-xl);
   }
 
   &:nth-child(odd) {
-    background-color: palette(neutral, ladderalt);
+    background-color: palette(neutral, white);
+  }
+
+  &_velasca {
+    background-color: palette(neutral, redhome) !important;
+    color: palette(neutral, white);
   }
 
   &:first-child {
-    border: 1px solid palette(neutral, white);
     background-color: palette(neutral, menu);
+    border-top-left-radius: $size-s + $size-xs;
+    border-top-right-radius: $size-s + $size-xs;
   }
 }
 
 .Ladder__item {
-  border-left: 1px solid palette(neutral, white);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,14 +74,6 @@
       display: flex;
     }
   }
-}
-
-.Ladder__item_borderLess {
-  border: none;
-}
-
-.Ladder__row_velasca {
-  background-color: palette(neutral, redhome);
 }
 
 .Ladder__item_alt {
