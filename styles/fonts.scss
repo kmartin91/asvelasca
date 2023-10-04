@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700&display=swap');
+
 @font-face {
   font-family: 'IntroInlineRegular';
   src: url('/assets/fonts/intro-inline.eot');
@@ -11,6 +13,6 @@
 
 $font-theme: (
   velasca: (
-    default: 'IntroInlineRegular'
+    default: 'Gabarito'
   ),
 );

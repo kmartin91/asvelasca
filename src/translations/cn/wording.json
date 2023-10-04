@@ -11,11 +11,10 @@
       "name": "ARTISTS"
     },
     { "label": "赛季", "route": "season", "key": "season", "name": "SEASON" },
+    { "label": "精品", "route": "shop", "key": "shop", "isPrimary": true, "name": "SHOP" },
     { "label": "票", "route": "tickets", "key": "tickets", "name": "TICKETS" },
     { "label": "管理人员", "route": "club", "key": "club", "name": "CLUB" },
-    { "label": "支持者", "route": "supporters", "key": "supporter", "name": "SUPPORTER" },
     { "label": "新闻室", "route": "press", "key": "press", "name": "PRESS" },
-    { "label": "精品", "route": "shop", "key": "shop", "isPrimary": true, "name": "SHOP" },
     { "label": "联系", "route": "disclaimer", "key": "contacts", "name": "CONTACTS" }
   ],
   "backToList": "Back to products",

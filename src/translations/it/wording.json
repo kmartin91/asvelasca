@@ -17,11 +17,10 @@
       "name": "ARTISTS"
     },
     { "label": "risultati", "route": "stagione", "key": "season", "name": "SEASON" },
+    { "label": "shop", "route": "shop", "key": "shop", "isPrimary": true, "name": "SHOP" },
     { "label": "tickets", "route": "tickets", "key": "tickets", "name": "TICKETS" },
     { "label": "societa", "route": "societa", "key": "club", "name": "CLUB" },
-    { "label": "tifosi", "route": "tifosi", "key": "supporter", "name": "SUPPORTEUR" },
     { "label": "stampa", "route": "stampa", "key": "press", "name": "STAMPA" },
-    { "label": "shop", "route": "shop", "key": "shop", "isPrimary": true, "name": "SHOP" },
     { "label": "bollettino", "route": "bollettino", "key": "bulletin", "name": "BOLLETINO" },
     { "label": "contatti", "route": "disclaimer", "key": "contacts", "name": "CONTATTI" }
   ],

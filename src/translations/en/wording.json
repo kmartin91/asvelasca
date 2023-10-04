@@ -17,11 +17,10 @@
       "name": "ARTISTS"
     },
     { "label": "results", "route": "season", "key": "season", "name": "SEASON" },
+    { "label": "shop", "route": "shop", "key": "shop", "isPrimary": true, "name": "SHOP" },
     { "label": "tickets", "route": "tickets", "key": "tickets", "name": "TICKETS" },
     { "label": "club", "route": "club", "key": "club", "name": "CLUB" },
-    { "label": "supporters", "route": "supporters", "key": "supporter", "name": "SUPPORTERS" },
     { "label": "press", "route": "press", "key": "press", "name": "PRESS" },
-    { "label": "shop", "route": "shop", "key": "shop", "isPrimary": true, "name": "SHOP" },
     { "label": "bulletin", "route": "bulletin", "key": "bulletin", "name": "BULLETIN" },
     { "label": "contacts", "route": "disclaimer", "key": "contacts", "name": "CONTACTS" }
   ],

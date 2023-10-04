@@ -19,6 +19,7 @@
   color: palette(neutral, white);
   padding: 0 $size-s;
   text-decoration: none;
+  text-transform: uppercase;
   display: none;
 
   @include lg {
@@ -27,7 +28,8 @@
   }
 
   @include xl {
-    font-size: 14px; /* stylelint-disable-line declaration-property-unit-whitelist */
+    font-weight: 700;
+    font-size: 1rem;
   }
 
   &:hover {

@@ -81,20 +81,12 @@ const Results = ({ selectedYear }: PropTypes): Node => {
     dayjs(a, 'MM-YYYY').diff(dayjs(b, 'MM-YYYY')),
   );
 
-  console.log({
-    resultData,
-    groupedResultatData,
-    sortedData,
-    t: dayjs().locale(window.LOCALE_VELASCA).format('LL'),
-  });
-
   return (
     <div className="Results">
       {groupedResultatData &&
         Object.keys(groupedResultatData).length >= 1 &&
         Object.keys(groupedResultatData).map((key) => {
           const matches = _get(groupedResultatData, key, []);
-          console.log({ matches });
 
           return (
             <div key={key} className="Results__month">

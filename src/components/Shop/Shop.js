@@ -44,7 +44,8 @@ const Shop = ({ page, name }: PropTypes): Node => {
   const [prevItem, setPrevItem] = useState<Object>(null);
   const [nextItem, setNextItem] = useState<Object>(null);
   const { id } = useParams();
-  const { url } = useRouteMatch();
+  const url = `/${window.LOCALE_VELASCA}/shop/`;
+
   const location = useLocation();
   const currentBaseUrl = location.pathname.slice(0, location.pathname.lastIndexOf('/'));
 
@@ -64,7 +65,7 @@ const Shop = ({ page, name }: PropTypes): Node => {
               setData(dataAxios);
               // add id
               if (id >= 0) {
-                handleChangeItem(dataAxios.entries[0].products.products[id]);
+                handleChangeItem(dataAxios.entries[0].products.products[id - 1]);
               }
             }
           });
@@ -176,11 +177,10 @@ const Shop = ({ page, name }: PropTypes): Node => {
                     className={classnames('Shop__product', { Shop__bigProduct: sizeOnSite === 2 })}
                     onClick={(e) => {
                       e.preventDefault();
-                      // handleChangeItem(product);
                     }}
                     key={name}
                   >
-                    <Link to={`${url}/${index + 1}`}>
+                    <Link to={`${url}${index + 1}`}>
                       {!hasVideo ? (
                         <img className="Shop__productImage" src={image} alt={name} />
                       ) : (

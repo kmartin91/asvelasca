@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import type { Node } from 'react';
+import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 import { getRouteWithLocale } from '../../../shared/utils';
 
@@ -28,9 +29,9 @@ const MobileMenu = ({ links, withoutMore }: PropTypes): Node => {
       {menuShow &&
         menuShow.map(({ route, label }) => (
           <li className="MobileMenu__LinkContainer" key={label}>
-            <a className="MobileMenu__Link" href={getRouteWithLocale(route)}>
+            <Link className="MobileMenu__Link" to={getRouteWithLocale(route)}>
               {label}
-            </a>
+            </Link>
           </li>
         ))}
 
@@ -41,7 +42,11 @@ const MobileMenu = ({ links, withoutMore }: PropTypes): Node => {
           </a>
         </li>
       )}
-      <MobileMenuAccordion links={menuRest} isMobileOpen={isMobileOpen} />
+      <MobileMenuAccordion
+        links={menuRest}
+        closeMenu={() => setIsMobileOpen(!isMobileOpen)}
+        isMobileOpen={isMobileOpen}
+      />
     </div>
   );
 };
