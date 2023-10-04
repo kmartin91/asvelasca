@@ -24,11 +24,11 @@
 
   @include lg {
     display: block;
+    font-weight: 700;
     font-size: 0.8rem;
   }
 
   @include xl {
-    font-weight: 700;
     font-size: 1rem;
   }
 
