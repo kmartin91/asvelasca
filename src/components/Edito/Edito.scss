@@ -42,16 +42,29 @@
 }
 
 .Edito__content {
-  width: 80%;
+  width: 100%;
   z-index: 2;
-  color: palette(neutral, white);
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 0.9rem;
+  color: palette(neutral, black);
+  font-family: themefont();
+  font-size: 1rem;
   margin-top: $size-l;
+  background-color: palette(neutral, white);
+  padding: 32px;
+  border-radius: 24px;
+
+  @include lg {
+    width: 80%;
+    margin-top: $size-xl;
+  }
+
+  & img {
+    border-radius: 12px;
+  }
 }
 
 /* stylelint-disable-next-line plugin/selector-bem-pattern */
 .Edito a {
   text-decoration: underline;
-  color: palette(neutral, white);
+  font-weight: 700;
+  color: palette(neutral, black);
 }

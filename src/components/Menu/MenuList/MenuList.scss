@@ -19,15 +19,17 @@
   color: palette(neutral, white);
   padding: 0 $size-s;
   text-decoration: none;
+  text-transform: uppercase;
   display: none;
 
   @include lg {
     display: block;
+    font-weight: 700;
     font-size: 0.8rem;
   }
 
   @include xl {
-    font-size: 14px; /* stylelint-disable-line declaration-property-unit-whitelist */
+    font-size: 1rem;
   }
 
   &:hover {

@@ -36,8 +36,10 @@
 .Disclaimer__Link {
   font-family: themefont();
   color: palette(neutral, white);
+  text-transform: capitalize;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  font-weight: 800;
   padding-left: 2px;
 }
 
@@ -51,16 +53,17 @@
 
 .Disclaimer__Enter {
   font-size: 1.5rem;
+  font-weight: 700;
   font-family: themefont();
   color: palette(neutral, white);
   border: $size-xs solid palette(neutral, white);
-  padding: $size-s $size-s 0;
+  padding: $size-s calc(#{$size-s} + #{$size-xs});
   text-decoration: none;
   transition: all ease-in-out 0.5s;
 
   @include lg {
     font-size: 2rem;
-    padding: $size-s $size-s 0;
+    padding: $size-s calc(#{$size-s} + #{$size-xs});
   }
 
   &:hover {

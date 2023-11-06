@@ -45,17 +45,6 @@ const Social = (props: PropTypes): Node => {
           <img src="https://www.asvelasca.it/images/btns/twitter.png" alt="Velasca Twitter" />
         </a>
       </div>
-
-      <div className="Social__Item">
-        <a
-          className="Social__link"
-          target="_blank"
-          rel="noopener"
-          href="https://www.pinterest.fr/asvelasca2015/calcio-e-arte/?sender=595390150645690141&invite_code=6ac8337675e04e89ae0d5c2eab25bc92"
-        >
-          <img src="https://www.asvelasca.it/images/btns/pinterest.png" alt="Velasca Pinterest" />
-        </a>
-      </div>
     </div>
   );
 };

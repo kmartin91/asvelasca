@@ -12,6 +12,8 @@
   transform-origin: bottom;
   width: 100%;
   z-index: 3;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
 
   @include lg {
     display: none;
@@ -40,6 +42,8 @@
 .MobileMenuAccordion__Links {
   list-style: none;
   font-family: themefont();
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .MobileMenuAccordion__Link {

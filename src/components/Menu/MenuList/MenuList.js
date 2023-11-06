@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import type { Node } from 'react';
+import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 import { getRouteWithLocale } from '../../../shared/utils';
 

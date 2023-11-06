@@ -114,7 +114,7 @@ const ShopItem = ({
         {!hasVideo ? (
           <img className="ShopItem__image" src={image} alt={name} />
         ) : (
-          <video className="Shop__productImage" autoPlay muted loop>
+          <video className="ShopItem__productImage" autoPlay muted loop>
             <source src={video} type="video/mp4"></source>
           </video>
         )}

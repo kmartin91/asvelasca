@@ -13,7 +13,8 @@
 }
 
 .ShopItem__back {
-  font-size: 0.7rem;
+  font-size: 1rem;
+  font-weight: 700;
   align-self: flex-end;
 }
 
@@ -21,6 +22,10 @@
   display: flex;
   flex-direction: column;
   margin: $size-l 0;
+  background-color: palette(neutral, white);
+  border-radius: 24px;
+  color: palette(neutral, black);
+  padding: 36px;
 
   @include lg {
     flex-direction: row;
@@ -33,12 +38,21 @@
   max-height: 450px;
   margin-bottom: $size-l;
   align-self: center;
+  border-radius: 12px;
 
   @include xl {
     width: 45%;
     margin-bottom: 0;
     align-self: inherit;
   }
+}
+
+.ShopItem__productImage {
+  height: 100%;
+  width: 100%;
+  max-width: 450px;
+  object-fit: cover;
+  border-radius: 12px;
 }
 
 .ShopItem__product {
@@ -64,9 +78,9 @@
 
 .ShopItem__productButton {
   border: 2px solid palette(neutral, green);
-  background-color: transparent;
-  padding: 8px 12px 4px;
-  color: palette(neutral, green);
+  background-color: palette(neutral, green);
+  padding: 8px 12px;
+  color: palette(neutral, white);
   font-family: themefont();
   outline: none;
   cursor: pointer;
@@ -77,8 +91,8 @@
   max-width: initial;
 
   &:hover {
-    background-color: palette(neutral, green);
-    color: palette(neutral, white);
+    background-color: palette(neutral, greenHover);
+    border: 2px solid palette(neutral, greenHover);
   }
 }
 
@@ -87,7 +101,7 @@
 }
 
 .ShopItem__productDisclaimer {
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   padding-top: $size-l;
 }
 

@@ -45,6 +45,10 @@
 
 .Toggle__Content {
   margin: 0 $size-m;
+
+  @include sm {
+    margin: 0;
+  }
 }
 
 .Toggle__ContentChildren {

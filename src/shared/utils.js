@@ -32,16 +32,7 @@ export function useInterval(callback, delay) {
   }, [delay]);
 }
 
-const getRouteWithLocale = (route) => {
-  if (
-    window.location.href.indexOf(window.LOCALE_VELASCA) < 0 ||
-    window.location.href.split('/').pop() === window.LOCALE_VELASCA
-  ) {
-    return `${window.LOCALE_VELASCA || 'en'}/${route}`;
-  }
-  return route;
-};
-
+const getRouteWithLocale = (route) => `/${window.LOCALE_VELASCA || 'en'}/${route}`;
 export {
   getApiUrl,
   getApiGet,
