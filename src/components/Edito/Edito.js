@@ -86,6 +86,7 @@ const Edito = ({ page, name }: EditoProps): Node => {
         <meta property="twitter:description" content="WE ARE ALL BUT A FOOTBALL TEAM" />
         <meta property="twitter:image" content="https://www.asvelasca.it/asvelasca-fb.jpg" />
         <link rel="shortcut icon" href="https://www.asvelasca.it/velascam.png" />
+        {page === 'allstar' && <script src="//embed.typeform.com/next/embed.js"></script>}
       </Helmet>
       {background && (
         <React.Fragment>
