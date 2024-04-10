@@ -4,13 +4,13 @@ import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import importedComponent from 'react-imported-component';
 
 /* Import new component here  */
-const Main = importedComponent(() => import('./src/components/Main/Main'));
-const Disclaimer = importedComponent(() => import('./src/components/Disclaimer/Disclaimer'));
-const Edito = importedComponent(() => import('./src/components/Edito/Edito'));
-const Errors = importedComponent(() => import('./src/components/Errors/Errors'));
-const Season = importedComponent(() => import('./src/components/Season/Season'));
-const Shop = importedComponent(() => import('./src/components/Shop/Shop'));
-const Layout = importedComponent(() => import('./src/components/Layout/Layout'));
+const Main = importedComponent((() => import('./src/components/Main/Main')));
+const Disclaimer = importedComponent((() => import('./src/components/Disclaimer/Disclaimer')));
+const Edito = importedComponent((() => import('./src/components/Edito/Edito')));
+const Errors = importedComponent((() => import('./src/components/Errors/Errors')));
+const Season = importedComponent((() => import('./src/components/Season/Season')));
+const Shop = importedComponent((() => import('./src/components/Shop/Shop')));
+const Layout = importedComponent((() => import('./src/components/Layout/Layout')));
 
 const base = '/:locale(fr|en|it|cn)?';
 

@@ -5,6 +5,7 @@ import type { Node } from 'react';
 import axios from 'axios';
 import { Helmet } from 'react-helmet';
 import _get from 'lodash/get';
+import { Widget } from 'react-typeform-embed';
 
 import { getApiGet, getServerUrl, getApiToken } from '../../shared/utils';
 import Errors from '../Errors/Errors';
@@ -86,7 +87,6 @@ const Edito = ({ page, name }: EditoProps): Node => {
         <meta property="twitter:description" content="WE ARE ALL BUT A FOOTBALL TEAM" />
         <meta property="twitter:image" content="https://www.asvelasca.it/asvelasca-fb.jpg" />
         <link rel="shortcut icon" href="https://www.asvelasca.it/velascam.png" />
-        {page === 'allstar' && <script src="//embed.typeform.com/next/embed.js"></script>}
       </Helmet>
       {background && (
         <React.Fragment>
@@ -102,12 +102,18 @@ const Edito = ({ page, name }: EditoProps): Node => {
       )}
       {content && (
         <React.Fragment>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: newContent,
-            }}
-            className="Edito__content"
-          />
+          {page !== 'allstar' ? (
+            <div
+              dangerouslySetInnerHTML={{
+                __html: newContent,
+              }}
+              className="Edito__content"
+            />
+          ) : (
+            <div className="Edito__content">
+              <Widget id="IIfRr5eo" height="100%" hideHeaders />
+            </div>
+          )}
         </React.Fragment>
       )}
       {error && <Errors message={_get(error, 'message')} code={_get(error, 'response.status')} />}
