@@ -68,8 +68,8 @@ const App = (
       <Layout path={`${base}/shop/:id`} component={Shop} page="shop" name="shopItem" />
 
       {/* Bulletin */}
-      <Layout path={`${base}/bollettino`} component={Edito} page="bulletin" name="bollettino" />
-      <Layout path={`${base}/bulletin`} component={Edito} page="bulletin" name="bulletin" />
+      <Layout path={`${base}/edizione`} component={Edito} page="bulletin" name="edizione" />
+      <Layout path={`${base}/edition`} component={Edito} page="bulletin" name="edition" />
 
       {/* Contacts */}
       <Layout path={`${base}/contatti`} component={Edito} page="contacts" name="contatti" />

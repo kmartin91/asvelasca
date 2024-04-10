@@ -21,7 +21,7 @@
     { "label": "tickets", "route": "tickets", "key": "tickets", "name": "TICKETS" },
     { "label": "societa", "route": "societa", "key": "club", "name": "CLUB" },
     { "label": "stampa", "route": "stampa", "key": "press", "name": "STAMPA" },
-    { "label": "bollettino", "route": "bollettino", "key": "bulletin", "name": "BOLLETINO" },
+    { "label": "edizione", "route": "edizione", "key": "edition", "name": "EDIZIONE" },
     { "label": "contatti", "route": "disclaimer", "key": "contacts", "name": "CONTATTI" }
   ],
   "backToList": "Torna ai prodo",

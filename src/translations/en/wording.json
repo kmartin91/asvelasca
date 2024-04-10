@@ -21,7 +21,7 @@
     { "label": "tickets", "route": "tickets", "key": "tickets", "name": "TICKETS" },
     { "label": "club", "route": "club", "key": "club", "name": "CLUB" },
     { "label": "press", "route": "press", "key": "press", "name": "PRESS" },
-    { "label": "bulletin", "route": "bulletin", "key": "bulletin", "name": "BULLETIN" },
+    { "label": "edition", "route": "edition", "key": "edition", "name": "EDITION" },
     { "label": "contacts", "route": "disclaimer", "key": "contacts", "name": "CONTACTS" }
   ],
   "backToList": "Back to products",

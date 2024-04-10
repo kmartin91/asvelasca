@@ -54,6 +54,7 @@ const Disclaimer = (props: PropTypes): Node => {
           className="Disclaimer__Image"
           src="https://www.asvelasca.it/images/velascalogo.png"
           alt="AS Velasca"
+          loading="lazy"
         />
       </a>
       <a href="/en/home" className="Disclaimer__Enter">
