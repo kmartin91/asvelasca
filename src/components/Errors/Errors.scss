@@ -7,7 +7,7 @@
   font-family: themefont(), sans-serif;
   color: palette(neutral, white);
   padding: $size-xl;
-  height: 50vh;
+  height: calc((var(--vh, 1vh) * 100) - 100px);
   overflow: hidden;
   background-color: palette(neutral, red);
 }

@@ -78,7 +78,8 @@ const App = (
       {/* Disclaimer */}
       <Layout path={`${base}/disclaimer`} component={Edito} page="disclaimer" name="disclaimer" />
 
-      {/* Event */}
+      <Layout path={`${base}/allstar`} component={Edito} page="allstar" name="allstar" />
+      {/* Events */}
       <Layout path={`${base}/chapter7`} component={Edito} page="chapter7" name="chapter7" />
 
 
