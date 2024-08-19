@@ -40,12 +40,12 @@ const MenuList = ({
           })}
           key={label}
         >
-          <a
+          <Link
             className={classnames('MenuList__Link', { MenuList__PrimaryLink: isPrimary })}
-            href={getRouteWithLocale(route)}
+            to={getRouteWithLocale(route)}
           >
             {label}
-          </a>
+          </Link>
         </li>
       ))}
     {!withoutMore && (

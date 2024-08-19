@@ -17,11 +17,16 @@
 
 .MobileMenu__Link {
   color: palette(neutral, white);
-  padding: 0 $size-s;
   text-decoration: none;
   font-size: 0.8rem;
   text-transform: uppercase;
   font-weight: 700;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
 }
 
 .MobileMenu__LinkContainer,

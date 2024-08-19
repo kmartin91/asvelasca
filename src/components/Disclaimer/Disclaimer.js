@@ -1,6 +1,7 @@
 /* @flow */
 
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import type { Node } from 'react';
 import axios from 'axios';
 import _get from 'lodash/get';
@@ -49,50 +50,50 @@ const Disclaimer = (props: PropTypes): Node => {
 
   return (
     <div className="Disclaimer">
-      <a href="/en/home">
+      <Link to="/en/home">
         <img
           className="Disclaimer__Image"
           src="https://www.asvelasca.it/images/velascalogo.png"
           alt="AS Velasca"
           loading="lazy"
         />
-      </a>
-      <a href="/en/home" className="Disclaimer__Enter">
+      </Link>
+      <Link to="/en/home" className="Disclaimer__Enter">
         ENTER WEBSITE
-      </a>
+      </Link>
       <div className="Disclaimer__LangSelector">
-        <a className="Disclaimer__Link" href="/it/home">
+        <Link className="Disclaimer__Link" to="/it/home">
           Italiano /
-        </a>
-        <a className="Disclaimer__Link" href="/en/home">
+        </Link>
+        <Link className="Disclaimer__Link" to="/en/home">
           English /
-        </a>
-        <a className="Disclaimer__Link" href="/fr/home">
+        </Link>
+        <Link className="Disclaimer__Link" to="/fr/home">
           Français /
-        </a>
-        <a className="Disclaimer__Link" href="/cn/home">
+        </Link>
+        <Link className="Disclaimer__Link" to="/cn/home">
           中文
-        </a>
+        </Link>
       </div>
       <div className="Disclaimer__Sponsors">
         {sponsors &&
           sponsors.map(({ path, meta: { title } }, index) => (
-            <a href={title} key={title} className="Disclaimer__SponsorContainer">
+            <Link to={title} key={title} className="Disclaimer__SponsorContainer">
               <img
                 src={`${getServerUrl()}${path}`}
                 alt={`${title}`}
                 key={title}
                 className="Disclaimer__Sponsor"
               />
-            </a>
+            </Link>
           ))}
       </div>
       <div className="Disclaimer__Social">
         <Social />
       </div>
-      <a className="Disclaimer__Link Disclaimer__link_alt" href="/en/disclaimer">
+      <Link className="Disclaimer__Link Disclaimer__link_alt" to="/en/disclaimer">
         Disclaimer
-      </a>
+      </Link>
     </div>
   );
 };
