@@ -20,9 +20,9 @@ const replaceImage = (content?: string) =>
 
 const replaceHttpToHttps = (content?: string) => content && content.replace(/http:/gim, `https:`);
 
-// Find all video tags and add playsInline attribute to them
+// Find all video tags and add playsInline and muted attribute to them
 const addPlaysInline = (content?: string) =>
-  content && content.replace(/<video/gim, '<video playsInline');
+  content && content.replace(/<video/gim, '<video playsInline muted preload="metadata"');
 
 const Edito = ({ page, name }: EditoProps): Node => {
   const sourceAxios = useRef<Object>();
