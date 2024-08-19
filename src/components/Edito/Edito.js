@@ -21,7 +21,6 @@ const replaceImage = (content?: string) =>
 const replaceHttpToHttps = (content?: string) => content && content.replace(/http:/gim, `https:`);
 
 const Edito = ({ page, name }: EditoProps): Node => {
-  console.log({ page, name });
   const sourceAxios = useRef<Object>();
   const [data, setData] = useState({});
   const [error, setError] = useState(undefined);
