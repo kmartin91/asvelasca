@@ -25,12 +25,12 @@ button {
 .Shop {
   color: palette(neutral, white);
   position: relative;
-  margin: $size-s;
-  width: 100%;
+  width: 100%; 
+  margin: 100px 0;
   z-index: 3;
 
   @include lg {
-    margin: 0;
+    margin: 100px 0 0;
   }
 }
 

@@ -181,7 +181,7 @@ const Shop = ({ page, name }: PropTypes): Node => {
                       {!hasVideo ? (
                         <img className="Shop__productImage" src={image} alt={name} />
                       ) : (
-                        <video className="Shop__productImage" autoPlay muted loop>
+                        <video className="Shop__productImage" autoPlay muted loop playsInline>
                           <source src={video} type="video/mp4"></source>
                         </video>
                       )}

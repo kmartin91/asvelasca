@@ -8,6 +8,7 @@ import { useParams } from 'react-router-dom';
 import Header from '../Header/Header';
 import MobileMenu from '../Menu/MobileMenu/MobileMenu';
 import { translate } from '../../shared/i18n';
+import { ScrollToTop } from '../../shared/utils';
 
 type MatchTypes = {
   locale: string,
@@ -68,6 +69,7 @@ const App = ({ component: Component, ...props }: PropTypes): Node => {
       </div>
       {!withoutFooter && <div className="App__Footer" />}
       {!withoutHeader && <MobileMenu links={menu} />}
+      <ScrollToTop />
     </div>
   );
 };
