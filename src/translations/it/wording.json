@@ -16,7 +16,6 @@
       "isPrimary": true,
       "name": "ARTISTS"
     },
-    { "label": "risultati", "route": "stagione", "key": "season", "name": "SEASON" },
     { "label": "shop", "route": "shop", "key": "shop", "isPrimary": true, "name": "SHOP" },
     { "label": "tickets", "route": "tickets", "key": "tickets", "name": "TICKETS" },
     { "label": "societa", "route": "societa", "key": "club", "name": "CLUB" },

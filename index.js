@@ -51,9 +51,9 @@ const AppRouter = (
         <Route path="artisti" element={<App component={Edito} page="artists" name="artisti" />} />
 
         {/* Season */}
-        <Route path="season" element={<App component={Season} page="season" name="season" />} />
+        {/* <Route path="season" element={<App component={Season} page="season" name="season" />} />
         <Route path="saison" element={<App component={Season} page="season" name="saison" />} />
-        <Route path="stagione" element={<App component={Season} page="season" name="stagione" />} />
+        <Route path="stagione" element={<App component={Season} page="season" name="stagione" />} /> */}
 
         {/* Tickets */}
         <Route path="tickets" element={<App component={Edito} page="tickets" name="tickets" />} />

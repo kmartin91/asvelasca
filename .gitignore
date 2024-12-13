@@ -11,6 +11,9 @@ dist/
 # Build output folders
 build/
 
+# backup files
+backup/
+
 # Logs
 logs
 *.log

@@ -16,7 +16,6 @@
       "isPrimary": true,
       "name": "ARTISTES"
     },
-    { "label": "résultats", "route": "saison", "key": "season", "name": "SAISON" },
     { "label": "shop", "route": "shop", "key": "shop", "isPrimary": true, "name": "BOUTIQUE" },
     { "label": "tickets", "route": "tickets", "key": "tickets", "name": "TICKETS" },
     { "label": "club", "route": "club", "key": "club", "name": "CLUB" },

@@ -10,7 +10,6 @@
       "isPrimary": true,
       "name": "ARTISTS"
     },
-    { "label": "赛季", "route": "season", "key": "season", "name": "SEASON" },
     { "label": "精品", "route": "shop", "key": "shop", "isPrimary": true, "name": "SHOP" },
     { "label": "票", "route": "tickets", "key": "tickets", "name": "TICKETS" },
     { "label": "管理人员", "route": "club", "key": "club", "name": "CLUB" },
