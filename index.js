@@ -1,101 +1,308 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter as Router, Switch } from 'react-router-dom';
-import importedComponent from 'react-imported-component';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Main from './src/components/Main/Main';
+import Disclaimer from './src/components/Disclaimer/Disclaimer';
+import Edito from './src/components/Edito/Edito';
+import Errors from './src/components/Errors/Errors';
+import Season from './src/components/Season/Season';
+import Shop from './src/components/Shop/Shop';
+import App from './src/components/App/App';
 
 /* Import new component here  */
-const Main = importedComponent(() => import('./src/components/Main/Main'));
-const Disclaimer = importedComponent(() => import('./src/components/Disclaimer/Disclaimer'));
-const Edito = importedComponent(() => import('./src/components/Edito/Edito'));
-const Errors = importedComponent(() => import('./src/components/Errors/Errors'));
-const Season = importedComponent(() => import('./src/components/Season/Season'));
-const Shop = importedComponent(() => import('./src/components/Shop/Shop'));
-const Layout = importedComponent(() => import('./src/components/Layout/Layout'));
+/*
+const Main = lazy(() => import('./src/components/Main/Main'));
+const Disclaimer = lazy(() => import('./src/components/Disclaimer/Disclaimer'));
+const Edito = lazy(() => import('./src/components/Edito/Edito'));
+const Errors = lazy(() => import('./src/components/Errors/Errors'));
+const Season = lazy(() => import('./src/components/Season/Season'));
+const Shop = lazy(() => import('./src/components/Shop/Shop'));
+const App = lazy(() => import('./src/components/App/App')); */
 
 const base = '/:locale(fr|en|it|cn)?';
 
-const App = (
+const AppRouter = (
   <Router>
-    <Switch>
-      <Layout path={base} exact component={Disclaimer} withoutHeader withoutFooter />
+    <Routes>
+      <Route path="/:locale?">
+        <Route index element={<App component={Disclaimer} withoutHeader withoutFooter />} />
 
-      <Layout path={`${base}/home`} component={Main} withoutFooter />
+        <Route path="home" element={<App component={Main} withoutFooter />} />
+
+        {/* Progeto */}
+        <Route
+          path="progetto"
+          element={<App component={Edito} page="progetto" name="progetto" />}
+        />
+        <Route path="project" element={<App component={Edito} page="progetto" name="project" />} />
+        <Route path="projet" element={<App component={Edito} page="progetto" name="projet" />} />
+
+        {/* Squadra */}
+        <Route path="squadra" element={<App component={Edito} page="squadra" name="squadra" />} />
+        <Route path="equipe" element={<App component={Edito} page="squadra" name="equipe" />} />
+        <Route path="team" element={<App component={Edito} page="squadra" name="team" />} />
+
+        {/* Sponsor */}
+        <Route path="sponsor" element={<App component={Edito} page="sponsor" name="sponsor" />} />
+
+        {/* Artists */}
+        <Route path="artists" element={<App component={Edito} page="artists" name="artists" />} />
+        <Route path="artistes" element={<App component={Edito} page="artists" name="artistes" />} />
+        <Route path="artisti" element={<App component={Edito} page="artists" name="artisti" />} />
+
+        {/* Season */}
+        <Route path="season" element={<App component={Season} page="season" name="season" />} />
+        <Route path="saison" element={<App component={Season} page="season" name="saison" />} />
+        <Route path="stagione" element={<App component={Season} page="season" name="stagione" />} />
+
+        {/* Tickets */}
+        <Route path="tickets" element={<App component={Edito} page="tickets" name="tickets" />} />
+
+        {/* Club */}
+        <Route path="club" element={<App component={Edito} page="club" name="club" />} />
+        <Route path="societa" element={<App component={Edito} page="club" name="societa" />} />
+
+        {/* Supporters */}
+        <Route
+          path="supporters"
+          element={<App component={Edito} page="supporters" name="supporters" />}
+        />
+        <Route
+          path="supporteurs"
+          element={<App component={Edito} page="supporters" name="supporteurs" />}
+        />
+        <Route path="tifosi" element={<App component={Edito} page="supporters" name="tifosi" />} />
+
+        {/* Press */}
+        <Route path="press" element={<App component={Edito} page="press" name="press" />} />
+        <Route path="presse" element={<App component={Edito} page="press" name="presse" />} />
+        <Route path="stampa" element={<App component={Edito} page="press" name="stampa" />} />
+
+        {/* Shop */}
+        <Route path="shop" element={<App component={Shop} page="shop" name="shop" />} />
+
+        {/* Shop Item */}
+        <Route path="shop/:id" element={<App component={Shop} page="shop" name="shopItem" />} />
+
+        {/* Bulletin */}
+        <Route
+          path="edizione"
+          element={<App component={Edito} page="bulletin" name="edizione" />}
+        />
+        <Route path="edition" element={<App component={Edito} page="bulletin" name="edition" />} />
+
+        {/* Contacts */}
+        <Route
+          path="contatti"
+          element={<App component={Edito} page="contacts" name="contatti" />}
+        />
+        <Route
+          path="contacts"
+          element={<App component={Edito} page="contacts" name="contacts" />}
+        />
+
+        {/* Disclaimer */}
+        <Route
+          path="disclaimer"
+          element={<App component={Edito} page="disclaimer" name="disclaimer" />}
+        />
+
+        <Route path="allstar" element={<App component={Edito} page="allstar" name="allstar" />} />
+        {/* Events */}
+        <Route
+          path="chapter7"
+          element={<App component={Edito} page="chapter7" name="chapter7" />}
+        />
+
+        {/* Icarus */}
+        <Route path="icarus" element={<App component={Edito} page="icarus" name="icarus" />} />
+
+        {/* Payment Confirmation */}
+        <Route
+          path="confirmation"
+          element={<App component={Edito} page="confirmation" name="confirmation" />}
+        />
+
+        {/* 404 Route */}
+        <Route
+          path="*"
+          element={
+            <App component={Errors} withoutFooter code="404" noOverFlow message="Page not found" />
+          }
+        />
+      </Route>
+    </Routes>
+  </Router>
+);
+
+const AppRouter2 = (
+  <Router>
+    <Routes>
+      <Route path={base} element={<App component={Disclaimer} withoutHeader withoutFooter />} />
+
+      <Route path={`${base}/home`} element={<App component={Main} withoutFooter />} />
 
       {/* Progeto */}
-      <Layout path={`${base}/progetto`} component={Edito} page="progetto" name="progetto" />
-      <Layout path={`${base}/project`} component={Edito} page="progetto" name="project" />
-      <Layout path={`${base}/projet`} component={Edito} page="progetto" name="projet" />
-
-      {/* Squadra */}
-      <Layout path={`${base}/squadra`} component={Edito} page="squadra" name="squadra" />
-      <Layout path={`${base}/equipe`} component={Edito} page="squadra" name="equipe" />
-      <Layout path={`${base}/team`} component={Edito} page="squadra" name="team" />
-
-      {/* Sponsor */}
-      <Layout path={`${base}/sponsor`} component={Edito} page="sponsor" name="sponsor" />
-
-      {/* Artists */}
-      <Layout path={`${base}/artists`} component={Edito} page="artists" name="artists" />
-      <Layout path={`${base}/artistes`} component={Edito} page="artists" name="artistes" />
-      <Layout path={`${base}/artisti`} component={Edito} page="artists" name="artisti" />
-
-      {/* Season */}
-      <Layout path={`${base}/season`} component={Season} page="season" name="season" />
-      <Layout path={`${base}/saison`} component={Season} page="season" name="saison" />
-      <Layout path={`${base}/stagione`} component={Season} page="season" name="stagione" />
-
-      {/* Tickets */}
-      <Layout path={`${base}/tickets`} component={Edito} page="tickets" name="tickets" />
-
-      {/* Club */}
-      <Layout path={`${base}/club`} component={Edito} page="club" name="club" />
-      <Layout path={`${base}/societa`} component={Edito} page="club" name="societa" />
-
-      {/* Supporters */}
-      <Layout path={`${base}/supporters`} component={Edito} page="supporters" name="supporters" />
-      <Layout path={`${base}/supporteurs`} component={Edito} page="supporters" name="supporteurs" />
-      <Layout path={`${base}/tifosi`} component={Edito} page="supporters" name="tifosi" />
-
-      {/* Press */}
-      <Layout path={`${base}/press`} component={Edito} page="press" name="press" />
-      <Layout path={`${base}/presse`} component={Edito} page="press" name="presse" />
-      <Layout path={`${base}/stampa`} component={Edito} page="press" name="stampa" />
-
-      {/* Shop */}
-      <Layout exact path={`${base}/shop`} component={Shop} page="shop" name="shop" />
-
-      { /* Shop Item */ }
-      <Layout path={`${base}/shop/:id`} component={Shop} page="shop" name="shopItem" />
-
-      {/* Bulletin */}
-      <Layout path={`${base}/edizione`} component={Edito} page="bulletin" name="edizione" />
-      <Layout path={`${base}/edition`} component={Edito} page="bulletin" name="edition" />
-
-      {/* Contacts */}
-      <Layout path={`${base}/contatti`} component={Edito} page="contacts" name="contatti" />
-      <Layout path={`${base}/contacts`} component={Edito} page="contacts" name="contacts" />
-
-      {/* Disclaimer */}
-      <Layout path={`${base}/disclaimer`} component={Edito} page="disclaimer" name="disclaimer" />
-
-      <Layout path={`${base}/allstar`} component={Edito} page="allstar" name="allstar" />
-      {/* Events */}
-      <Layout path={`${base}/chapter7`} component={Edito} page="chapter7" name="chapter7" />
-
-
-      {/* Icarus */}
-      <Layout path={`${base}/icarus`} component={Edito} page="icarus" name="icarus" />
-
-      {/* Payment Confirmation */}
-      <Layout
-        path={`${base}/confirmation`}
-        component={Edito}
-        page="confirmation"
-        name="confirmation"
+      <Route
+        path={`${base}/progetto`}
+        element={<App component={Edito} page="progetto" name="progetto" />}
+      />
+      <Route
+        path={`${base}/project`}
+        element={<App component={Edito} page="progetto" name="project" />}
+      />
+      <Route
+        path={`${base}/projet`}
+        element={<App component={Edito} page="progetto" name="projet" />}
       />
 
-      <Layout component={Errors} withoutFooter code="404" noOverFlow message="Page not found" />
-    </Switch>
+      {/* Squadra */}
+      <Route
+        path={`${base}/squadra`}
+        element={<App component={Edito} page="squadra" name="squadra" />}
+      />
+      <Route
+        path={`${base}/equipe`}
+        element={<App component={Edito} page="squadra" name="equipe" />}
+      />
+      <Route path={`${base}/team`} element={<App component={Edito} page="squadra" name="team" />} />
+
+      {/* Sponsor */}
+      <Route
+        path={`${base}/sponsor`}
+        element={<App component={Edito} page="sponsor" name="sponsor" />}
+      />
+
+      {/* Artists */}
+      <Route
+        path={`${base}/artists`}
+        element={<App component={Edito} page="artists" name="artists" />}
+      />
+      <Route
+        path={`${base}/artistes`}
+        element={<App component={Edito} page="artists" name="artistes" />}
+      />
+      <Route
+        path={`${base}/artisti`}
+        element={<App component={Edito} page="artists" name="artisti" />}
+      />
+
+      {/* Season */}
+      <Route
+        path={`${base}/season`}
+        element={<App component={Season} page="season" name="season" />}
+      />
+      <Route
+        path={`${base}/saison`}
+        element={<App component={Season} page="season" name="saison" />}
+      />
+      <Route
+        path={`${base}/stagione`}
+        element={<App component={Season} page="season" name="stagione" />}
+      />
+
+      {/* Tickets */}
+      <Route
+        path={`${base}/tickets`}
+        element={<App component={Edito} page="tickets" name="tickets" />}
+      />
+
+      {/* Club */}
+      <Route path={`${base}/club`} element={<App component={Edito} page="club" name="club" />} />
+      <Route
+        path={`${base}/societa`}
+        element={<App component={Edito} page="club" name="societa" />}
+      />
+
+      {/* Supporters */}
+      <Route
+        path={`${base}/supporters`}
+        element={<App component={Edito} page="supporters" name="supporters" />}
+      />
+      <Route
+        path={`${base}/supporteurs`}
+        element={<App component={Edito} page="supporters" name="supporteurs" />}
+      />
+      <Route
+        path={`${base}/tifosi`}
+        element={<App component={Edito} page="supporters" name="tifosi" />}
+      />
+
+      {/* Press */}
+      <Route path={`${base}/press`} element={<App component={Edito} page="press" name="press" />} />
+      <Route
+        path={`${base}/presse`}
+        element={<App component={Edito} page="press" name="presse" />}
+      />
+      <Route
+        path={`${base}/stampa`}
+        element={<App component={Edito} page="press" name="stampa" />}
+      />
+
+      {/* Shop */}
+      <Route path={`${base}/shop`} element={<App component={Shop} page="shop" name="shop" />} />
+
+      {/* Shop Item */}
+      <Route
+        path={`${base}/shop/:id`}
+        element={<App component={Shop} page="shop" name="shopItem" />}
+      />
+
+      {/* Bulletin */}
+      <Route
+        path={`${base}/edizione`}
+        element={<App component={Edito} page="bulletin" name="edizione" />}
+      />
+      <Route
+        path={`${base}/edition`}
+        element={<App component={Edito} page="bulletin" name="edition" />}
+      />
+
+      {/* Contacts */}
+      <Route
+        path={`${base}/contatti`}
+        element={<App component={Edito} page="contacts" name="contatti" />}
+      />
+      <Route
+        path={`${base}/contacts`}
+        element={<App component={Edito} page="contacts" name="contacts" />}
+      />
+
+      {/* Disclaimer */}
+      <Route
+        path={`${base}/disclaimer`}
+        element={<App component={Edito} page="disclaimer" name="disclaimer" />}
+      />
+
+      <Route
+        path={`${base}/allstar`}
+        element={<App component={Edito} page="allstar" name="allstar" />}
+      />
+      {/* Events */}
+      <Route
+        path={`${base}/chapter7`}
+        element={<App component={Edito} page="chapter7" name="chapter7" />}
+      />
+
+      {/* Icarus */}
+      <Route
+        path={`${base}/icarus`}
+        element={<App component={Edito} page="icarus" name="icarus" />}
+      />
+
+      {/* Payment Confirmation */}
+      <Route
+        path={`${base}/confirmation`}
+        element={<App component={Edito} page="confirmation" name="confirmation" />}
+      />
+
+      <Route
+        path="*"
+        element={
+          <App component={Errors} withoutFooter code="404" noOverFlow message="Page not found" />
+        }
+      />
+    </Routes>
   </Router>
 );
 
@@ -112,4 +319,4 @@ window.addEventListener('resize', () => {
 });
 
 const root = createRoot(rootElement);
-root.render(App);
+root.render(AppRouter);

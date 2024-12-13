@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import type { Node } from 'react';
 import Select from 'react-select';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { translate } from '../../../shared/i18n';
 
 import './ShopItem.scss';
@@ -33,7 +33,6 @@ type PropTypes = {
   nextItem: ItemTypes,
   handleChangeItem: Function,
   handleResetItem: Function,
-  backUrl: string,
 };
 
 type OptionsTypes = {
@@ -53,7 +52,6 @@ const ShopItem = ({
   handleChangeItem,
   prevItem,
   nextItem,
-  backUrl,
 }: PropTypes): Node => {
   const {
     image,
@@ -107,14 +105,14 @@ const ShopItem = ({
 
   return (
     <div className="ShopItem">
-      <Link to={`/${window.LOCALE_VELASCA}/shop`} className="ShopItem__back">
+      <Link to={-1} className="ShopItem__back">
         {translate('backToList')}
       </Link>
       <div className="ShopItem__content">
         {!hasVideo ? (
           <img className="ShopItem__image" src={image} alt={name} />
         ) : (
-          <video className="ShopItem__productImage" autoPlay muted loop>
+          <video className="ShopItem__productImage" autoPlay muted loop playsInline>
             <source src={video} type="video/mp4"></source>
           </video>
         )}
@@ -205,7 +203,7 @@ const ShopItem = ({
             <div className="ShopItem__productSoldOut">{translate('soldOut')} </div>
           )}
 
-          <div className="ShopItem__navigation">
+          {/* <div className="ShopItem__navigation">
             <a href="#" onClick={() => handleChangeItem(prevItem)}>
               Prev item
             </a>
@@ -213,7 +211,7 @@ const ShopItem = ({
             <a href="#" onClick={() => handleChangeItem(nextItem)}>
               Next item
             </a>
-          </div>
+        </div> */}
         </div>
       </div>
     </div>

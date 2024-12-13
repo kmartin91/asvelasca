@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const getServerUrl = () => process.env.SERVER_URL;
 
@@ -33,6 +34,14 @@ export function useInterval(callback, delay) {
 }
 
 const getRouteWithLocale = (route) => `/${window.LOCALE_VELASCA || 'en'}/${route}`;
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+};
+
 export {
   getApiUrl,
   getApiGet,
@@ -41,4 +50,5 @@ export {
   getTutoCampiToken,
   getApiToken,
   getCurrentYear,
+  ScrollToTop,
 };

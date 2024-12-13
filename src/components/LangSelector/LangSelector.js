@@ -2,6 +2,7 @@
 
 import React from 'react';
 import type { Node } from 'react';
+import { Link } from 'react-router-dom';
 import { locales, getKey } from '../../shared/i18n';
 
 import './LangSelector.scss';
@@ -28,13 +29,13 @@ const LangSelector = (props: PropTypes): Node => {
           .filter((locale) => locale !== window.LOCALE_VELASCA)
           .map((locale) => (
             <li className="LangSelector__item" key={locale}>
-              <a
+              <Link
                 className="LangSelector__link"
-                href={`/${locale}/${getRoute(locale)}`}
+                to={`/${locale}/${getRoute(locale)}`}
                 onClick={(locale) => setLocaleGlobale(locale)}
               >
                 {locale}
-              </a>
+              </Link>
             </li>
           ))}
     </ul>

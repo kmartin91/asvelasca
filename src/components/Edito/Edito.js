@@ -20,6 +20,10 @@ const replaceImage = (content?: string) =>
 
 const replaceHttpToHttps = (content?: string) => content && content.replace(/http:/gim, `https:`);
 
+// Find all video tags and add playsInline and muted attribute to them
+const addPlaysInline = (content?: string) =>
+  content && content.replace(/<video/gim, '<video playsInline muted preload="metadata"');
+
 const Edito = ({ page, name }: EditoProps): Node => {
   const sourceAxios = useRef<Object>();
   const [data, setData] = useState({});
@@ -54,13 +58,13 @@ const Edito = ({ page, name }: EditoProps): Node => {
         sourceAxios.current.cancel();
       }
     };
-  }, []);
+  }, [page]);
 
   const { entries = {}, fields = {} } = data;
 
   const { background, content } = _get(data, 'entries[0]', []);
 
-  const newContent = replaceHttpToHttps(replaceImage(content || ''));
+  const newContent = addPlaysInline(replaceHttpToHttps(replaceImage(content || '')));
 
   const currentURL = `https://www.asvelasca.it/${window.LOCALE_VELASCA}/${page}`;
 

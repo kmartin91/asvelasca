@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import type { Node } from 'react';
+import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 import { translate } from '../../shared/i18n';
 import MenuList from './MenuList/MenuList';
@@ -31,9 +32,9 @@ const Menu = (props: PropTypes): Node => {
         handleOpenMobileMenu={() => setIsMobileOpen(!isMobileOpen)}
         isMobileOpen={isMobileOpen}
       />
-      <a className="Menu__Logo" href={`/${window.LOCALE_VELASCA}/home`}>
+      <Link className="Menu__Logo" to={`/${window.LOCALE_VELASCA}/home`}>
         <img src={Logo} alt="AS Velasca" />
-      </a>
+      </Link>
       <MenuList links={menuTwo} handleOpenMobileMenu={() => {}} isAlternate withoutMore />
     </div>
   );

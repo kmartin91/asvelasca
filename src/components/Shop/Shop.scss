@@ -5,12 +5,7 @@
   position: relative;
   display: flex;
   justify-content: center;
-  margin: 100px 0;
   min-height: calc((var(--vh, 1vh) * 100) - 100px);
-
-  @include lg {
-    margin: 100px 0 0;
-  }
 }
 
 .Shop__imageContainer {

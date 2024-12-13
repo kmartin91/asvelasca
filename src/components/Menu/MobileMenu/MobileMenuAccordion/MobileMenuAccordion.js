@@ -2,6 +2,7 @@
 
 import React from 'react';
 import type { Node } from 'react';
+import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 import { getRouteWithLocale } from '../../../../shared/utils';
 
@@ -23,13 +24,13 @@ const MobileMenuAccordion = ({ links, isMobileOpen, closeMenu }: PropTypes): Nod
         {links &&
           links.map(({ route, label, isPrimary }) => (
             <li className="MobileMenuAccordion__LinkContainer" key={label}>
-              <a
+              <Link
                 className="MobileMenuAccordion__Link"
                 onClick={closeMenu}
-                href={getRouteWithLocale(route)}
+                to={getRouteWithLocale(route)}
               >
                 {label}
-              </a>
+              </Link>
             </li>
           ))}
       </ul>

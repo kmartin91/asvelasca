@@ -4,14 +4,14 @@ import React from 'react';
 import type { Node } from 'react';
 import classnames from 'classnames';
 import { Helmet } from 'react-helmet';
+import { useParams } from 'react-router-dom';
 import Header from '../Header/Header';
 import MobileMenu from '../Menu/MobileMenu/MobileMenu';
 import { translate } from '../../shared/i18n';
+import { ScrollToTop } from '../../shared/utils';
 
 type MatchTypes = {
-  params: {
-    locale: string,
-  },
+  locale: string,
 };
 
 type PropTypes = {
@@ -26,8 +26,10 @@ type PropTypes = {
 import './App.scss';
 
 const App = ({ component: Component, ...props }: PropTypes): Node => {
-  const { match, withoutFooter, withoutHeader, noOverFlow } = props;
-  const { params }: MatchTypes = match;
+  const params: MatchTypes = useParams();
+  if (!Component) return null;
+  const { withoutFooter, withoutHeader, noOverFlow } = props;
+
   const { locale } = params;
   window.LOCALE_VELASCA = locale || 'en';
   const menu = translate('menu') || [];
@@ -62,9 +64,12 @@ const App = ({ component: Component, ...props }: PropTypes): Node => {
         <link rel="shortcut icon" href="https://www.asvelasca.it/velascam.png" />
       </Helmet>
       {!withoutHeader && <Header />}
-      <Component {...props} className="App__content" />
+      <div className="App__content">
+        <Component {...props} />
+      </div>
       {!withoutFooter && <div className="App__Footer" />}
       {!withoutHeader && <MobileMenu links={menu} />}
+      <ScrollToTop />
     </div>
   );
 };

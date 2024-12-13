@@ -15,7 +15,6 @@ import { getApiGet, getServerUrl, getApiToken } from '../../shared/utils';
 import { translate } from '../../shared/i18n';
 
 import './Shop.scss';
-import classNames from 'classnames';
 
 type PropTypes = { page: string, name: string };
 
@@ -47,7 +46,6 @@ const Shop = ({ page, name }: PropTypes): Node => {
   const url = `/${window.LOCALE_VELASCA}/shop/`;
 
   const location = useLocation();
-  const currentBaseUrl = location.pathname.slice(0, location.pathname.lastIndexOf('/'));
 
   useEffect(() => {
     let isSubscribed = true;
@@ -154,7 +152,6 @@ const Shop = ({ page, name }: PropTypes): Node => {
           nextItem={nextItem}
           prevItem={prevItem}
           handleChangeItem={handleChangeItem}
-          backUrl={currentBaseUrl}
         />
       ) : (
         <React.Fragment>
@@ -184,7 +181,7 @@ const Shop = ({ page, name }: PropTypes): Node => {
                       {!hasVideo ? (
                         <img className="Shop__productImage" src={image} alt={name} />
                       ) : (
-                        <video className="Shop__productImage" autoPlay muted loop>
+                        <video className="Shop__productImage" autoPlay muted loop playsInline>
                           <source src={video} type="video/mp4"></source>
                         </video>
                       )}
