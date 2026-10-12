@@ -1,71 +1,69 @@
 /** @define Edito */
 
 .Edito {
-  width: 100%;
+  padding-bottom: clamp(48px, 8vw, 96px);
+}
+
+// Paper sheet sliding up over the hero.
+.Edito__sheet {
   position: relative;
-  display: flex;
-  justify-content: center;
-  margin: 100px 0;
-  min-height: calc((var(--vh, 1vh) * 100) - 100px);
+  z-index: 1;
+  width: min(100% - 2 * var(--gutter), 1280px);
+  margin: clamp(-120px, -10vh, -72px) auto 0;
+  padding: clamp(24px, 5vw, 64px);
+  border-radius: var(--radius);
+  background: var(--paper);
+  box-shadow: 0 40px 80px rgb(0 0 0 / 45%);
+  animation: sheet-up 1s 0.25s var(--ease-out) both;
+}
 
-  @include lg {
-    margin: 100px 0 0;
+@keyframes sheet-up {
+  from {
+    opacity: 0;
+    transform: translateY(80px) rotate(1deg);
   }
 }
 
-.Edito__imageContainer {
-  position: fixed;
-  height: calc((var(--vh, 1vh) * 100) - 75px);
-  width: 100%;
-  background-color: rgba(palette(neutral, black), 0.3);
+.Edito__next {
+  position: relative;
+  display: grid;
+  gap: 8px;
+  width: min(100% - 2 * var(--gutter), 1280px);
+  margin: clamp(40px, 6vw, 80px) auto 0;
+  padding: 32px 0 0;
+  border-top: 2px solid var(--line);
+  text-decoration: none;
+
+  &:hover .Edito__nextTitle,
+  &:focus-visible .Edito__nextTitle {
+    color: var(--red-bright);
+    font-stretch: 100%;
+  }
+
+  &:hover .Edito__nextArrow {
+    transform: translateX(12px);
+  }
 }
 
-.Edito__image {
-  height: 100%;
-  object-fit: cover;
-  width: 100%;
+.Edito__nextLabel {
+  color: var(--muted);
+  @include eyebrow;
 }
 
-.Edito__overlay {
-  top: 0;
-  bottom: -40px;
-  left: 0;
+.Edito__nextTitle {
+  font-size: clamp(3rem, 9vw, 7.5rem);
+  @include display(62%);
+
+  transition:
+    font-stretch 0.7s var(--ease-out),
+    color 0.3s;
+}
+
+.Edito__nextArrow {
+  position: absolute;
   right: 0;
-  height: calc((var(--vh, 1vh) * 100) + #{$size-l});
-  background-color: rgba(0, 0, 0, 0.3);
-  z-index: 2;
-  position: fixed;
-
-  @include lg {
-    bottom: 0;
-  }
-}
-
-.Edito__content {
-  width: 100%;
-  z-index: 2;
-  color: palette(neutral, black);
-  font-family: themefont();
-  font-size: 1rem;
-  margin-top: $size-l;
-  background-color: palette(neutral, white);
-  padding: 32px;
-  border-radius: 24px;
-
-  @include lg {
-    width: 80%;
-    margin-top: $size-xl;
-  }
-
-  & img {
-    filter: drop-shadow(2px 4px 6px black);
-    border-radius: 12px;
-  }
-}
-
-/* stylelint-disable-next-line plugin/selector-bem-pattern */
-.Edito a {
-  text-decoration: underline;
-  font-weight: 700;
-  color: palette(neutral, black);
+  bottom: 12px;
+  width: clamp(40px, 6vw, 72px);
+  height: clamp(40px, 6vw, 72px);
+  transition: transform 0.6s var(--ease-out);
 }

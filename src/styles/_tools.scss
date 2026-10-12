@@ -1,0 +1,63 @@
+// Injected in every component stylesheet (see vite.config.js): mixins only, no CSS output.
+@use 'sass:map';
+
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+  xxl: 1600px,
+);
+
+@mixin from($breakpoint) {
+  @media (min-width: map.get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+@mixin until($breakpoint) {
+  @media (max-width: (map.get($breakpoints, $breakpoint) - 0.02px)) {
+    @content;
+  }
+}
+
+// Ultra-condensed headline: the variable font's width axis does the club look.
+@mixin display($stretch: 62%) {
+  font-stretch: $stretch;
+  font-weight: 900;
+  line-height: 0.84;
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
+}
+
+// Tiny, extra-wide label.
+@mixin eyebrow {
+  font-size: 0.7rem;
+  font-stretch: 125%;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+@mixin outline-text($color: currentColor, $width: 1.5px) {
+  color: transparent;
+  -webkit-text-stroke: $width $color;
+}
+
+// Scroll-driven entrance; plain visible content where unsupported.
+@mixin reveal-on-view($name: rise, $range: entry 5% cover 30%) {
+  @supports (animation-timeline: view()) {
+    animation: $name linear both;
+    animation-timeline: view();
+    animation-range: $range;
+  }
+}
+
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

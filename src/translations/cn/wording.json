@@ -1,8 +1,25 @@
 {
   "menu": [
-    { "label": "主题", "route": "project", "key": "project", "isPrimary": true, "name": "PROJECT" },
-    { "label": "球队", "route": "team", "key": "team", "isPrimary": true, "name": "TEAM" },
-    { "label": "贊助", "route": "sponsor", "key": "sponsor", "name": "SPONSOR" },
+    {
+      "label": "主题",
+      "route": "project",
+      "key": "project",
+      "isPrimary": true,
+      "name": "PROJECT"
+    },
+    {
+      "label": "球队",
+      "route": "team",
+      "key": "team",
+      "isPrimary": true,
+      "name": "TEAM"
+    },
+    {
+      "label": "贊助",
+      "route": "sponsor",
+      "key": "sponsor",
+      "name": "SPONSOR"
+    },
     {
       "label": "艺术家",
       "route": "artists",
@@ -10,15 +27,78 @@
       "isPrimary": true,
       "name": "ARTISTS"
     },
-    { "label": "精品", "route": "shop", "key": "shop", "isPrimary": true, "name": "SHOP" },
-    { "label": "票", "route": "tickets", "key": "tickets", "name": "TICKETS" },
-    { "label": "管理人员", "route": "club", "key": "club", "name": "CLUB" },
-    { "label": "新闻室", "route": "press", "key": "press", "name": "PRESS" },
-    { "label": "联系", "route": "disclaimer", "key": "contacts", "name": "CONTACTS" }
+    {
+      "label": "精品",
+      "route": "shop",
+      "key": "shop",
+      "isPrimary": true,
+      "name": "SHOP"
+    },
+    {
+      "label": "票",
+      "route": "tickets",
+      "key": "tickets",
+      "name": "TICKETS"
+    },
+    {
+      "label": "管理人员",
+      "route": "club",
+      "key": "club",
+      "name": "CLUB"
+    },
+    {
+      "label": "新闻室",
+      "route": "press",
+      "key": "press",
+      "name": "PRESS"
+    },
+    {
+      "label": "联系",
+      "route": "disclaimer",
+      "key": "contacts",
+      "name": "CONTACTS"
+    }
   ],
   "backToList": "Back to products",
   "persoPlaceHolder": "Name and/or Number",
   "personalize": "Customize your jersey",
   "buy": "Order",
-  "soldOut": "Sold out"
+  "soldOut": "Sold out",
+  "skip": "跳到内容",
+  "menuOpen": "菜单",
+  "menuClose": "关闭",
+  "enter": "进入",
+  "season": "赛季",
+  "heroCta": "了解项目",
+  "shopCta": "购买球衣",
+  "kitBy": "球衣设计",
+  "prev": "上一个",
+  "next": "下一个",
+  "numbersTitle": "数据",
+  "statFounded": "成立于米兰",
+  "statSeasons": "赛季",
+  "statKits": "艺术家球衣",
+  "statFloors": "要攀登的楼层",
+  "floorsLine": "要到达第二十六层，必须从第一层开始。",
+  "floor": "楼层",
+  "kitsLead": "一位艺术家，一个赛季，一件球衣。",
+  "metaDescription": "A.S. Velasca，米兰第三支球队：成立于2015年的足球俱乐部，每个赛季由一位艺术家设计球衣。We are all but a football team.",
+  "exploreTitle": "走进俱乐部",
+  "footerJoin": "成为球迷",
+  "followUs": "关注我们",
+  "partners": "合作伙伴",
+  "siteBy": "网站制作",
+  "allProducts": "全部",
+  "available": "有货",
+  "preOrder": "预购",
+  "option": "选项",
+  "size": "尺码",
+  "payment": "信用卡或PayPal付款",
+  "shipping": "运费",
+  "worldwide": "全球配送",
+  "productNotFound": "该产品不存在。",
+  "notFound": "页面未找到",
+  "backHome": "返回球场",
+  "retry": "重试",
+  "chooseLanguage": "选择语言"
 }

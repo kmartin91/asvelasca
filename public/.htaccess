@@ -1,0 +1,43 @@
+# A.S. Velasca: Apache config shipped with every build (dist/.htaccess).
+# Requires mod_rewrite + mod_headers (AllowOverride FileInfo). Compare with the file
+# currently on the server before the first deploy: this one replaces it.
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Single-page app: unknown paths go to index.html, real files (images, videos,
+  # downloads already on the server) are served as they are.
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Content-Security-Policy "frame-ancestors 'self'"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), usb=(), browsing-topics=()"
+  # PayPal checkout opens in a named window: keep the opener link for it.
+  Header always set Cross-Origin-Opener-Policy "same-origin-allow-popups"
+
+  # Fingerprinted build files never change: cache them for a year.
+  <If "%{REQUEST_URI} =~ m#^/assets/#">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </If>
+  # The page itself must always be revalidated so a deploy is picked up at once.
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_mime.c>
+  AddType font/woff2 .woff2
+  AddType text/javascript .js
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml
+</IfModule>

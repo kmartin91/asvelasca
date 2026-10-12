@@ -1,0 +1,81 @@
+/** @define Torre */
+
+.Torre {
+  overflow: visible;
+  height: auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-linejoin: round;
+}
+
+.Torre__outline,
+.Torre__ground {
+  stroke-width: 2;
+  stroke-dasharray: 1;
+}
+
+.Torre__ribs {
+  stroke-width: 1;
+  stroke-dasharray: 1;
+  opacity: 0.5;
+}
+
+.Torre__window {
+  fill: currentColor;
+  stroke: none;
+  opacity: 0.12;
+}
+
+.Torre__window_lit {
+  fill: var(--red-bright);
+  opacity: 1;
+}
+
+// The tower draws itself, then its windows light up floor after floor.
+.Torre_playing {
+  .Torre__outline,
+  .Torre__ground {
+    animation: torre-draw 2.4s var(--ease-in-out) both;
+  }
+
+  .Torre__ribs {
+    animation: torre-draw 2s 0.6s var(--ease-in-out) both;
+  }
+
+  .Torre__window {
+    animation: torre-window 0.5s calc(1.2s + var(--floor) * 70ms) var(--ease-out) both;
+  }
+
+  .Torre__window_lit {
+    animation-name: torre-window-lit;
+  }
+}
+
+@keyframes torre-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes torre-window {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes torre-window-lit {
+  0% {
+    opacity: 0;
+    fill: #fff;
+  }
+
+  40% {
+    opacity: 1;
+    fill: #fff;
+    filter: drop-shadow(0 0 6px #fff);
+  }
+}

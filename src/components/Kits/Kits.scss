@@ -1,0 +1,123 @@
+/** @define Kits */
+
+.Kits {
+  padding: clamp(48px, 8vw, 120px) 0;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.Kits__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px 32px;
+  padding: 0 var(--gutter);
+  margin-bottom: clamp(28px, 4vw, 56px);
+}
+
+.Kits__title {
+  font-size: clamp(3.4rem, 11vw, 10rem);
+  @include display(62%);
+
+  span {
+    color: var(--red);
+    font-stretch: 100%;
+  }
+
+  @include reveal-on-view(squeeze-in, entry 0% cover 35%);
+}
+
+.Kits__lead {
+  max-width: 36ch;
+  text-wrap: balance;
+  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+// Horizontal scroller; cards tilt as they travel through it (scroll-driven).
+.Kits__track {
+  display: flex;
+  gap: clamp(12px, 2vw, 24px);
+  margin: 0;
+  padding: 12px var(--gutter) 28px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--gutter);
+  scrollbar-width: thin;
+  scrollbar-color: var(--red) transparent;
+  list-style: none;
+}
+
+.Kits__card {
+  position: relative;
+  flex: 0 0 clamp(250px, 30vw, 420px);
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--paper-2);
+  scroll-snap-align: start;
+
+  @supports (animation-timeline: view(inline)) {
+    animation: kit-travel linear both;
+    animation-timeline: view(inline);
+  }
+
+  &:hover .Kits__image {
+    transform: scale(1.08);
+  }
+
+  &:hover .Kits__season {
+    color: #fff;
+    -webkit-text-stroke-color: transparent;
+  }
+}
+
+@keyframes kit-travel {
+  0% {
+    transform: scale(0.86) rotate(-4deg);
+  }
+
+  45%,
+  55% {
+    transform: none;
+  }
+
+  100% {
+    transform: scale(0.86) rotate(4deg);
+  }
+}
+
+.Kits__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s var(--ease-out);
+}
+
+.Kits__meta {
+  position: absolute;
+  inset: auto 0 0;
+  display: grid;
+  gap: 4px;
+  padding: 60px 18px 18px;
+  background: linear-gradient(transparent, rgb(11 11 12 / 85%));
+  color: #fff;
+}
+
+.Kits__season {
+  font-size: clamp(2.6rem, 4.6vw, 4.2rem);
+  @include display(62%);
+  @include outline-text(#fff, 1.5px);
+
+  transition:
+    color 0.5s,
+    -webkit-text-stroke-color 0.5s;
+}
+
+.Kits__artist {
+  font-weight: 800;
+  font-stretch: 112%;
+  text-transform: uppercase;
+}

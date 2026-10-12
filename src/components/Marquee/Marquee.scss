@@ -1,0 +1,53 @@
+/** @define Marquee */
+
+.Marquee {
+  display: flex;
+  overflow: hidden;
+  padding: 0.55em 0;
+  background: var(--red);
+  color: #fff;
+  font-size: clamp(1.4rem, 3.4vw, 2.6rem);
+  user-select: none;
+}
+
+.Marquee__track {
+  display: flex;
+  flex-shrink: 0;
+  animation: marquee 32s linear infinite;
+
+  .Marquee_reversed & {
+    animation-direction: reverse;
+  }
+
+  .Marquee:hover & {
+    animation-play-state: paused;
+  }
+}
+
+.Marquee__group {
+  display: flex;
+}
+
+.Marquee__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  padding-right: 0.6em;
+  white-space: nowrap;
+  @include display(70%);
+
+  line-height: 1;
+}
+
+.Marquee__star {
+  width: 0.6em;
+  height: 0.6em;
+  fill: currentColor;
+  animation: spin 6s linear infinite;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}

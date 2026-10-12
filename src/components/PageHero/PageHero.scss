@@ -1,0 +1,100 @@
+/** @define PageHero */
+
+.PageHero {
+  position: relative;
+  display: grid;
+  align-items: end;
+  min-height: clamp(420px, 72svh, 760px);
+  padding: calc(var(--header-h) + 32px) var(--gutter) clamp(96px, 14vh, 160px);
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--ink-2);
+
+  // Shade so the title always reads on top of any photo.
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      linear-gradient(0deg, var(--ink) 0%, rgb(11 11 12 / 30%) 55%, rgb(11 11 12 / 60%) 100%),
+      radial-gradient(70% 60% at 85% 20%, rgb(208 5 32 / 35%), transparent 70%);
+  }
+}
+
+.PageHero_compact {
+  min-height: clamp(300px, 42svh, 420px);
+  padding-bottom: 48px;
+}
+
+.PageHero__media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+// Parallax: the photo scrolls slower than the page (scroll-driven, no JS).
+.PageHero__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: page-hero-in 1.6s var(--ease-out) both;
+
+  @supports (animation-timeline: scroll()) {
+    animation:
+      page-hero-in 1.6s var(--ease-out) both,
+      parallax linear both;
+    animation-timeline: auto, scroll(root);
+    animation-range:
+      normal,
+      0 100vh;
+  }
+}
+
+@keyframes page-hero-in {
+  from {
+    opacity: 0;
+    scale: 1.2;
+    filter: grayscale(1);
+  }
+}
+
+@keyframes parallax {
+  to {
+    transform: translateY(28%);
+  }
+}
+
+.PageHero__content {
+  position: relative;
+  max-width: 100%;
+}
+
+.PageHero__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  @include eyebrow;
+
+  animation: fade 0.8s 0.2s both;
+}
+
+.PageHero__index {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--red);
+  color: #fff;
+}
+
+.PageHero__title {
+  font-size: clamp(3.6rem, 13vw, 13rem);
+  @include display(62%);
+
+  overflow-wrap: anywhere;
+  animation: squeeze-in 1.2s 0.1s var(--ease-out) both;
+
+  .PageHero_compact & {
+    font-size: clamp(3rem, 9vw, 8rem);
+  }
+}

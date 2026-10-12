@@ -1,0 +1,175 @@
+/** @define Numbers */
+
+@property --count {
+  syntax: '<integer>';
+  inherits: false;
+  initial-value: 0;
+}
+
+.Numbers {
+  padding: clamp(72px, 10vw, 140px) var(--gutter);
+}
+
+.Numbers__head {
+  display: grid;
+  gap: 12px;
+  margin-bottom: clamp(32px, 5vw, 64px);
+}
+
+.Numbers__eyebrow {
+  color: var(--red-bright);
+  @include eyebrow;
+}
+
+.Numbers__title {
+  font-size: clamp(3.4rem, 10vw, 9rem);
+  @include display(62%);
+}
+
+.Numbers__body {
+  display: grid;
+  gap: clamp(32px, 5vw, 72px);
+
+  @include from(lg) {
+    grid-template-columns: 1fr minmax(240px, 0.42fr);
+    align-items: end;
+  }
+}
+
+.Numbers__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  perspective: 900px;
+}
+
+// Scoreboard tile: dark panel split in two like a flip clock.
+.Numbers__stat {
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  gap: 18px;
+  min-height: clamp(170px, 22vw, 260px);
+  padding: clamp(16px, 2vw, 28px);
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, var(--ink-3) 0 50%, var(--ink-2) 50% 100%);
+  box-shadow: inset 0 0 0 1px var(--line);
+  transform-origin: 50% 0;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 50% 0 auto;
+    height: 2px;
+    background: var(--ink);
+    box-shadow: 0 1px 0 rgb(255 255 255 / 6%);
+  }
+
+  .Numbers:not(.Numbers_visible) & {
+    opacity: 0;
+  }
+
+  .Numbers_visible & {
+    animation: tile-flip 1s calc(var(--i) * 120ms) var(--ease-out) both;
+  }
+
+  &:nth-child(2) {
+    background: linear-gradient(180deg, var(--red) 0 50%, #b80419 50% 100%);
+  }
+}
+
+@keyframes tile-flip {
+  from {
+    opacity: 0;
+    transform: rotateX(-80deg);
+  }
+}
+
+.Numbers__label {
+  position: relative;
+  z-index: 1;
+  color: var(--muted);
+  @include eyebrow;
+
+  .Numbers__stat:nth-child(2) & {
+    color: rgb(255 255 255 / 85%);
+  }
+}
+
+.Numbers__value {
+  margin: 0;
+  font-size: clamp(3.6rem, 9vw, 8.5rem);
+  @include display(62%);
+
+  line-height: 0.8;
+  font-variant-numeric: tabular-nums;
+}
+
+.Numbers__count {
+  counter-reset: count var(--count);
+
+  &::after {
+    content: counter(count);
+  }
+
+  .Numbers_visible & {
+    animation: count-up 2.2s calc(0.2s + var(--i) * 150ms) var(--ease-out) both;
+  }
+}
+
+@keyframes count-up {
+  from {
+    --count: 0;
+  }
+
+  to {
+    --count: var(--target);
+  }
+}
+
+.Numbers__sr {
+  @include visually-hidden;
+}
+
+.Numbers__tower {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: end;
+  gap: 24px;
+  margin: 0;
+
+  @include from(lg) {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+}
+
+.Numbers__torre {
+  width: clamp(100px, 14vw, 190px);
+  color: var(--text);
+
+  .Numbers:not(.Numbers_visible) & {
+    opacity: 0;
+  }
+}
+
+.Numbers__caption {
+  display: grid;
+  gap: 8px;
+  max-width: 30ch;
+  color: var(--muted);
+
+  strong {
+    color: var(--text);
+    font-size: 2.4rem;
+    @include display(70%);
+
+    span {
+      color: var(--muted);
+    }
+  }
+}

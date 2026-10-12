@@ -7,8 +7,19 @@
       "isPrimary": true,
       "name": "PROGETTO"
     },
-    { "label": "squadra", "route": "squadra", "key": "team", "isPrimary": true, "name": "SQUADRA" },
-    { "label": "sponsor", "route": "sponsor", "key": "sponsor", "name": "SPONSOR" },
+    {
+      "label": "squadra",
+      "route": "squadra",
+      "key": "team",
+      "isPrimary": true,
+      "name": "SQUADRA"
+    },
+    {
+      "label": "sponsor",
+      "route": "sponsor",
+      "key": "sponsor",
+      "name": "SPONSOR"
+    },
     {
       "label": "artisti",
       "route": "artisti",
@@ -16,16 +27,84 @@
       "isPrimary": true,
       "name": "ARTISTS"
     },
-    { "label": "shop", "route": "shop", "key": "shop", "isPrimary": true, "name": "SHOP" },
-    { "label": "tickets", "route": "tickets", "key": "tickets", "name": "TICKETS" },
-    { "label": "societa", "route": "societa", "key": "club", "name": "CLUB" },
-    { "label": "stampa", "route": "stampa", "key": "press", "name": "STAMPA" },
-    { "label": "edizione", "route": "edizione", "key": "edition", "name": "EDIZIONE" },
-    { "label": "contatti", "route": "disclaimer", "key": "contacts", "name": "CONTATTI" }
+    {
+      "label": "shop",
+      "route": "shop",
+      "key": "shop",
+      "isPrimary": true,
+      "name": "SHOP"
+    },
+    {
+      "label": "tickets",
+      "route": "tickets",
+      "key": "tickets",
+      "name": "TICKETS"
+    },
+    {
+      "label": "societa",
+      "route": "societa",
+      "key": "club",
+      "name": "CLUB"
+    },
+    {
+      "label": "stampa",
+      "route": "stampa",
+      "key": "press",
+      "name": "STAMPA"
+    },
+    {
+      "label": "edizione",
+      "route": "edizione",
+      "key": "edition",
+      "name": "EDIZIONE"
+    },
+    {
+      "label": "contatti",
+      "route": "disclaimer",
+      "key": "contacts",
+      "name": "CONTATTI"
+    }
   ],
-  "backToList": "Torna ai prodo",
+  "backToList": "Torna ai prodotti",
   "persoPlaceHolder": "nome e/o numero",
   "personalize": "Personalizza la tua maglia",
   "buy": "Ordina",
-  "soldOut": "Sold out"
+  "soldOut": "Sold out",
+  "skip": "Vai al contenuto",
+  "menuOpen": "Menu",
+  "menuClose": "Chiudi",
+  "enter": "Entra",
+  "season": "Stagione",
+  "heroCta": "Scopri il progetto",
+  "shopCta": "Compra la maglia",
+  "kitBy": "Maglia disegnata da",
+  "prev": "Precedente",
+  "next": "Successivo",
+  "numbersTitle": "I numeri",
+  "statFounded": "Fondata a Milano",
+  "statSeasons": "Stagioni",
+  "statKits": "Maglie d'artista",
+  "statFloors": "Piani da salire",
+  "floorsLine": "Per arrivare al ventiseiesimo piano bisogna partire dal primo.",
+  "floor": "Piano",
+  "kitsLead": "Un artista, una stagione, una maglia.",
+  "metaDescription": "A.S. Velasca, la terza squadra di Milano: club di calcio nato nel 2015, dove ogni stagione un artista disegna la maglia. We are all but a football team.",
+  "exploreTitle": "Dentro il club",
+  "footerJoin": "Diventa tifoso",
+  "followUs": "Seguici",
+  "partners": "Partner",
+  "siteBy": "Sito di",
+  "allProducts": "Tutti",
+  "available": "Disponibili",
+  "preOrder": "Preordine",
+  "option": "Opzione",
+  "size": "Taglia",
+  "payment": "Pagamento con carta o PayPal",
+  "shipping": "Spedizione",
+  "worldwide": "Spedizione in tutto il mondo",
+  "productNotFound": "Questo prodotto non esiste.",
+  "notFound": "Pagina non trovata",
+  "backHome": "Torna in campo",
+  "retry": "Riprova",
+  "chooseLanguage": "Scegli la lingua"
 }

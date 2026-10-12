@@ -1,0 +1,227 @@
+/** @define RichContent */
+
+// Typography for the HTML written in the CMS (paragraphs, captions, PayPal forms, embeds…).
+.RichContent {
+  color: var(--ink);
+  font-size: clamp(1rem, 1.2vw, 1.12rem);
+  line-height: 1.7;
+  overflow-wrap: break-word;
+
+  > * + * {
+    margin-top: 1em;
+  }
+
+  a {
+    color: var(--red);
+    font-weight: 700;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+    transition: color 0.2s;
+
+    &:hover {
+      color: var(--ink);
+    }
+  }
+
+  strong {
+    font-weight: 800;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin-top: 1.6em;
+    @include display(70%);
+
+    line-height: 0.95;
+  }
+
+  h1 {
+    font-size: clamp(2.6rem, 5vw, 4rem);
+  }
+
+  h2 {
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+  }
+
+  h3 {
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+  }
+
+  h4 {
+    font-size: 1.5rem;
+  }
+
+  // Used in the CMS as image captions ("_ SIMONE BARLAAM ⬆").
+  h5 {
+    margin-top: 0.4em;
+    font-size: 0.82rem;
+    font-stretch: 112%;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  // Used in the CMS as section labels ("SEASON 2020 / 21", "STADIO").
+  h6 {
+    display: inline-flex;
+    margin-top: 2.4em;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: var(--red);
+    color: #fff;
+    @include eyebrow;
+
+    font-size: 0.75rem;
+  }
+
+  img {
+    border-radius: 14px;
+
+    @include reveal-on-view(content-rise, entry 0% cover 20%);
+  }
+
+  // Press logos are white transparent PNGs (made for the old dark pages): outline them.
+  img[src*='.png' i] {
+    border-radius: 0;
+    filter: drop-shadow(0 1px 1px rgb(11 11 12 / 70%)) drop-shadow(0 4px 10px rgb(11 11 12 / 25%));
+  }
+
+  .grayscale {
+    filter: grayscale(1);
+    transition: filter 0.6s;
+
+    &:hover {
+      filter: none;
+    }
+  }
+
+  video,
+  iframe {
+    width: 100%;
+    max-width: 100%;
+    border: 0;
+    border-radius: 14px;
+    background: var(--ink);
+  }
+
+  iframe:not([height]) {
+    aspect-ratio: 16 / 9;
+    height: auto;
+  }
+
+  audio {
+    width: 100%;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95em;
+  }
+
+  td,
+  th {
+    padding: 10px 12px;
+    border-bottom: 1px solid rgb(11 11 12 / 12%);
+    text-align: left;
+    vertical-align: top;
+  }
+
+  blockquote {
+    padding-left: 20px;
+    border-left: 4px solid var(--red);
+    font-size: 1.25em;
+    font-weight: 600;
+  }
+
+  ul,
+  ol {
+    padding-left: 1.2em;
+  }
+
+  // PayPal buy buttons embedded in the CMS.
+  form {
+    display: grid;
+    gap: 10px;
+    max-width: 420px;
+  }
+
+  input[type='text'],
+  input:not([type]),
+  select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid rgb(11 11 12 / 20%);
+    border-radius: 12px;
+    background: #fff;
+    color: var(--ink);
+  }
+
+  input[type='submit'],
+  button {
+    justify-self: start;
+    padding: 12px 22px;
+    border: 0;
+    border-radius: 999px;
+    background: var(--red);
+    color: #fff;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: background 0.3s;
+
+    &:hover {
+      background: var(--ink);
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  }
+
+  input[type='image'] {
+    width: auto;
+    max-width: 200px;
+  }
+
+  // Legacy shop markup still present in some CMS pages.
+  .Shop__Items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 24px;
+  }
+
+  .Shop__Item {
+    display: grid;
+    gap: 12px;
+    padding: 16px;
+    border-radius: 18px;
+    background: #fff;
+
+    h3 {
+      margin-top: 0;
+      font-size: 1.4rem;
+    }
+  }
+
+  .Shop__ItemImage {
+    max-height: 300px;
+    margin: 0 auto;
+    object-fit: contain;
+  }
+
+  .ResultContainer {
+    display: grid;
+    gap: 24px;
+  }
+}
+
+@keyframes content-rise {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.97);
+  }
+}

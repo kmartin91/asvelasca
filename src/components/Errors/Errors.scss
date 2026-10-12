@@ -1,22 +1,120 @@
 /** @define Errors */
 
 .Errors {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  font-family: themefont(), sans-serif;
-  color: palette(neutral, white);
-  padding: $size-xl;
-  height: calc((var(--vh, 1vh) * 100) - 100px);
+  position: relative;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 16px;
+  min-height: 100svh;
+  padding: calc(var(--header-h) + 48px) var(--gutter) 64px;
   overflow: hidden;
-  background-color: palette(neutral, red);
+  text-align: center;
+  // Pitch stripes.
+  background:
+    radial-gradient(60% 50% at 50% 40%, rgb(208 5 32 / 35%), transparent),
+    repeating-linear-gradient(90deg, var(--ink) 0 12vw, var(--ink-2) 12vw 24vw);
 }
 
-.Errors__title {
-  font-size: 3rem;
-  font-weight: bold;
+.Errors__flag {
+  width: 90px;
+  transform-origin: 20px 160px;
+  animation: flag-raise 0.9s var(--ease-out) both;
+}
+
+.Errors__pole {
+  stroke: var(--text);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.Errors__cloth {
+  fill: var(--red);
+  transform-origin: 22px 40px;
+  animation: flag-wave 1.1s ease-in-out infinite alternate;
+}
+
+.Errors__check {
+  fill: #ffd400;
 }
 
 .Errors__code {
-  font-size: 2rem;
+  @include eyebrow;
+
+  color: var(--red-bright);
+  font-size: 0.85rem;
+}
+
+// Glitch: two offset copies of the word slicing through it.
+.Errors__title {
+  position: relative;
+  font-size: clamp(5rem, 22vw, 18rem);
+  @include display(62%);
+
+  &::before,
+  &::after {
+    content: attr(data-text);
+    content: attr(data-text) / ''; // decorative copy: hidden from screen readers
+    position: absolute;
+    inset: 0;
+  }
+
+  &::before {
+    color: var(--red-bright);
+    clip-path: inset(10% 0 55% 0);
+    animation: glitch 2.6s steps(1) infinite;
+  }
+
+  &::after {
+    @include outline-text(var(--text), 2px);
+
+    clip-path: inset(60% 0 8% 0);
+    animation: glitch 2.6s 0.3s steps(1) infinite reverse;
+  }
+}
+
+.Errors__message {
+  max-width: 34ch;
+  color: var(--muted);
+  font-size: 1.15rem;
+}
+
+.Errors__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+@keyframes flag-raise {
+  from {
+    transform: rotate(-70deg);
+  }
+}
+
+@keyframes flag-wave {
+  to {
+    transform: skewY(-8deg) scaleX(0.92);
+  }
+}
+
+@keyframes glitch {
+  0%,
+  86%,
+  100% {
+    transform: none;
+  }
+
+  88% {
+    transform: translate(-6px, 2px);
+  }
+
+  92% {
+    transform: translate(5px, -3px);
+  }
+
+  96% {
+    transform: translate(-2px, 1px);
+  }
 }

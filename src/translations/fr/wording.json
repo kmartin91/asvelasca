@@ -1,14 +1,25 @@
 {
   "menu": [
     {
-      "label": "project",
+      "label": "projet",
       "route": "projet",
       "key": "project",
       "isPrimary": true,
       "name": "PROJET"
     },
-    { "label": "equipe", "route": "equipe", "key": "team", "isPrimary": true, "name": "EQUIPE" },
-    { "label": "sponsor", "route": "sponsor", "key": "sponsor", "name": "SPONSOR" },
+    {
+      "label": "equipe",
+      "route": "equipe",
+      "key": "team",
+      "isPrimary": true,
+      "name": "EQUIPE"
+    },
+    {
+      "label": "sponsor",
+      "route": "sponsor",
+      "key": "sponsor",
+      "name": "SPONSOR"
+    },
     {
       "label": "artistes",
       "route": "artistes",
@@ -16,16 +27,84 @@
       "isPrimary": true,
       "name": "ARTISTES"
     },
-    { "label": "shop", "route": "shop", "key": "shop", "isPrimary": true, "name": "BOUTIQUE" },
-    { "label": "tickets", "route": "tickets", "key": "tickets", "name": "TICKETS" },
-    { "label": "club", "route": "club", "key": "club", "name": "CLUB" },
-    { "label": "presse", "route": "presse", "key": "press", "name": "PRESSE" },
-    { "label": "edition", "route": "edition", "key": "edition", "name": "EDITION" },
-    { "label": "contacts", "route": "disclaimer", "key": "contacts", "name": "CONTACTS" }
+    {
+      "label": "shop",
+      "route": "shop",
+      "key": "shop",
+      "isPrimary": true,
+      "name": "BOUTIQUE"
+    },
+    {
+      "label": "tickets",
+      "route": "tickets",
+      "key": "tickets",
+      "name": "TICKETS"
+    },
+    {
+      "label": "club",
+      "route": "club",
+      "key": "club",
+      "name": "CLUB"
+    },
+    {
+      "label": "presse",
+      "route": "presse",
+      "key": "press",
+      "name": "PRESSE"
+    },
+    {
+      "label": "edition",
+      "route": "edition",
+      "key": "edition",
+      "name": "EDITION"
+    },
+    {
+      "label": "contacts",
+      "route": "disclaimer",
+      "key": "contacts",
+      "name": "CONTACTS"
+    }
   ],
   "backToList": "Retour aux produits",
   "persoPlaceHolder": "Nom et/ou numéro",
   "personalize": "Personnalisez votre maillot",
   "buy": "Acheter",
-  "soldOut": "Sold out"
+  "soldOut": "Sold out",
+  "skip": "Aller au contenu",
+  "menuOpen": "Menu",
+  "menuClose": "Fermer",
+  "enter": "Entrer",
+  "season": "Saison",
+  "heroCta": "Découvrir le projet",
+  "shopCta": "Acheter le maillot",
+  "kitBy": "Maillot dessiné par",
+  "prev": "Précédent",
+  "next": "Suivant",
+  "numbersTitle": "En chiffres",
+  "statFounded": "Fondé à Milan",
+  "statSeasons": "Saisons",
+  "statKits": "Maillots d'artistes",
+  "statFloors": "Étages à gravir",
+  "floorsLine": "Pour arriver au vingt-sixième étage, il faut commencer par le premier.",
+  "floor": "Étage",
+  "kitsLead": "Un artiste, une saison, un maillot.",
+  "metaDescription": "A.S. Velasca, la terza squadra di Milano : un club de foot né en 2015, où chaque saison un artiste dessine le maillot. We are all but a football team.",
+  "exploreTitle": "Dans le club",
+  "footerJoin": "Rejoins les tifosi",
+  "followUs": "Suivez-nous",
+  "partners": "Partenaires",
+  "siteBy": "Site par",
+  "allProducts": "Tout",
+  "available": "Disponibles",
+  "preOrder": "Précommande",
+  "option": "Option",
+  "size": "Taille",
+  "payment": "Paiement par carte ou PayPal",
+  "shipping": "Frais de port",
+  "worldwide": "Livraison dans le monde entier",
+  "productNotFound": "Ce produit n'existe pas.",
+  "notFound": "Page introuvable",
+  "backHome": "Retour sur le terrain",
+  "retry": "Réessayer",
+  "chooseLanguage": "Choisis ta langue"
 }

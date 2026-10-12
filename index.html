@@ -1,47 +1,86 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>.:: A.S. VELASCA ::.</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="Description" content="La terza squadra di Milano" />
+    <!-- csp -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>A.S. Velasca · La terza squadra di Milano</title>
     <meta
-      name="Keywords"
+      name="description"
+      content="A.S. Velasca, la terza squadra di Milano: a football club founded in 2015, where every season an artist designs the kit. We are all but a football team."
+    />
+    <meta
+      name="keywords"
       content="a.s. velasca, marco de girolamo, karim khideur, loris mandelli, wolfgang natlacen, clément tournus, milano, terza squadra di milano"
     />
-    <meta property="og:title" content="A.S. Velasca" />
+    <meta name="theme-color" content="#0b0b0c" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <!-- CMS: one connection for the API (CORS), one for images. -->
+    <link rel="preconnect" href="%SERVER_URL%" crossorigin />
+    <link rel="preconnect" href="%SERVER_URL%" />
+
+    <!-- Link previews (LinkedIn, Facebook, X, WhatsApp) read this static head, without running the app. -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.asvelasca.it/en" />
-    <meta property="og:image" content="https://www.asvelasca.it/asvelasca-fb.jpg" />
-    <meta property="og:description" content="WE ARE ALL BUT A FOOTBALL TEAM" />
-    <meta property="og:site_name" content=".:: A.S. Velasca ::." />
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://www.asvelasca.it/en" />
-    <meta property="twitter:title" content=".:: A.S. VELASCA ::." />
-    <meta property="twitter:description" content="WE ARE ALL BUT A FOOTBALL TEAM" />
-    <meta property="twitter:image" content="https://www.asvelasca.it/asvelasca-fb.jpg" />
+    <meta property="og:site_name" content="A.S. Velasca" />
+    <meta property="og:url" content="https://asvelasca.it/" />
+    <meta property="og:title" content="A.S. Velasca · La terza squadra di Milano" />
+    <meta
+      property="og:description"
+      content="We are all but a football team. Founded in Milan in 2015, every season an artist designs the kit."
+    />
+    <meta property="og:image" content="https://asvelasca.it/og-image.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="A.S. Velasca, la terza squadra di Milano: the crest and the Torre Velasca on red" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:locale:alternate" content="it_IT" />
+    <meta property="og:locale:alternate" content="fr_FR" />
+    <meta property="og:locale:alternate" content="zh_CN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@asvelasca" />
+    <meta name="twitter:title" content="A.S. Velasca · La terza squadra di Milano" />
+    <meta
+      name="twitter:description"
+      content="We are all but a football team. Founded in Milan in 2015, every season an artist designs the kit."
+    />
+    <meta name="twitter:image" content="https://asvelasca.it/og-image.jpg" />
+
+    <!-- Search engines: the club as a sports team (data block, not a script: the CSP allows it). -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SportsTeam",
+        "name": "A.S. Velasca",
+        "alternateName": "La terza squadra di Milano",
+        "sport": "Football",
+        "url": "https://asvelasca.it/",
+        "logo": "https://asvelasca.it/apple-touch-icon.png",
+        "image": "https://asvelasca.it/og-image.jpg",
+        "foundingDate": "2015",
+        "slogan": "We are all but a football team.",
+        "email": "info@asvelasca.it",
+        "location": { "@type": "Place", "name": "Milano, Italia" },
+        "sameAs": [
+          "https://instagram.com/asvelasca/",
+          "https://www.facebook.com/ASVelasca",
+          "https://x.com/asvelasca"
+        ]
+      }
+    </script>
+
+    <style>
+      /* Before the app boots: club colours, no white flash. */
+      html { background: #0b0b0c; }
+    </style>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="./index.js"></script>
-    <script>
-      (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        (i[r] =
-          i[r] ||
-          function () {
-            (i[r].q = i[r].q || []).push(arguments);
-          }),
-          (i[r].l = 1 * new Date());
-        (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m);
-      })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-      ga('create', 'UA-56333280-1', 'auto');
-      ga('send', 'pageview');
-    </script>
+    <noscript>A.S. Velasca, la terza squadra di Milano. JavaScript is required.</noscript>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

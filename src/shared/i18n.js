@@ -1,44 +1,42 @@
-/* @flow */
+import { useParams } from 'react-router';
+import en from '../translations/en/wording.json';
+import fr from '../translations/fr/wording.json';
+import it from '../translations/it/wording.json';
+import cn from '../translations/cn/wording.json';
 
-import _get from 'lodash/get';
-import LanguageEN from '../translations/en/wording.json';
-import LanguageFR from '../translations/fr/wording.json';
-import LanguageCN from '../translations/cn/wording.json';
-import LanguageIT from '../translations/it/wording.json';
+const translations = { en, fr, it, cn };
 
-export const locales = ['en', 'fr', 'it', 'cn'];
+export const locales = ['it', 'en', 'fr', 'cn'];
+export const DEFAULT_LOCALE = 'en';
 
-// Dictionary of translations
-const translations = {
-  en: LanguageEN,
-  fr: LanguageFR,
-  cn: LanguageCN,
-  it: LanguageIT,
-};
+export const isLocale = (value) => locales.includes(value);
 
-export const translate = (key: string): any => {
-  const locale = window.LOCALE_VELASCA;
-  const localizationFile = translations[locale];
-  if (localizationFile && Object.keys(localizationFile).length > 0) {
-    return localizationFile[key] || undefined;
-  }
-  return undefined;
-};
+export const translate = (locale, key) => translations[locale]?.[key] ?? translations.en[key];
 
-export const getKey = (path: string, nextLocale: string): any => {
-  const locale = window.LOCALE_VELASCA;
-  const currentLocalizationFile = translations[locale];
-  const nextLocalizationFile = translations[nextLocale];
+export const getMenu = (locale) => translations[locale]?.menu ?? translations.en.menu;
 
-  if (currentLocalizationFile && nextLocalizationFile) {
-    const { key: currentKey } =
-      _get(currentLocalizationFile, 'menu', []).find(({ route }) => route === path) || [];
+// The locale lives in the URL (/it/squadra); unknown prefixes are rejected by the router.
+export function useLocale() {
+  const { locale } = useParams();
+  return isLocale(locale) ? locale : DEFAULT_LOCALE;
+}
 
-    if (!currentKey) return 'home';
+export function useTranslate() {
+  const locale = useLocale();
+  return (key) => translate(locale, key);
+}
 
-    const { route: newRoute } =
-      _get(nextLocalizationFile, 'menu', []).find(({ key }) => currentKey === key) || [];
+export const localePath = (locale, route = '') => `/${locale}${route ? `/${route}` : ''}`;
 
-    return newRoute || '';
-  }
-};
+// Same page in another language: /fr/equipe -> /it/squadra, /en/shop/3 -> /fr/shop/3.
+export function switchLocale(pathname, fromLocale, toLocale) {
+  const segments = pathname.split('/').filter(Boolean);
+  if (isLocale(segments[0])) segments.shift();
+  if (segments.length === 0) return localePath(toLocale, 'home');
+
+  const current = getMenu(fromLocale).find(({ route }) => route === segments[0]);
+  const target = current && getMenu(toLocale).find(({ key }) => key === current.key);
+  if (target) segments[0] = target.route;
+
+  return localePath(toLocale, segments.join('/'));
+}

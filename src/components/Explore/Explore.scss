@@ -1,0 +1,157 @@
+/** @define Explore */
+
+.Explore {
+  padding: clamp(72px, 10vw, 140px) var(--gutter);
+}
+
+.Explore__title {
+  margin-bottom: clamp(28px, 4vw, 56px);
+  font-size: clamp(3.4rem, 10vw, 9rem);
+  @include display(62%);
+  @include reveal-on-view(squeeze-in, entry 0% cover 35%);
+}
+
+.Explore__tiles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include from(lg) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  li {
+    @include reveal-on-view(rise, entry 0% cover 25%);
+  }
+}
+
+// Red floods the tile from the bottom; the word stretches out with the variable font.
+.Explore__tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: clamp(200px, 26vw, 360px);
+  padding: clamp(16px, 2vw, 26px);
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: var(--radius);
+  background: var(--ink-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+  text-decoration: none;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--red);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.7s var(--ease-out);
+  }
+
+  // Shirt-number watermark, top left and inside the tile: the arrow keeps the top right
+  // corner and the label the bottom, so nothing overlaps.
+  &::after {
+    content: attr(data-number);
+    content: attr(data-number) / '';
+    position: absolute;
+    top: clamp(12px, 1.6vw, 22px);
+    left: clamp(14px, 1.8vw, 24px);
+    z-index: -1;
+    font-size: clamp(5.5rem, 11vw, 11rem);
+    @include display(62%);
+    @include outline-text(rgb(245 242 236 / 16%), 1.5px);
+
+    transition:
+      transform 0.8s var(--ease-out),
+      -webkit-text-stroke-color 0.4s;
+  }
+
+  &:hover,
+  &:focus-visible {
+    &::before {
+      transform: none;
+    }
+
+    &::after {
+      transform: translateY(12%) rotate(-6deg);
+      -webkit-text-stroke-color: rgb(255 255 255 / 45%);
+    }
+
+    .Explore__label {
+      font-stretch: 100%;
+    }
+
+    .Explore__arrow {
+      transform: rotate(-45deg) scale(1.2);
+    }
+  }
+}
+
+.Explore__number {
+  font-size: 0.8rem;
+  font-stretch: 125%;
+  font-weight: 700;
+  opacity: 0.6;
+}
+
+.Explore__label {
+  font-size: clamp(2.2rem, 4.8vw, 4.6rem);
+  @include display(62%);
+
+  transition: font-stretch 0.7s var(--ease-out);
+}
+
+.Explore__arrow {
+  position: absolute;
+  top: clamp(16px, 2vw, 26px);
+  right: clamp(16px, 2vw, 26px);
+  width: 28px;
+  height: 28px;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.Explore__rows {
+  margin: clamp(28px, 4vw, 48px) 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.Explore__row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+  text-decoration: none;
+  transition:
+    padding 0.5s var(--ease-out),
+    color 0.3s;
+
+  .Explore__arrow {
+    position: static;
+    margin-left: auto;
+  }
+
+  &:hover,
+  &:focus-visible {
+    padding-left: 18px;
+    color: var(--red-bright);
+
+    .Explore__arrow {
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+.Explore__rowLabel {
+  font-size: clamp(1.8rem, 4vw, 3.4rem);
+  @include display(70%);
+}

@@ -1,0 +1,248 @@
+/** @define Splash */
+
+.Splash {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
+  min-height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+  background: radial-gradient(
+    90% 70% at 50% 45%,
+    var(--red-bright),
+    var(--red) 45%,
+    var(--red-deep)
+  );
+  color: #fff;
+}
+
+// Kit-like diagonal stripes, slowly marching.
+.Splash__stripes {
+  position: absolute;
+  inset: -20%;
+  z-index: -2;
+  background: repeating-linear-gradient(-55deg, transparent 0 46px, rgb(0 0 0 / 9%) 46px 92px);
+  animation: stripes 9s linear infinite;
+}
+
+@keyframes stripes {
+  to {
+    transform: translateX(111px);
+  }
+}
+
+.Splash__torre {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  z-index: -1;
+  width: auto;
+  height: min(96svh, 980px);
+  color: rgb(255 255 255 / 16%);
+  transform: translateX(-50%);
+}
+
+.Splash__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px var(--gutter);
+  animation: fade 1s 1.6s both;
+}
+
+.Splash__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgb(0 0 0 / 22%);
+  backdrop-filter: blur(8px);
+  @include eyebrow;
+}
+
+.Splash__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 0 0 #fff;
+  animation: pulse 1.6s infinite;
+}
+
+@keyframes pulse {
+  70% {
+    box-shadow: 0 0 0 10px rgb(255 255 255 / 0%);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgb(255 255 255 / 0%);
+  }
+}
+
+.Splash__main {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 14px;
+  padding: 16px var(--gutter) 32px;
+  text-align: center;
+}
+
+// The crest spins in, then floats.
+.Splash__crest {
+  width: clamp(140px, 22vw, 220px);
+  height: auto;
+  filter: drop-shadow(0 24px 40px rgb(0 0 0 / 35%));
+  animation:
+    crest-in 1.4s var(--ease-out) both,
+    crest-float 5s 1.4s ease-in-out infinite alternate;
+}
+
+@keyframes crest-in {
+  from {
+    opacity: 0;
+    transform: scale(0.2) rotate(-260deg);
+  }
+}
+
+@keyframes crest-float {
+  to {
+    transform: translateY(-10px) rotate(2deg);
+  }
+}
+
+.Splash__title {
+  display: flex;
+  overflow: hidden;
+  font-size: clamp(3.6rem, 13vw, 11rem);
+  @include display(62%);
+
+  line-height: 0.9;
+}
+
+.Splash__char {
+  display: inline-block;
+  animation: line-up 0.9s calc(0.6s + var(--i) * 45ms) var(--ease-out) both;
+}
+
+.Splash__tagline {
+  @include eyebrow;
+
+  font-size: clamp(0.7rem, 1.4vw, 0.95rem);
+  animation: squeeze-in 1.2s 1.1s var(--ease-out) both;
+}
+
+.Splash__langs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  width: min(100%, 880px);
+  margin-top: 22px;
+
+  @include from(md) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.Splash__lang {
+  position: relative;
+  display: grid;
+  gap: 6px;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 16px 18px;
+  border-radius: 16px;
+  box-shadow: inset 0 0 0 1.5px rgb(255 255 255 / 70%);
+  text-align: left;
+  text-decoration: none;
+  animation: rise 0.9s calc(1.3s + var(--i) * 90ms) var(--ease-out) both;
+  transition: color 0.45s;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: #fff;
+    clip-path: circle(0% at 100% 100%);
+    transition: clip-path 0.6s var(--ease-out);
+  }
+
+  &:hover,
+  &:focus-visible {
+    color: var(--red);
+
+    &::before {
+      clip-path: circle(150% at 100% 100%);
+    }
+
+    svg {
+      transform: translateX(6px);
+    }
+  }
+}
+
+.Splash__langName {
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  @include display(75%);
+}
+
+.Splash__langCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  @include eyebrow;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    transition: transform 0.4s var(--ease-out);
+  }
+}
+
+.Splash__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 var(--gutter) 20px;
+  animation: fade 1s 1.8s both;
+}
+
+.Splash__sponsors {
+  display: flex;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  img {
+    width: 92px;
+    height: 46px;
+    padding: 8px 12px;
+    object-fit: contain;
+    border-radius: 10px;
+    background: #fff;
+    transition: transform 0.4s var(--ease-out);
+  }
+
+  a:hover img {
+    transform: translateY(-3px) rotate(-3deg);
+  }
+}
+
+.Splash__disclaimer {
+  @include eyebrow;
+
+  text-underline-offset: 4px;
+}
+
+.Splash__marquee {
+  background: var(--ink);
+}

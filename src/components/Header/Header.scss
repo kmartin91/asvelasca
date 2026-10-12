@@ -1,10 +1,218 @@
 /** @define Header */
 
 .Header {
-  background-color: palette(neutral, menu);
   position: fixed;
-  top: 0;
-  height: 100px;
-  width: 100%;
-  z-index: 10;
+  inset: 0 0 auto;
+  z-index: 50;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 24px;
+  height: var(--header-h);
+  padding: 0 var(--gutter);
+  background: linear-gradient(rgb(11 11 12 / 70%), rgb(11 11 12 / 0%));
+  animation: fade 0.8s 0.2s var(--ease-out) both;
+
+  @include from(lg) {
+    grid-template-columns: 1fr auto 1fr;
+  }
+
+  // Turns into a frosted bar once the page scrolls (pure CSS, scroll-driven).
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: rgb(11 11 12 / 92%);
+    backdrop-filter: blur(16px) saturate(140%);
+    border-bottom: 1px solid var(--line);
+
+    @supports (animation-timeline: scroll()) {
+      animation: header-solid linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 140px;
+    }
+  }
+}
+
+// Unsupported browsers simply keep the solid bar.
+@keyframes header-solid {
+  from {
+    opacity: 0;
+  }
+}
+
+.Header__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  justify-self: start;
+  text-decoration: none;
+
+  &:hover .Header__crest {
+    transform: rotate(-12deg) scale(1.08);
+  }
+}
+
+.Header__crest {
+  width: 46px;
+  height: 46px;
+  filter: drop-shadow(0 4px 14px rgb(208 5 32 / 45%));
+  transition: transform 0.6s var(--ease-out);
+}
+
+.Header__wordmark {
+  display: none;
+  flex-direction: column;
+  line-height: 1;
+
+  @include from(sm) {
+    display: flex;
+  }
+
+  strong {
+    font-size: 1.15rem;
+    @include display(70%);
+  }
+
+  span {
+    margin-top: 4px;
+    color: var(--muted);
+    @include eyebrow;
+
+    font-size: 0.58rem;
+  }
+}
+
+.Header__nav {
+  display: none;
+
+  @include from(lg) {
+    display: block;
+  }
+}
+
+.Header__list {
+  display: flex;
+  gap: clamp(16px, 2.4vw, 36px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.Header__link {
+  position: relative;
+  display: block;
+  padding: 6px 0;
+  text-decoration: none;
+
+  // Active page: red bar under the label.
+  &::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background: var(--red-bright);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s var(--ease-out);
+  }
+
+  &[aria-current='page']::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+// Label rolls up and is replaced by a copy coming from below.
+.Header__linkMask {
+  display: block;
+  overflow: hidden;
+}
+
+.Header__linkText {
+  position: relative;
+  display: block;
+  font-size: 0.82rem;
+  font-stretch: 112%;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: transform 0.5s var(--ease-out);
+
+  &::after {
+    content: attr(data-text);
+    content: attr(data-text) / ''; // decorative copy: hidden from screen readers
+    position: absolute;
+    top: 100%;
+    left: 0;
+    color: var(--red-bright);
+  }
+
+  .Header__link:hover &,
+  .Header__link:focus-visible & {
+    transform: translateY(-100%);
+  }
+}
+
+.Header__actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  justify-self: end;
+}
+
+.Header__langs {
+  display: none;
+
+  @include from(md) {
+    display: flex;
+  }
+}
+
+.Header__shop {
+  display: none;
+  padding: 0.75em 1.25em;
+
+  @include from(sm) {
+    display: inline-flex;
+  }
+}
+
+.Header__burger {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 4px 10px 12px;
+  border: 0;
+  background: none;
+
+  &:hover .Header__burgerIcon i:last-child {
+    width: 100%;
+  }
+}
+
+.Header__burgerLabel {
+  @include eyebrow;
+}
+
+.Header__burgerIcon {
+  display: grid;
+  gap: 6px;
+  width: 28px;
+
+  i {
+    display: block;
+    height: 2px;
+    background: currentColor;
+    border-radius: 2px;
+    transition: width 0.4s var(--ease-out);
+  }
+
+  i:last-child {
+    justify-self: end;
+    width: 60%;
+  }
 }

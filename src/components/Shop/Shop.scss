@@ -1,138 +1,253 @@
 /** @define Shop */
 
-.Shop {
-  width: 100%;
+.Shop__body {
   position: relative;
-  display: flex;
-  justify-content: center;
-  min-height: calc((var(--vh, 1vh) * 100) - 100px);
-}
+  z-index: 1;
+  margin-top: -56px;
+  padding: 0 var(--gutter) clamp(64px, 8vw, 120px);
 
-.Shop__imageContainer {
-  position: fixed;
-  height: calc((var(--vh, 1vh) * 100) - 75px);
-  width: 100%;
-  background-color: rgba(palette(neutral, black), 0.3);
-}
-
-.Shop__image {
-  height: 100%;
-  object-fit: cover;
-  width: 100%;
-}
-
-.Shop__overlay {
-  top: 0;
-  bottom: -40px;
-  left: 0;
-  right: 0;
-  height: calc((var(--vh, 1vh) * 100) + #{$size-l});
-  background-color: rgba(0, 0, 0, 0.3);
-  z-index: 2;
-  position: fixed;
-
-  @include lg {
-    bottom: 0;
+  // Product page: compact hero, no overlap.
+  .PageHero_compact + & {
+    margin-top: 0;
+    padding-top: 24px;
   }
 }
 
-.Shop__content {
-  width: 80%;
-  z-index: 2;
-  color: palette(neutral, white);
-  font-family: themefont(), sans-serif;
-  font-size: 0.9rem;
-  margin-top: $size-l;
+.Shop__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
 }
 
-/* stylelint-disable-next-line plugin/selector-bem-pattern */
-.Shop a {
-  text-decoration: underline;
-  color: palette(neutral, white);
+.Shop__filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 8%);
+  box-shadow: inset 0 0 0 1px var(--line);
+  font-size: 0.8rem;
+  font-stretch: 112%;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition:
+    background 0.3s,
+    color 0.3s;
+
+  &:hover {
+    background: rgb(255 255 255 / 16%);
+  }
 }
 
-.Shop__products {
+.Shop__filter_active {
+  background: #fff;
+  color: var(--ink);
+
+  &:hover {
+    background: #fff;
+  }
+}
+
+.Shop__filterCount {
+  min-width: 1.8em;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: var(--red);
+  color: #fff;
+  font-size: 0.7rem;
+  text-align: center;
+}
+
+.Shop__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 8px;
-  grid-row-gap: 8px;
-  margin: $size-l;
-  position: relative;
-  width: 100%;
-  z-index: 3;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-flow: dense;
+  gap: clamp(10px, 1.6vw, 20px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
 
-  @include xl {
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 200px;
-    width: 825px;
+  @include from(lg) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
 .Shop__product {
-  cursor: pointer;
-  max-height: 450px;
-  grid-column: span 1;
-  grid-row: span 1;
-  position: relative;
-  font-family: themefont();
+  animation: rise 0.8s calc(min(var(--i), 8) * 60ms) var(--ease-out) both;
 }
 
-.Shop__productImage {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  border-radius: 12px;
+.Shop__product_big {
+  grid-column: span 2;
+
+  @include from(lg) {
+    grid-row: span 2;
+  }
+
+  .Shop__media {
+    @include from(lg) {
+      aspect-ratio: auto;
+      height: 100%;
+    }
+  }
+
+  .Shop__card {
+    height: 100%;
+  }
 }
 
-.Shop__bigProduct {
-  grid-column: span 3;
-  grid-row: span 2;
-}
-
-.Shop__productHover {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.9);
+.Shop__card {
   display: flex;
-  opacity: 0;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  cursor: pointer;
-  transition: all 0.8s ease-in-out;
-  font-size: 0.6rem;
-  border-radius: 12px;
+  gap: 14px;
+  text-decoration: none;
 
-  @include lg {
-    font-size: 0.7rem;
+  &:hover .Shop__media,
+  &:focus-visible .Shop__media {
+    transform: perspective(900px) rotateX(4deg) rotateY(-5deg) translateY(-6px);
+    box-shadow: 0 30px 60px rgb(0 0 0 / 50%);
+
+    &::after {
+      transform: translateX(120%);
+    }
   }
 
-  &_display {
-    opacity: 1;
+  &:hover .Shop__image {
+    transform: scale(1.06);
   }
 
-  &:hover {
-    opacity: 1;
+  &:hover .Shop__name {
+    color: var(--red-bright);
   }
 }
 
-.Shop__productButton {
-  border: 2px solid palette(neutral, green);
-  background-color: transparent;
-  padding: 8px 12px 4px;
-  color: palette(neutral, green);
-  font-family: themefont();
-  outline: none;
-  cursor: pointer;
-  border-radius: 50px;
-  transition: all 0.5s ease-in-out;
-  margin-top: 8px;
+// Collector-card feel: tilt + a holographic sheen sweeping across on hover.
+.Shop__media {
+  position: relative;
+  flex: 1;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--paper);
+  transition:
+    transform 0.7s var(--ease-out),
+    box-shadow 0.7s var(--ease-out);
 
-  &:hover {
-    background-color: palette(neutral, green);
-    color: palette(neutral, white);
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      transparent 35%,
+      rgb(255 255 255 / 45%) 45%,
+      rgb(255 35 64 / 25%) 52%,
+      transparent 60%
+    );
+    transform: translateX(-120%);
+    transition: transform 1s var(--ease-out);
+    pointer-events: none;
   }
+}
+
+.Shop__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1s var(--ease-out);
+}
+
+.Shop__season {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgb(11 11 12 / 75%);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  font-size: 0.7rem;
+  font-stretch: 112%;
+  font-weight: 750;
+}
+
+.Shop__badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: var(--red);
+  color: #fff;
+  @include eyebrow;
+
+  font-size: 0.6rem;
+  animation: badge-pulse 2s ease-in-out infinite;
+
+  @include until(lg) {
+    top: auto;
+    right: auto;
+    bottom: 12px;
+    left: 12px;
+  }
+}
+
+@keyframes badge-pulse {
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+// Rubber stamp across sold-out items.
+.Shop__stamp {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 6px 16px;
+  border: 3px solid var(--red);
+  border-radius: 8px;
+  background: rgb(242 237 228 / 85%);
+  color: var(--red);
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  @include display(70%);
+
+  line-height: 1;
+  white-space: nowrap;
+  transform: translate(-50%, -50%) rotate(-12deg);
+}
+
+.Shop__info {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2px 12px;
+}
+
+.Shop__name {
+  font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+  @include display(70%);
+
+  line-height: 1;
+  transition: color 0.3s;
+}
+
+.Shop__artist {
+  grid-row: 2;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.Shop__price {
+  grid-row: 1 / span 2;
+  grid-column: 2;
+  align-self: start;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--red);
+  color: #fff;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }

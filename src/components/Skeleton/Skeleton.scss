@@ -1,0 +1,53 @@
+/** @define Skeleton */
+
+.Skeleton {
+  display: grid;
+  gap: 14px;
+}
+
+.Skeleton_grid {
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.Skeleton__item {
+  display: block;
+  height: 18px;
+  border-radius: 8px;
+  background: linear-gradient(100deg, transparent 30%, rgb(255 255 255 / 55%) 50%, transparent 70%)
+    0 0 / 300% 100% rgb(11 11 12 / 8%);
+  animation: shimmer 1.6s calc(var(--i) * 90ms) linear infinite;
+
+  .Skeleton_text &:nth-child(3n) {
+    width: 72%;
+  }
+
+  .Skeleton_text &:first-child {
+    width: 45%;
+    height: 42px;
+    margin-bottom: 12px;
+  }
+
+  .Skeleton_grid & {
+    height: auto;
+    aspect-ratio: 4 / 5;
+    border-radius: var(--radius);
+    background-color: rgb(255 255 255 / 6%);
+    background-image: linear-gradient(
+      100deg,
+      transparent 30%,
+      rgb(255 255 255 / 8%) 50%,
+      transparent 70%
+    );
+  }
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 100% 0;
+  }
+
+  to {
+    background-position: 0 0;
+  }
+}

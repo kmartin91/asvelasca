@@ -1,31 +1,177 @@
 /** @define Menu */
 
+// No scrolling behind the open menu.
+:root:has(.Menu[open]) {
+  overflow: hidden;
+}
+
+$origin: calc(100% - 56px) 36px;
+
 .Menu {
-  @include lg {
-    align-items: center;
-    display: flex;
-    flex: 1 auto;
-    background-color: palette(neutral, menu);
-    font-family: themefont(), sans-serif;
-    justify-content: center;
-    height: 100%;
-    position: relative;
-    z-index: 10;
-    width: 100%;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow-y: auto;
+  background: radial-gradient(120% 80% at 100% 0%, var(--red-bright), transparent 60%), var(--red);
+  color: #fff;
+  // Red disc growing out of the burger button (open) and shrinking back into it (close).
+  clip-path: circle(0% at $origin);
+  transition:
+    clip-path 0.8s var(--ease-in-out),
+    display 0.8s allow-discrete,
+    overlay 0.8s allow-discrete;
+
+  &[open] {
+    clip-path: circle(150% at $origin);
+
+    @starting-style {
+      clip-path: circle(0% at $origin);
+    }
+  }
+
+  &::backdrop {
+    background: transparent;
   }
 }
 
-.Menu__Logo {
-  position: fixed;
-  top: 10px;
-  height: 80px;
-  width: 80px;
-  left: calc(50% - 40px);
-  z-index: 15;
+.Menu__inner {
+  display: grid;
+  gap: 48px;
+  min-height: 100%;
+  padding: 96px var(--gutter) 48px;
 
-  @include lg {
-    position: relative;
-    left: auto;
-    top: auto;
+  @include from(lg) {
+    grid-template-columns: 1.6fr 1fr;
+    align-items: end;
+    padding-top: 120px;
   }
+}
+
+.Menu__close {
+  position: absolute;
+  top: 16px;
+  right: var(--gutter);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border: 0;
+  background: none;
+  @include eyebrow;
+
+  svg {
+    width: 28px;
+    height: 28px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    transition: transform 0.6s var(--ease-out);
+  }
+
+  &:hover svg {
+    transform: rotate(90deg);
+  }
+}
+
+.Menu__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: menu;
+}
+
+.Menu__item {
+  overflow: hidden;
+  border-bottom: 1px solid rgb(255 255 255 / 22%);
+}
+
+.Menu__link {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 6px 0 2px;
+  text-decoration: none;
+  transform: translateY(105%);
+  transition: transform 0.9s var(--ease-out);
+  transition-delay: calc(0.25s + var(--i) * 45ms);
+
+  .Menu[open] & {
+    transform: none;
+
+    @starting-style {
+      transform: translateY(105%);
+    }
+  }
+}
+
+.Menu__index {
+  min-width: 2.2em;
+  font-size: 0.75rem;
+  font-stretch: 125%;
+  font-weight: 700;
+  opacity: 0.7;
+}
+
+// The variable font widens on hover: the word "breathes" out.
+.Menu__label {
+  font-size: clamp(2.2rem, min(7.5vw, 7dvh), 6.2rem);
+  @include display(62%);
+
+  transition:
+    font-stretch 0.6s var(--ease-out),
+    color 0.4s,
+    transform 0.6s var(--ease-out);
+
+  .Menu__link:hover &,
+  .Menu__link:focus-visible & {
+    font-stretch: 100%;
+    color: var(--ink);
+    transform: translateX(12px);
+  }
+
+  .Menu__link[aria-current='page'] & {
+    @include outline-text(#fff, 2px);
+  }
+}
+
+.Menu__aside {
+  display: grid;
+  gap: 24px;
+  justify-items: start;
+  opacity: 0;
+  transition: opacity 0.8s 0.6s;
+
+  .Menu[open] & {
+    opacity: 1;
+
+    @starting-style {
+      opacity: 0;
+    }
+  }
+}
+
+.Menu__torre {
+  display: none;
+  width: 140px;
+  color: rgb(255 255 255 / 55%);
+
+  @include from(lg) {
+    display: block;
+  }
+}
+
+.Menu__langs {
+  font-size: 1.1rem;
+}
+
+.Menu__mail {
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-underline-offset: 4px;
 }

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /*/confirmation
+
+Sitemap: https://asvelasca.it/sitemap.xml

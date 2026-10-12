@@ -1,0 +1,170 @@
+/** @define Footer */
+
+.Footer {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(48px, 8vw, 112px) var(--gutter) 24px;
+  background: var(--red);
+  color: #fff;
+}
+
+.Footer__cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: clamp(24px, 4vw, 48px);
+  border-bottom: 2px solid rgb(255 255 255 / 35%);
+  text-decoration: none;
+
+  &:hover .Footer__ctaText {
+    font-stretch: 100%;
+  }
+
+  &:hover .Footer__ctaArrow {
+    transform: rotate(45deg) scale(1.1);
+    background: #fff;
+    stroke: var(--red);
+  }
+}
+
+.Footer__ctaText {
+  font-size: clamp(3rem, 11vw, 10rem);
+  @include display(62%);
+
+  transition: font-stretch 0.7s var(--ease-out);
+}
+
+.Footer__ctaArrow {
+  flex-shrink: 0;
+  width: clamp(56px, 9vw, 120px);
+  height: clamp(56px, 9vw, 120px);
+  padding: clamp(14px, 2.4vw, 32px);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 2px #fff;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.6;
+  transition:
+    transform 0.7s var(--ease-out),
+    background 0.4s;
+}
+
+.Footer__grid {
+  position: relative;
+  display: grid;
+  gap: 40px;
+  padding: clamp(40px, 6vw, 72px) 0;
+
+  @include from(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include from(lg) {
+    grid-template-columns: 1.2fr 1fr 1fr 0.6fr;
+  }
+}
+
+.Footer__club {
+  display: grid;
+  gap: 20px;
+  align-content: start;
+
+  img {
+    width: 88px;
+    height: 88px;
+  }
+
+  p {
+    font-size: 1.8rem;
+    @include display(75%);
+
+    line-height: 0.95;
+  }
+}
+
+.Footer__nav ul {
+  columns: 2;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  a {
+    display: inline-block;
+    padding: 4px 0;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: transform 0.4s var(--ease-out);
+
+    &:hover {
+      transform: translateX(6px);
+      text-decoration: underline;
+    }
+  }
+}
+
+.Footer__contact {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+}
+
+.Footer__label {
+  @include eyebrow;
+}
+
+.Footer__mail {
+  font-size: 1.15rem;
+  font-weight: 800;
+  text-underline-offset: 4px;
+}
+
+.Footer__city {
+  opacity: 0.8;
+}
+
+.Footer__torre {
+  display: none;
+  width: 110px;
+  justify-self: end;
+  color: rgb(255 255 255 / 60%);
+
+  @include from(lg) {
+    display: block;
+  }
+}
+
+// Giant wordmark sliding in as the footer scrolls into view.
+.Footer__wordmark {
+  margin: 0 -0.04em 0.04em;
+  font-size: 26vw;
+  @include display(62%);
+
+  line-height: 0.75;
+  white-space: nowrap;
+  color: var(--ink);
+  @include reveal-on-view(wordmark, entry 0% entry 100%);
+}
+
+@keyframes wordmark {
+  from {
+    transform: translateX(18%);
+    letter-spacing: 0.12em;
+  }
+}
+
+.Footer__bottom {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgb(255 255 255 / 35%);
+  font-size: 0.8rem;
+
+  a {
+    font-weight: 700;
+  }
+}

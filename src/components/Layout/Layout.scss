@@ -1,0 +1,55 @@
+/** @define Layout */
+
+.Layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+}
+
+.Layout__main {
+  flex: 1;
+  outline: none;
+}
+
+.Layout__skip {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 60;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: var(--red);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  transform: translateY(-200%);
+  transition: transform 0.3s var(--ease-out);
+
+  &:focus-visible {
+    transform: none;
+  }
+}
+
+// Thin red bar while a route chunk is loading.
+.Layout__progress {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 70;
+  height: 3px;
+  background: linear-gradient(90deg, var(--red), var(--red-bright));
+  box-shadow: 0 0 12px var(--red-bright);
+  transform: scaleX(0);
+  transform-origin: left;
+  opacity: 0;
+  transition:
+    transform 0.3s var(--ease-out),
+    opacity 0.4s 0.2s;
+}
+
+.Layout__progress_active {
+  opacity: 1;
+  transform: scaleX(0.8);
+  transition:
+    transform 8s cubic-bezier(0.1, 0.9, 0.2, 1),
+    opacity 0.1s;
+}

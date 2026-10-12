@@ -7,8 +7,19 @@
       "isPrimary": true,
       "name": "PROJECT"
     },
-    { "label": "team", "route": "team", "key": "team", "isPrimary": true, "name": "TEAM" },
-    { "label": "sponsor", "route": "sponsor", "key": "sponsor", "name": "SPONSOR" },
+    {
+      "label": "team",
+      "route": "team",
+      "key": "team",
+      "isPrimary": true,
+      "name": "TEAM"
+    },
+    {
+      "label": "sponsor",
+      "route": "sponsor",
+      "key": "sponsor",
+      "name": "SPONSOR"
+    },
     {
       "label": "artists",
       "route": "artists",
@@ -16,16 +27,84 @@
       "isPrimary": true,
       "name": "ARTISTS"
     },
-    { "label": "shop", "route": "shop", "key": "shop", "isPrimary": true, "name": "SHOP" },
-    { "label": "tickets", "route": "tickets", "key": "tickets", "name": "TICKETS" },
-    { "label": "club", "route": "club", "key": "club", "name": "CLUB" },
-    { "label": "press", "route": "press", "key": "press", "name": "PRESS" },
-    { "label": "edition", "route": "edition", "key": "edition", "name": "EDITION" },
-    { "label": "contacts", "route": "disclaimer", "key": "contacts", "name": "CONTACTS" }
+    {
+      "label": "shop",
+      "route": "shop",
+      "key": "shop",
+      "isPrimary": true,
+      "name": "SHOP"
+    },
+    {
+      "label": "tickets",
+      "route": "tickets",
+      "key": "tickets",
+      "name": "TICKETS"
+    },
+    {
+      "label": "club",
+      "route": "club",
+      "key": "club",
+      "name": "CLUB"
+    },
+    {
+      "label": "press",
+      "route": "press",
+      "key": "press",
+      "name": "PRESS"
+    },
+    {
+      "label": "edition",
+      "route": "edition",
+      "key": "edition",
+      "name": "EDITION"
+    },
+    {
+      "label": "contacts",
+      "route": "disclaimer",
+      "key": "contacts",
+      "name": "CONTACTS"
+    }
   ],
   "backToList": "Back to products",
   "persoPlaceHolder": "Name and/or Number",
   "personalize": "Customize your jersey",
   "buy": "Order",
-  "soldOut": "Sold out"
+  "soldOut": "Sold out",
+  "skip": "Skip to content",
+  "menuOpen": "Menu",
+  "menuClose": "Close",
+  "enter": "Enter",
+  "season": "Season",
+  "heroCta": "Discover the project",
+  "shopCta": "Shop the kit",
+  "kitBy": "Kit designed by",
+  "prev": "Previous",
+  "next": "Next",
+  "numbersTitle": "By the numbers",
+  "statFounded": "Founded in Milan",
+  "statSeasons": "Seasons",
+  "statKits": "Artist kits",
+  "statFloors": "Floors to climb",
+  "floorsLine": "To reach the 26th floor, you have to start from the first.",
+  "floor": "Floor",
+  "kitsLead": "One artist, one season, one shirt.",
+  "metaDescription": "A.S. Velasca, la terza squadra di Milano: a football club founded in 2015, where every season an artist designs the kit. We are all but a football team.",
+  "exploreTitle": "Inside the club",
+  "footerJoin": "Join the tifosi",
+  "followUs": "Follow us",
+  "partners": "Partners",
+  "siteBy": "Site by",
+  "allProducts": "All",
+  "available": "Available",
+  "preOrder": "Pre-order",
+  "option": "Option",
+  "size": "Size",
+  "payment": "Payment by card or PayPal",
+  "shipping": "Shipping & handling",
+  "worldwide": "Worldwide shipping",
+  "productNotFound": "This product does not exist.",
+  "notFound": "Page not found",
+  "backHome": "Back to the pitch",
+  "retry": "Try again",
+  "chooseLanguage": "Choose your language"
 }
