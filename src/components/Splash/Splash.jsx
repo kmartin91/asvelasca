@@ -84,7 +84,7 @@ const Splash = () => {
             </span>
           ))}
         </h1>
-        <p className="Splash__tagline">La terza squadra di Milano</p>
+        <p className="Splash__tagline">La seconda squadra di Milano</p>
 
         <nav className="Splash__langs" aria-label="Language / Lingua / Langue / 语言">
           {ENTRIES.map(({ locale: target, lang, name, cta }, index) => (
@@ -123,7 +123,7 @@ const Splash = () => {
         className="Splash__marquee"
         items={[
           'We are all but a football team',
-          'La terza squadra di Milano',
+          'La seconda squadra di Milano',
           'Torre Velasca',
           'Est. 2015',
         ]}

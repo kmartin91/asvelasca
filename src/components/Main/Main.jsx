@@ -9,7 +9,11 @@ import Numbers from '../Numbers/Numbers';
 
 import './Main.scss';
 
-const SLOGANS = ['We are all but a football team', 'La terza squadra di Milano', 'Art × Football'];
+const SLOGANS = [
+  'We are all but a football team',
+  'La seconda squadra di Milano',
+  'Art × Football',
+];
 const PLACES = ['Torre Velasca', 'Milano', 'Est. 2015', 'Terza Categoria'];
 
 /**

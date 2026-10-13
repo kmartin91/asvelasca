@@ -139,7 +139,7 @@ const Hero = ({ slidesPromise }) => {
         </p>
         <h1 id="hero-title" className="Hero__title">
           <span className="Hero__line">
-            <span>La terza</span>
+            <span>La seconda</span>
           </span>
           <span className="Hero__line Hero__line_outline">
             <span>squadra</span>

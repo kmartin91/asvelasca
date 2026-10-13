@@ -59,6 +59,6 @@ export function useDocumentTitle(title) {
     const label = title && title.charAt(0).toLocaleUpperCase() + title.slice(1);
     document.title = label
       ? `${label} · A.S. Velasca`
-      : 'A.S. Velasca · La terza squadra di Milano';
+      : 'A.S. Velasca · La seconda squadra di Milano';
   }, [title]);
 }
