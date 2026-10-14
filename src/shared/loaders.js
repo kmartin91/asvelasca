@@ -16,7 +16,6 @@ export const lazyRoute = (name) => async () => ({ Component: (await importers[na
 
 // Loaders hand promises to the pages (not awaited): the page shell shows at once, data streams in.
 export const loaders = {
-  splash: () => ({ sponsors: fetchCollection('sponsorimage') }),
   home: ({ params }) => ({ home: fetchCollection('home', langOf(params)) }),
   shop: ({ params }) => ({ shop: fetchCollection('shop', langOf(params)) }),
   edito:

@@ -22,7 +22,7 @@ export const routes = [
     ErrorBoundary: RouteError,
     HydrateFallback: () => null,
     children: [
-      { index: true, loader: loaders.splash, lazy: lazyRoute('splash') },
+      { index: true, lazy: lazyRoute('splash') },
       {
         Component: Layout,
         ErrorBoundary: RouteError,

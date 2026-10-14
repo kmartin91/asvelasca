@@ -6,7 +6,7 @@ import cn from '../translations/cn/wording.json';
 
 const translations = { en, fr, it, cn };
 
-export const locales = ['it', 'en', 'fr', 'cn'];
+export const locales = ['en', 'it', 'fr', 'cn'];
 export const DEFAULT_LOCALE = 'en';
 
 export const isLocale = (value) => locales.includes(value);

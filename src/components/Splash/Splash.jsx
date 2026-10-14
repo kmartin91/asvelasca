@@ -1,6 +1,4 @@
-import { Suspense, use } from 'react';
-import { useLoaderData, useParams } from 'react-router';
-import { cmsImage, firstEntry } from '../../shared/cms';
+import { useParams } from 'react-router';
 import { isLocale, localePath } from '../../shared/i18n';
 import logo from '../../shared/images/logo.png';
 import { currentSeason, useDocumentTitle } from '../../shared/utils';
@@ -12,45 +10,18 @@ import Torre from '../Torre/Torre';
 import './Splash.scss';
 
 const ENTRIES = [
-  { locale: 'it', lang: 'it', name: 'Italiano', cta: 'Entra' },
   { locale: 'en', lang: 'en', name: 'English', cta: 'Enter' },
+  { locale: 'it', lang: 'it', name: 'Italiano', cta: 'Entra' },
   { locale: 'fr', lang: 'fr', name: 'Français', cta: 'Entrer' },
   { locale: 'cn', lang: 'zh-Hans', name: '中文', cta: '进入' },
 ];
 
 const TITLE = 'A.S. Velasca';
 
-const Sponsors = ({ promise }) => {
-  const images = firstEntry(use(promise)).Images ?? [];
-  if (images.length === 0) return null;
-
-  return (
-    <ul className="Splash__sponsors">
-      {images.map(({ path, meta: { title } = {} }) => {
-        const logoImage = (
-          <img src={cmsImage(path, 240)} alt={title ?? ''} width="120" height="60" loading="lazy" />
-        );
-        return (
-          <li key={path}>
-            {/^https?:\/\//.test(title) ? (
-              <a href={title} target="_blank" rel="noopener noreferrer">
-                {logoImage}
-              </a>
-            ) : (
-              logoImage
-            )}
-          </li>
-        );
-      })}
-    </ul>
-  );
-};
-
 /**
  * Landing screen: pick a language and walk onto the pitch.
  */
 const Splash = () => {
-  const { sponsors } = useLoaderData();
   const { locale } = useParams();
   const season = currentSeason();
   useDocumentTitle('');
@@ -108,9 +79,6 @@ const Splash = () => {
       </main>
 
       <div className="Splash__bottom">
-        <Suspense fallback={null}>
-          <Sponsors promise={sponsors} />
-        </Suspense>
         <AppLink
           className="Splash__disclaimer"
           to={localePath(isLocale(locale) ? locale : 'en', 'disclaimer')}

@@ -209,32 +209,10 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 16px;
   padding: 0 var(--gutter) 20px;
   animation: fade 1s 1.8s both;
-}
-
-.Splash__sponsors {
-  display: flex;
-  gap: 10px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-
-  img {
-    width: 92px;
-    height: 46px;
-    padding: 8px 12px;
-    object-fit: contain;
-    border-radius: 10px;
-    background: #fff;
-    transition: transform 0.4s var(--ease-out);
-  }
-
-  a:hover img {
-    transform: translateY(-3px) rotate(-3deg);
-  }
 }
 
 .Splash__disclaimer {
